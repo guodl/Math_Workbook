@@ -1,0 +1,675 @@
+
+
+\begin{bxExample}{Example}    
+    \textbf{Example} The equation $5-\frac{3}{x^2}=-5x-2$ can be written in the form $x^3+ax^2+b=0$.\\
+	Find the value of $a$ and the value of $b$.
+\tcbline 
+
+Solution:\indent \indent \indent \indent
+\vspace{0.5cm} 
+
+$\begin{WithArrows}%[format = l]
+       \qquad &  5-\frac{3}{x^2}  =-5x-2 	                 \Arrow{Multiply by $x^2$}\\[10pt]
+	         & 5x^2 - 3        = -5x^3 -2x^2                 \Arrow{Rearranging} \\[10pt]
+             & 5x^3+ 7x^2 - 3  = 0                                               
+\end{WithArrows}$
+
+\tcbline
+
+
+Note:
+\begin{itemize}
+       \item[] Above is one common error in solving absolute value inequlities as 
+                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+    
+      \item[]  For example, $x=0$ is a valid value in the above inequality but
+                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+\end{itemize}
+
+\end{bxExample}
+
+
+\begin{introduction}
+    \item Definition of Theorem
+	\item Ask for help
+	\item Optimization Problem
+	\item Property of Cauchy Series
+	\item Angle of Corner
+\end{introduction}
+
+
+
+0000abcd1230000\\
+
+\begin{tikzpicture}
+  \begin{axis} [axis lines=center]
+    \addplot [domain=-1.6:2.6, smooth, thick] { x^3 -3*x^2+2*x};
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{taggedblock}{tgRefBook}
+    \bxtgRefBook{Pure Mathematics 2 and 3 by Sophie Goldie, ISBN 978-1-144441-4646-2, page 124}
+\end{taggedblock}
+
+
+abcd123\\
+
+\begin{envRefBook}
+    Pure Mathematics 2 an
+\end{envRefBook}
+
+
+\begin{bxTip}[colbacktitle=bkcolor]{Skill: Rearranging Formulae}
+    Rearrange the formula $\frac{1}{f}=\frac{1}{u}+\frac{1}{v} $ to make $f$ the subject of the formula. \\
+    
+	\tcbline
+    Solution:    
+    %\begin{bxExample}[ams align*]
+    \begin{align*}
+        \frac{1}{f}&=\frac{1}{u}+\frac{1}{v}         && \text{ }                              \\[10pt]
+        \frac{1}{f}&=\frac{u}{uv}+\frac{v}{uv}       && \text{; Rearranging}                   \\[10pt]
+        \frac{1}{f}&=\frac{u+v}{uv}                  && \text{; Write as a simple fraction}    \\[10pt]
+        \frac{f}{1}&=\frac{uv}{u+v}                  && \text{ }                            \\[10pt]
+        f&=\frac{uv}{u+v}                            && \text{;Reciprocal}  
+\end{align*}        
+    %\end{bxExample}
+\end{bxTip}
+
+
+
+\begin{bxTip}[colbacktitle=green]{Skill: Rearranging Formulae}
+    Rearrange the formula $\frac{1}{f}=\frac{1}{u}+\frac{1}{v} $ to make $f$ the subject of the formula. \\
+    
+    Solution:    
+    %\begin{bxExample}[ams align*]
+    \begin{align*}
+        \frac{1}{f}&=\frac{1}{u}+\frac{1}{v}         && \text{ }                              \\[10pt]
+        \frac{1}{f}&=\frac{u}{uv}+\frac{v}{uv}       && \text{; Rearranging}                   \\[10pt]
+        \frac{1}{f}&=\frac{u+v}{uv}                  && \text{; Write as a simple fraction}    \\[10pt]
+        \frac{f}{1}&=\frac{uv}{u+v}                  && \text{ }                            \\[10pt]
+        f&=\frac{uv}{u+v}                            && \text{;Reciprocal}  
+\end{align*}        
+    %\end{bxExample}
+\end{bxTip}
+
+\begin{bxExamHeader}
+    \begin{center}\Huge{Mathematics and Statistics Year 8 Algebra} \end{center}
+	\null\hfill Elite Education Centre
+
+    \vspace*{2\baselineskip}
+
+    Instructions 
+    \begin{itemize}
+        \item Without sufficient working, correct answers may be awarded no marks.
+		\item Calculators must not be used.
+        \item If the degree of accuracy is not specified in the question, and if the answer is not exact, give the answer to
+three significant figures. Give answers in degrees to one decimal place.
+    \end{itemize}
+	
+    \vspace*{2\baselineskip}
+	
+	Advice
+	\begin{itemize}
+	    \item Read each question carefully before you start to answer it.
+        \item Check your answers if you have time at the end.
+	\end{itemize}
+
+    \vspace*{\baselineskip}
+	
+\end{bxExamHeader}
+
+
+\begin{enumerate}[leftmargin=0cm] 
+
+\item $x^2+8x$ can be written in the form $(x+a)^2+b$. Find the value of $a$ and the value of $b$.
+    \begin{envAnswer}[blankline=3]         $     4          $ \end{envAnswer}
+    \begin{envAnswer}[blankline=0]         $   -16          $ \end{envAnswer}
+
+
+\item $x^2+7x -3$ can be written in the form $(x+a)^2+b$. Find the value of $a$ and the value of $b$.
+    \begin{envAnswer}[blankline=3]         $     3.5        $ \end{envAnswer}
+    \begin{envAnswer}[blankline=0]         $   -15.25       $ \end{envAnswer}
+
+
+\item $x^2-6x -10$ is to be written in the form $(x-p)^2+q$. Find the value of $p$ and the value of $q$.
+    \begin{envAnswer}[blankline=3]         $     3.5        $ \end{envAnswer}
+    \begin{envAnswer}[blankline=0]         $   -15.25       $ \end{envAnswer}
+
+
+\item $2x^2+5x -10$ is to be written in the form $2(x+p)^2+q$. Find the value of $p$ and the value of $q$.
+    \begin{envAnswer}[blankline=3]         $     3.5        $ \end{envAnswer}
+    \begin{envAnswer}[blankline=0]         $   -15.25       $ \end{envAnswer}
+
+
+\item The equation $5-\frac{3}{x^2}=-5x-2$ can be written in the form $x^3+ax^2+b=0$. Find the value of $a$ and the value of $b$.
+    \begin{envAnswer}[blankline=3]         $     3.5        $ \end{envAnswer}
+    \begin{envAnswer}[blankline=0]         $   -15.25       $ \end{envAnswer}
+
+
+
+
+\end{enumerate}
+
+
+
+\begin{bxTipTable}[colbacktitle=green]{Skill: Rearranging Formulae Check2}{X|Y|Y}
+\hline
+Algebra & One & Two \\\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $ \newline aaaa \newline bbbb  aaa  & Two \\[10pt]\hline
+Algebra & \begin{equation*} \frac{a}{\frac{a^2}{aaa^2 + b^2  }}  \end{equation*}  & Two \\[10pt]\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\[10pt]\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
+Algebra & a $\frac{a}{\frac{a^2}{aaa^2 + b^2  }}  $  b  c & Two \\\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
+Algebra & One & Two \\\hline
+Algebra & One & Two 
+\end{bxTipTable}
+
+
+\begin{skilltable}[X|Y|Y]{Algebra  check1}
+Algebra & One & Two \\\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $ \newline aaaa \newline bbbb  aaa  & Two \\[10pt]\hline
+Algebra & \begin{equation*} \frac{a}{\frac{a^2}{aaa^2 + b^2  }}  \end{equation*}  & Two \\[10pt]\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\[10pt]\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
+Algebra & a $\frac{a}{\frac{a^2}{aaa^2 + b^2  }}  $  b  c & Two \\\hline
+Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
+Algebra & One & Two \\\hline
+Algebra & One & Two 
+\end{skilltable}
+
+
+\begin{skilltable}[X|Y|Y|Y|Y|Y]{My table}
+Group & One & Two & Three & Four & Sum\\\hline\hline
+Red & 1000.00 & 2000.00 & 3000.00 & 4000.00 & 10000.00\\\hline
+Green & 2000.00 & 3000.00 & 4000.00 & 5000.00 & 14000.00\\\hline
+Blue & 3000.00 & 4000.00 & 5000.00 & 6000.00 & 18000.00\\\hline\hline
+Sum & 6000.00 & 9000.00 & 12000.00 & 15000.00 & 42000.00
+\end{skilltable}
+
+
+\begin{bxHighlight}{}    
+a
+\end{bxHighlight}
+
+\begin{bxHighlight}{}    
+123456789
+\end{bxHighlight}
+
+
+\begin{bxExample}{}    
+    Example: Solve the inequality $ \lvert x \rvert \geqslant 2x-10. $
+
+
+\tcbline 
+
+
+
+\begin{warningEnv}
+     $ \lvert x \rvert \geqslant 2x-10 $ \\
+     $ (x)^2 \geqslant (2x-10)^2 \quad \quad \quad $ \dots \dots Incorrect \\
+     \dots \\
+     \dots     
+\end{warningEnv}
+
+\tcbline
+
+
+Note:
+\begin{itemize}
+       \item[] Above is one common error in solving absolute value inequlities as 
+                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+    
+      \item[]  For example, $x=0$ is a valid value in the above inequality but
+                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+\end{itemize}
+
+
+
+
+
+
+    
+\end{bxExample}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% % \begin{warningEnv}
+    % % $aaa x = x +1 $ Warning environment.\\
+    % % Lorem \textcolor{blue}{000000000000000000} ipsum dolor sit amet\\
+    % % Earum odit quia maiores nisi illum reiciendis aspernatur.
+% % \end{warningEnv}
+
+
+% % % \clearpage
+
+
+% % % %--------------------------------------------------------------------------------------------------------------------------------------------------
+% % % % Description:
+% % % %     centernot package
+% % % %
+% % % % URL:
+% % % %     \Rightarrow vs. \implies, and “does not imply” symbol
+% % % %
+% % % %     https://tex.stackexchange.com/questions/47063/rightarrow-vs-implies-and-does-not-imply-symbol
+% % % %
+% % % % Date: 2020.05.28
+% % % %
+% % % %-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+% % % %\end{enumerate}
+
+
+
+% % % % %Comment this line or Delete any commented line bellow    
+% % % % \banBox{Ban box.}
+ % % % % A
+% % % % \begin{banEnv}
+    % % % % Ban environment.\\
+    % % % % Lorem ipsum dolor sit amet.\\
+    % % % % Earum odit quia maiores nisi illum reiciendis aspernatur.
+    
+    
+    
+    
+% % % % \end{banEnv}
+ % % % % B
+% % % % \warningBox{Warning box.}
+ % % % % C
+ % % % % D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% % % % 111111111111111111111111111111\\
+
+
+
+% % % % Question 8: \\
+
+% % % % b)\\
+% % % % The rate of change of h means: $ \frac{dh}{dt}     $\\. 
+
+% % % % \begin{align*}
+ % % % % \frac{dV}{dt}  &= \frac{dV}{dh} \times \frac{dh}{dt}  \\
+  % % % % 24 &= 40\sqrt{3} \times 2h \times \frac{dh}{dt}     \\ 
+  % % % % 24 &= 40\sqrt{3} \times 2 \times 12 \times \frac{dh}{dt}
+% % % % \end{align*}
+
+
+% % % % \clearpage
+
+
+
+
+% % % % \awesomebox{5pt}{\faCertificate}{magenta}{Lorem ipsum…}  \\
+
+% % % % \awesomebox{5pt}{\faFileExcel}{yellow}{ }
+
+
+% % % % \begin{awesomeblock}[red]{5pt}{\faFileExcel[regular]}{yellow}
+  % % % % $ (2x-1)^2 \geqslant (x+5)^2 $ \\
+  % % % % aaaaaaaaaaaa  \\
+  % % % % bbb \\
+  % % % % ccc
+% % % % \end{awesomeblock}
+
+
+
+
+
+% % % % \awesomebox{5pt}{\faCertificate}{magenta}{Lorem ipsum…}
+
+% % % % \awesomebox{5pt}{\faFileExcel}{yellow}{ }
+
+
+% % % % \begin{awesomeblock}[red]{5pt}{\faFileExcel[regular]}{yellow}  
+  
+  % % % % aaaaaaaaaaaa \\
+  % % % % bbbb  \\
+% % % % \end{awesomeblock}
+
+
+
+
+\begin{bxExample}{Factorising}
+
+
+$ a^2 + b^2 = c^2 $ \\
+
+
+
+$ a^2 + b^2 = c^2 $ \\
+
+$ a^2 + b^2 = c^2 $ \\
+
+\tcblower
+
+$ a^2 + b^2 = c^2 $ \\
+
+
+$ a^2 + b^2 = c^2 $ \\
+
+$ a^2 + b^2 = c^2 $
+
+\end{bxExample}
+
+
+
+\begin{bxIntro}[Factorising]
+
+KeyFind\\
+
+$ a^2 + b^2 = c^2 $ \\
+
+
+
+$ a^2 + b^2 = c^2 $ \\
+
+$ a^2 + b^2 = c^2 $ \\
+
+\tcblower
+
+$ a^2 + b^2 = c^2 $ \\
+
+
+$ a^2 + b^2 = c^2 $ \\
+
+$ a^2 + b^2 = c^2 $
+
+\end{bxIntro}
+
+\begin{table}[ht]
+    \centering
+    \sffamily
+    \begin{tabular}{| r | l | r |} \hline
+        \rowcolor{blue!15} & \tblhead{Distribution} & \tblhead{Hits} \\  \hline 
+            1 & Mint & 2364                                          \\  \hline  
+            2 & Ubuntu & 1838                                        \\  \hline 
+            3 & Debian & 1582                                        \\  \hline 
+            4 & openSUSE & 1334                                      \\  \hline 
+            4 & openSUSE & 1334                                      \\  \hline 
+            5 & Fedora & 1262 \\
+            6 & Mageia & 1219 \\
+            7 & CentOS & 1171 \\
+            8 & Arch & 1040 \\
+            9 & elementary & 899 \\
+            10 & Zorin & 851 \\
+        \end{tabular}
+\end{table}
+
+\clearpage
+
+
+
+
+
+\begin{tcbraster}[raster equal height,enhanced,
+watermark text=\tcbsegmentstate]
+\begin{tcolorbox}Upper part\end{tcolorbox}
+\begin{tcolorbox}Upper part\tcblower Lower part\end{tcolorbox}
+\end{tcbraster}
+
+
+\clearpage
+
+
+
+\noindent 
+Every line is inside an equal height group:
+\begin{tcbraster}[raster equal height,
+                  title=Box \thetcbrasternum,
+                  enhanced,
+                  size=small,
+                  styexample]
+\begin{tcolorbox}First 1111 line\\second line\\
+
+
+\begin{warningEnv}
+     $ \lvert x \rvert \geqslant 2x-10 $ \\
+     $ (x)^2 \geqslant (2x-10)^2 \quad \quad \quad $ \dots \dots Incorrect \\
+     \dots \\
+     \dots     
+\end{warningEnv}
+
+
+
+Note:
+\begin{itemize}
+       \item[] Above is one common error in solving absolute value inequlities as 
+                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+    
+      \item[]  For example, $x=0$ is a valid value in the above inequality but
+                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+\end{itemize}
+
+
+
+
+
+The height of this box rules.\end{tcolorbox}
+\begin{tcolorbox}[use height from group]Test\end{tcolorbox}
+\begin{tcolorbox}
+First line\\second line\end{tcolorbox}
+\begin{tcolorbox}The height of this box rules.\end{tcolorbox}
+\end{tcbraster}
+
+
+
+
+
+
+\begin{tcbraster}[raster equal height,
+enhanced,
+title=tolorbox ABC  \thetcbrasternum]
+\begin{tcolorbox}    
+    Example: Solve the inequality $ \lvert x \rvert \geqslant 2x-10. $
+
+\begin{warningEnv}
+     $ \lvert x \rvert \geqslant 2x-10 $ \\
+     $ (x)^2 \geqslant (2x-10)^2 \quad \quad \quad $ \dots \dots Incorrect \\
+     \dots \\
+     \dots     
+\end{warningEnv}
+
+ 
+
+
+Note:
+\begin{itemize}
+       \item[] Above is one common error in solving absolute value inequlities as 
+                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+    
+      \item[]  For example, $x=0$ is a valid value in the above inequality but
+                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+\end{itemize}
+
+
+
+
+
+
+    
+\end{tcolorbox}
+
+\begin{tcolorbox}    
+ ddddd\\
+ 
+ ddd
+ 
+    Example 1111111  : Solve
+    \\
+    the inequality \\
+    $ \lvert x \rvert \geqslant 2x-10. $
+
+
+
+$\frac{1}{1+3}$
+\end{tcolorbox} \begin{tcolorbox}
+  ccccc\\
+  ddd
+  
+\end{tcolorbox}
+
+\begin{tcolorbox}aaa \end{tcolorbox}
+
+\end{tcbraster}
+
+
+E 11111111111very line is inside an equal height group:
+\begin{tcbraster}[raster equal height,
+title=Box \thetcbrasternum,
+enhanced,size=small]
+\begin{tcolorbox}First line\\second line\\
+The height of this box rules.\end{tcolorbox}
+\begin{tcolorbox}[use height from group]Test\end{tcolorbox}
+\begin{tcolorbox}
+First line\\second line\end{tcolorbox}
+\begin{tcolorbox}The height of this box rules.\end{tcolorbox}
+\end{tcbraster}
+
+
+\clearpage
+
+\begin{tcbraster}[standard,raster equal height,raster columns=2,
+colback=LightGreen,colframe=DarkGreen,colbacktitle=LimeGreen!75!DarkGreen,
+left=1mm,right=1mm,top=1mm,bottom=1mm,middle=1mm]
+
+\begin{tcolorbox}
+    Example: Solve the inequality $ \lvert x \rvert \geqslant 2x-10. $
+
+
+\tcbline 
+
+
+
+\begin{warningEnv}
+     $ \lvert x \rvert \geqslant 2x-10 $ \\
+     $ (x)^2 \geqslant (2x-10)^2 \quad \quad \quad $ \dots \dots Incorrect \\
+     \dots \\
+     \dots     
+\end{warningEnv}
+
+\tcbline
+
+
+Note:
+\begin{itemize}
+       \item[] Above is one common error in solving absolute value inequlities as 
+                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+    
+      \item[]  For example, $x=0$ is a valid value in the above inequality but
+                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+\end{itemize}
+
+
+
+
+
+
+    
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    Example: Solve the inequality $ \lvert x \rvert \geqslant 2x-10. $
+
+
+\tcbline 
+
+
+
+\begin{warningEnv}
+     $ \lvert x \rvert \geqslant 2x-10 $ \\
+     $ (x)^2 \geqslant (2x-10)^2 \quad \quad \quad $ \dots \dots Incorrect \\
+     \dots \\
+     \dots     
+\end{warningEnv}
+
+\tcbline
+
+
+Note:
+\begin{itemize}
+       \item[] Above is one common error in solving absolute value inequlities as 
+                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+    
+      \item[]  For example, $x=0$ is a valid value in the above inequality but
+                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+This is my content.
+\end{tcolorbox}
+\begin{tcolorbox}
+This is my content.
+\tcblower
+More content.
+\end{tcolorbox}
+\begin{tcolorbox}[adjusted title=My title]
+This is my content.
+\end{tcolorbox}
+\begin{tcolorbox}[adjusted title=My title]
+This is my content.
+\tcblower
+More content.
+\end{tcolorbox}
+\end{tcbraster}
+
+% \begin{YetTheorem}{Mittelwertsatz f\"{u}r $n$ Variable}{mittelwertsatz_n3}%
+% Es sei $n\in\mathbb{N}$, $D\subseteq\mathbb{R}^n$ eine offene Menge und
+% $f\in C^{1}(D,\mathbb{R})$. Dann gibt es auf jeder Strecke
+% $[x_0,x]\subset D$ einen Punkt $\xi\in[x_0,x]$, so dass gilt
+% \begin{equation*}
+% f(x)-f(x_0) = \operatorname{grad} f(\xi)^{\top}(x-x_0)
+% \end{equation*}
+% \end{YetTheorem}
+
+
+
+% \begin{YetAnotherTheorem} %[Mittelwertsatz f\"{u}r $n$ Variable]
+             % %{mittelwertsatz_n3}%
+% Es sei $n\in\mathbb{N}$, $D\subseteq\mathbb{R}^n$ eine offene Menge und
+% $f\in C^{1}(D,\mathbb{R})$. Dann gibt es auf jeder Strecke
+% $[x_0,x]\subset D$ einen Punkt $\xi\in[x_0,x]$, so dass gilt
+% \begin{equation*}
+% f(x)-f(x_0) = \operatorname{grad} f(\xi)^{\top}(x-x_0)
+% \end{equation*}
+% \end{YetAnotherTheorem}
