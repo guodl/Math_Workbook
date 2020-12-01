@@ -1,0 +1,2286 @@
+﻿﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structural Definitions File
+% Version 2.0 (9/2/15)
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+% 
+% This file has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%----------------------------------------------------------------------------------------
+%    
+%----------------------------------------------------------------------------------------
+
+\providecommand{\varExamCode}{}
+\providecommand{\varExamVar}{}
+
+\providecommand{\iPageStart}{1}
+
+%----------------------------------------------------------------------------------------
+%    VARIOUS REQUIRED PACKAGES AND CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\usepackage{dashundergaps}
+\usepackage{anyfontsize}
+\usepackage{qrcode}
+\usepackage{pgfkeys}
+\usepackage{xparse}
+\usepackage{csvsimple}
+
+\usepackage{colortbl}
+\usepackage{xcolor} % Required for specifying colors by name
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows,matrix,calc,shapes}
+
+\usepackage{pifont,manfnt,bbding}
+
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,headsep=10pt,a4paper]{geometry} % Page margins
+
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\usepackage{lipsum} % Inserts dummy text
+
+\usepackage[explicit]{titlesec}
+\usepackage{varwidth}
+
+\definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+\definecolor{structurecolor}{RGB}{0,120,2}% From Elegantbook - Green
+
+\usepackage{tikz}         % Required for drawing custom shapes
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+
+\usepackage[english]{babel} % English language/hyphenation
+
+\usepackage{enumitem} % Customize lists
+\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+
+
+\usepackage{xstring}
+\usepackage{multido}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{witharrows}
+
+%----------------------------------------------------------------------------------------
+%    FONTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+%----------------------------------------------------------------------------------------
+%    BIBLIOGRAPHY AND INDEX
+%----------------------------------------------------------------------------------------
+
+\usepackage[style=numeric,citestyle=numeric,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+\usepackage{makeidx} % Required to make an index
+\makeindex % Tells LaTeX to create the files required for indexing
+
+%----------------------------------------------------------------------------------------
+%    MAIN TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+\contentsmargin{0cm} % Removes the default margin
+
+% Part text styling
+\titlecontents{part}[0cm]
+{\addvspace{20pt}\centering\large\bfseries}
+{}
+{}
+{}
+
+% Chapter text styling
+\titlecontents{chapter}[1.25cm] % Indentation
+{\addvspace{12pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{ocre!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
+{\color{ocre}}  
+{\color{ocre!60}\normalsize\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% Section text styling
+\titlecontents{section}[1.25cm] % Indentation
+{\addvspace{3pt}\sffamily\bfseries} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{\hfill\color{black}\thecontentspage} % Page number
+[]
+
+% Subsection text styling
+\titlecontents{subsection}[1.25cm] % Indentation
+{\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Subsection number
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+[]
+
+% List of figures
+\titlecontents{figure}[0em]
+{\addvspace{-5pt}\sffamily}
+{\thecontentslabel\hspace*{1em}}
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+[]
+
+% List of tables
+\titlecontents{table}[0em]
+{\addvspace{-5pt}\sffamily}
+{\thecontentslabel\hspace*{1em}}
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+[]
+
+%----------------------------------------------------------------------------------------
+%    MINI TABLE OF CONTENTS IN PART HEADS
+%----------------------------------------------------------------------------------------
+
+% Chapter text styling
+\titlecontents{lchapter}[0em] % Indenting
+{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{ocre}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
+{}  
+{\color{ocre}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% Section text styling
+\titlecontents{lsection}[0em] % Indenting
+{\sffamily\small} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{}
+
+% Subsection text styling
+\titlecontents{lsubsection}[.5em] % Indentation
+{\normalfont\footnotesize\sffamily} % Font settings
+{}
+{}
+{}
+
+%----------------------------------------------------------------------------------------
+%    THEOREM STYLES
+%----------------------------------------------------------------------------------------
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
+\usepackage{mathtools}
+
+%-------------------------------------------------------------------------------------------------------------------------
+% https://en.wikibooks.org/wiki/LaTeX/Special_Characters#Degree_symbol_for_temperature_and_math
+%
+%-------------------------------------------------------------------------------------------------------------------------
+\usepackage{siunitx}
+
+\newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
+\newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
+\newcommand{\intff}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
+\newtheorem{notation}{Notation}[chapter]
+
+% Boxed/framed environments
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ocre}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+\newtheoremstyle{blacknumex}% Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% Body font
+{} % Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily{\tiny\ensuremath{\blacksquare}}\nobreakspace\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+\newtheoremstyle{blacknumbox} % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+% Non-boxed/non-framed environments
+\newtheoremstyle{ocrenum}% % Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ocre}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+\makeatother
+
+% Defines the theorem text style for each type of theorem to one of the three styles above
+\newcounter{dummy} 
+\numberwithin{dummy}{section}
+\theoremstyle{ocrenumbox}
+\newtheorem{theoremeT}[dummy]{Theorem}
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{exerciseT}{Exercise}[chapter]
+\theoremstyle{blacknumex}
+\newtheorem{exampleT}{Example}[chapter]
+\theoremstyle{blacknumbox}
+\newtheorem{vocabulary}{Vocabulary}[chapter]
+\newtheorem{definitionT}{Definition}[section]
+\newtheorem{corollaryT}[dummy]{Corollary}
+\theoremstyle{ocrenum}
+\newtheorem{proposition}[dummy]{Proposition}
+
+%----------------------------------------------------------------------------------------
+%    DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Theorem box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=black!5,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+innerbottommargin=5pt]{tBox}
+
+% Exercise box      
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=ocre!10,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{eBox}    
+
+% Definition box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt]{dBox}    
+
+% Corollary box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=gray,
+backgroundcolor=black!5,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=5pt]{cBox}
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+
+
+%-------------------------------------------------------------------------------
+% Note: Comment by Guo DeLiang
+% Date: 15/02/2020
+%
+%-------------------------------------------------------------------------------
+%%　\newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
+
+% \newtcbtheorem[auto counter,number within=section]{theo}%
+  % {Theorem}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+     % arc=0mm, colback=blue!5!white,colframe=blue!75!black}{theorem}
+
+\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}                  
+\newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}    
+\newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}        
+\newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}    
+
+%----------------------------------------------------------------------------------------
+%    REMARK ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newenvironment{remark}{\par\vspace{10pt}\small % Vertical white space above the remark and smaller font size
+\begin{list}{}{    
+\leftmargin=35pt % Indentation on the left
+\rightmargin=25pt}\item\ignorespaces % Indentation on the right
+\makebox[-2.5pt]{\begin{tikzpicture}[overlay]
+\node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ocre}{R}};\end{tikzpicture}} % Orange R in a circle
+\advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
+
+%----------------------------------------------------------------------------------------
+%    SECTION NUMBERING IN THE MARGIN
+%----------------------------------------------------------------------------------------
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{ocre}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+{-4ex \@plus -1ex \@minus -.4ex}
+{1ex \@plus.2ex }
+{\normalfont\large\sffamily\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{2}{\z@}
+{-3ex \@plus -0.1ex \@minus -.4ex}
+{0.5ex \@plus.2ex }
+{\normalfont\sffamily\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
+{-2ex \@plus -0.1ex \@minus -.2ex}
+{.2ex \@plus.2ex }
+{\normalfont\small\sffamily\bfseries}}                        
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+{-2ex \@plus-.2ex \@minus .2ex}
+{.1ex}
+{\normalfont\small\sffamily\bfseries}}
+
+%----------------------------------------------------------------------------------------
+%    PART HEADINGS
+%----------------------------------------------------------------------------------------
+
+% numbered part in the table of contents
+\newcommand{\@mypartnumtocformat}[2]{%
+\setlength\fboxsep{0pt}%
+\noindent\colorbox{ocre!20}{\strut\parbox[c][.7cm]{\ecart}{\color{ocre!70}\Large\sffamily\bfseries\centering#1}}\hskip\esp\colorbox{ocre!40}{\strut\parbox[c][.7cm]{\linewidth-\ecart-\esp}{\Large\sffamily\centering#2}}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% unnumbered part in the table of contents
+\newcommand{\@myparttocformat}[1]{%
+\setlength\fboxsep{0pt}%
+\noindent\colorbox{ocre!40}{\strut\parbox[c][.7cm]{\linewidth}{\Large\sffamily\centering#1}}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength\esp
+\setlength\esp{4pt}
+\newlength\ecart
+\setlength\ecart{1.2cm-\esp}
+\newcommand{\thepartimage}{}%
+\newcommand{\partimage}[1]{\renewcommand{\thepartimage}{#1}}%
+\def\@part[#1]#2{%
+\ifnum \c@secnumdepth >-2\relax%
+\refstepcounter{part}%
+\addcontentsline{toc}{part}{\texorpdfstring{\protect\@mypartnumtocformat{\thepart}{#1}}{\partname~\thepart\ ---\ #1}}
+\else%
+\addcontentsline{toc}{part}{\texorpdfstring{\protect\@myparttocformat{#1}}{#1}}%
+\fi%
+\startcontents%
+\markboth{}{}%
+{\thispagestyle{empty}%
+\begin{tikzpicture}[remember picture,overlay]%
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]%    
+\fill[ocre!20](0cm,0cm) rectangle (\paperwidth,-\paperheight);
+\node[anchor=north] at (4cm,-3.25cm){\color{ocre!40}\fontsize{220}{100}\sffamily\bfseries\thepart}; 
+\node[anchor=south east] at (\paperwidth-1cm,-\paperheight+1cm){\parbox[t][][t]{8.5cm}{
+\printcontents{l}{0}{\setcounter{tocdepth}{1}}%
+}};
+\node[anchor=north east] at (\paperwidth-1.5cm,-3.25cm){\parbox[t][][t]{15cm}{\strut\raggedleft\color{white}\fontsize{30}{30}\sffamily\bfseries#2}};
+\end{tikzpicture}};
+\end{tikzpicture}}%
+\@endpart}
+\def\@spart#1{%
+\startcontents%
+\phantomsection
+{\thispagestyle{empty}%
+\begin{tikzpicture}[remember picture,overlay]%
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]%    
+\fill[ocre!20](0cm,0cm) rectangle (\paperwidth,-\paperheight);
+\node[anchor=north east] at (\paperwidth-1.5cm,-3.25cm){\parbox[t][][t]{15cm}{\strut\raggedleft\color{white}\fontsize{30}{30}\sffamily\bfseries#1}};
+\end{tikzpicture}};
+\end{tikzpicture}}
+\addcontentsline{toc}{part}{\texorpdfstring{%
+\setlength\fboxsep{0pt}%
+\noindent\protect\colorbox{ocre!40}{\strut\protect\parbox[c][.7cm]{\linewidth}{\Large\sffamily\protect\centering #1\quad\mbox{}}}}{#1}}%
+\@endpart}
+\def\@endpart{\vfil\newpage
+\if@twoside
+\if@openright
+\null
+\thispagestyle{empty}%
+\newpage
+\fi
+\fi
+\if@tempswa
+\twocolumn
+\fi}
+
+%----------------------------------------------------------------------------------------
+%    CHAPTER HEADINGS
+%----------------------------------------------------------------------------------------
+
+% A switch to conditionally include a picture, implemented by  Christian Hupfer
+\newif\ifusechapterimage
+\usechapterimagetrue
+\newcommand{\thechapterimage}{}%
+\newcommand{\chapterimage}[1]{\ifusechapterimage\renewcommand{\thechapterimage}{#1}\fi}%
+\newcommand{\autodot}{.}
+\def\@makechapterhead#1{%
+{\parindent \z@ \raggedright \normalfont
+\ifnum \c@secnumdepth >\m@ne
+\if@mainmatter
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\ifusechapterimage\includegraphics[width=\paperwidth]{\thechapterimage}\fi};
+\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}\thechapter\autodot~#1\strut};
+\end{tikzpicture}};
+\end{tikzpicture}
+\else
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\ifusechapterimage\includegraphics[width=\paperwidth]{\thechapterimage}\fi};
+\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}#1\strut};
+\end{tikzpicture}};
+\end{tikzpicture}
+\fi\fi\par\vspace*{270\p@}}}
+
+%-------------------------------------------
+
+\def\@makeschapterhead#1{%
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\ifusechapterimage\includegraphics[width=\paperwidth]{\thechapterimage}\fi};
+\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}#1\strut};
+\end{tikzpicture}};
+\end{tikzpicture}
+\par\vspace*{270\p@}}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%    HYPERLINKS IN THE DOCUMENTS
+%----------------------------------------------------------------------------------------
+
+            
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+            
+\usepackage{bookmark}
+\bookmarksetup{
+           open,
+           % numbered,
+           addtohook={%
+                        \ifnum\bookmarkget{level}=0 % chapter
+                             \bookmarksetup{bold}%
+                        \fi
+
+                        \ifnum\bookmarkget{level}=-1 % part
+                             \bookmarksetup{color=ocre,bold}%
+                        \fi
+                      }
+}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%    Added by Guo De Liang Thomas
+%----------------------------------------------------------------------------------------
+\usepackage[SC5b]{ean13isbn}
+\usepackage{todonotes}
+\usepackage{multicol}
+\usepackage{multiaudience}
+
+
+% \SetNewAudience{Tutor}
+% \SetNewAudience{Parent}
+% \SetNewAudience{Student}
+% \SetNewAudience{Solution}
+% \SetNewAudience{MarkScheme}
+
+
+\usepackage{versions}
+\usepackage[final]{pdfpages}
+\usepackage{tasks}
+\usepackage[makeroom]{cancel}
+
+\usepackage{CJKutf8}               % Note: For Chinese Characters
+%\usepackage{ctex}
+
+\let\exercise\pkexercise
+
+
+%---------------------------------------------------------------------------------------------
+% Description:
+%     Set the type of final output
+%
+% Sample:
+%     biBook       - Ebook
+%
+%     biPastpaper  - Due to copyright issue, need to set header, trailer
+%                    
+%                    
+%
+%     biTopical    - 
+%     
+%
+% Date: 2019.08.15
+%
+%     bi           - Boolean Indicator
+%
+%--------------------------------------------------------------------------------------------
+
+\newtoggle{biPublish}              % Published Book
+                                   %     - All materials should be legal and copyright should 
+                                   %       be verified.                                   
+
+\togglefalse{biPublish}
+
+
+\newtoggle{biTutorCN}              % Tutition in Chinese
+\toggletrue{biTutorCN}
+
+\newtoggle{biPrintOnly}            % bi Boolean Indicator - Print Only
+\newtoggle{biNoCoverPage}          % bi Boolean Indicator - No Print Cover Page
+
+\newtoggle{biStudent}              % bi Boolean Indicator - Student
+
+\newtoggle{biPastPaper}            % bi Boolean Indicator - Past Paper
+\newtoggle{biTopicTest}            % bi Boolean Indicator - Topic Test
+\newtoggle{biWorksheet}            % bi Boolean Indicator - Worksheet
+\newtoggle{biExcercise}            % bi Boolean Indicator - Excercise
+
+
+\newtoggle{biSolution}             % bi Boolean Indicator - Solution
+\newtoggle{biMarkScheme}           % bi Boolean Indicator - Mark Scheme
+
+
+
+\newtoggle{biTutor}                % bi Boolean Indicator - Tutor
+
+
+\newtoggle{biChinese}              % bi Boolean Indicator - Include Chinese.
+\toggletrue{biChinese}     
+
+
+%-----------------------------------------------------------------------------------------------------------------------
+% Option Setup:
+%     1. bTextbook
+%     2. bRevision
+%     3. bWorkbook
+%     4. bTest
+%     5. bPastPaper
+%
+%     6. bQuestion
+%     7. bAnswer
+%     8. bWorkedSolL           - Indicator Worked Solution Long
+%     9. bWorkedSolS           - Indicator Worked Solution Short
+
+%　　　　bCompress             - Indicator if printed blank space
+%------------------------------------------------------------------------------------------------------------------------
+
+\newtoggle{bTextbook}
+\newtoggle{bRevision}
+\newtoggle{bWorkbook}
+\newtoggle{bTest}
+\newtoggle{bPastPaper}
+
+\newtoggle{bQuestion}
+\newtoggle{bSolution}
+\newtoggle{bAnswer}
+\newtoggle{bWorkedSolL}
+\newtoggle{bWorkedSolS}
+
+\newtoggle{bDottedLine}
+\newtoggle{bCompress}
+
+\newtoggle{biMacleans}             % bi Boolean Indicator
+\newtoggle{biStKent}
+\newtoggle{biACGStrathAllan}
+
+\newcounter{nOddEven}
+
+\newcounter{nExamYear}
+
+\newcounter{nLevelStart}
+\setcounter{nLevelStart}{1}    %------ Level
+
+\newcounter{nLevelEnd}
+\setcounter{nLevelEnd}{1800}   %------ Level
+
+
+\newcounter{nWorkBook}
+
+
+
+%-----------------------------------------------------------------------------------------------------
+% Low Level Parameter Setup
+%
+%
+%
+%
+%-----------------------------------------------------------------------------------------------------
+
+\togglefalse{bTextbook}
+\toggletrue{bRevision}
+\togglefalse{bWorkbook}
+\toggletrue{bTest}
+\togglefalse{bPastPaper}
+
+\toggletrue{bDottedLine}
+
+\togglefalse{biPrintOnly}
+\toggletrue{biNoCoverPage}
+
+\iftoggle{biNoCoverPage}{ \renewcommand{\iPageStart}{2} }
+                        { \renewcommand{\iPageStart}{1} }
+
+\toggletrue{biTutor}
+\toggletrue{biStudent}
+%\toggletrue{biBook}
+%\toggletrue{biSolution}
+
+\togglefalse{biMacleans}
+%\toggletrue{biStKent}
+%\toggletrue{biACGStrathAllan} 
+
+
+\toggletrue{bQuestion}
+\togglefalse{bSolution}
+\togglefalse{bAnswer}
+\togglefalse{bWorkedSolL}
+\togglefalse{bWorkedSolS}
+\togglefalse{bCompress}
+
+\setcounter{nExamYear}{00}     %------ Exam Year 2017
+
+
+\setcounter{nWorkBook}{2}      %------ 0 Workbook A - Year 2017, 2015 
+                               %------ 1 Workbook B - Year 2016, 2014
+                               %------ 2 Workbook   - Year 2017, 2016, 2015, 2014....
+                             
+
+
+
+%-----------------------------------------------------------------------------------------------------
+% High Level Parameter Setup
+%
+%
+%
+%
+%-----------------------------------------------------------------------------------------------------
+\iftoggle{bAnswer}{ \toggletrue{bSolution}}{}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Function:
+%          The setting for printing
+%              1. Set the alternate row color to white
+%
+%
+%     
+%
+% Date: 2020.08.06
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+\iftoggle{biPrintOnly}{
+    % Alternate Row Color to white
+    \colorlet{bkcolor}{white}
+	\colorlet{effbkcolor}{white}
+}
+{
+    \colorlet{bkcolor}{gray!15}
+	\colorlet{effbkcolor}{white}
+}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% URL:
+%     Use a class as a package? (or parts of the class)
+%     https://tex.stackexchange.com/questions/272239/use-a-class-as-a-package-or-parts-of-the-class/272250#272250
+%
+%
+% Function:
+%     
+%     
+%
+%     examimport.sty
+%     
+%              \ProvidesPackage{examimport}
+%
+%              \RequirePackage{xparse}
+%
+%              \RenewDocumentCommand{\ProvidesClass}{mO{}}{%
+%                   }
+%
+%              \RenewDocumentCommand{\LoadClass}{O{}mO{}}{%
+%                   }
+%
+%              \input{examcopy.cls}
+%
+%\endinput
+%
+% Date: 2020.05.05
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+%-----------------------------------------------------------
+% Setup: xsim 
+%
+%
+%-----------------------------------------------------------
+
+\usepackage{xsim}
+
+\usepackage{tabularx}
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, listings,raster}
+
+\iftoggle{biPrintOnly}{
+    \tcbset{
+        styexample/.style={
+                           colback=bkcolor,
+		                   colframe=blue,
+                           boxrule=1pt,
+                           colbacktitle=gray!10!white,
+                           colback=bkcolor,
+                           coltitle=black,
+                           colbacklower=white,
+                           % colframe=blue,
+                           colframe=white,
+                           segmentation style={blue, dotted},
+                           borderline={0.2mm}{0mm}{blue},
+                           fonttitle=\bfseries,
+                           sharp corners},
+        styskill/.style={
+                           colback=bkcolor,
+		                   colframe=blue,
+                           boxrule=1pt,
+                           colbacktitle=gray!10!white,
+                           colback=bkcolor,
+                           coltitle=black,
+                           colbacklower=white,
+                           % colframe=blue,
+                           colframe=white,
+                           segmentation style={blue, dotted},
+                           borderline={0.2mm}{0mm}{blue},
+                           fonttitle=\bfseries},
+        styhighlight/.style={
+                           colback=bkcolor,
+		                   colframe=blue,
+                           boxrule=1pt,
+                           colbacktitle=gray!10!white,
+                           colback=bkcolor,
+                           coltitle=black,
+                           colbacklower=white,
+                           % colframe=blue,
+                           colframe=white,
+                           segmentation style={blue, dotted},
+                           borderline={0.2mm}{0mm}{blue,dotted},
+                           fonttitle=\bfseries,
+                           sharp corners},
+        styintro/.style={  enhanced,
+                           colback=bkcolor, 
+		                   frame empty,
+						   interior empty,
+						   colframe=ForestGreen!50!white,
+                           coltitle=ForestGreen!50!black,
+						   fonttitle=\bfseries,
+						   colbacktitle=ForestGreen!15!white,
+                           borderline={0.5mm}{0mm}{ForestGreen!15!white},
+                           borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
+                           attach boxed title to top center={yshift=-3mm},
+                           boxed title style={boxrule=0.4pt},
+						   varwidth boxed title
+						   },
+        introductionsty/.style={
+                           enhanced,
+                           breakable,
+                           colback=structurecolor!10,
+                           colframe=structurecolor,
+                           fonttitle=\bfseries,
+                           colbacktitle=structurecolor,
+                           fontupper=\itshape,
+                           attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+                           boxrule=0pt,
+                           toprule=0.5pt,
+                           bottomrule=0.5pt,
+                           top=8pt,
+                           before skip=8pt,
+                           sharp corners
+                         },
+    }
+}
+{
+    \tcbset{
+        styexample/.style={
+                           colback=bkcolor,
+		                   colframe=blue,
+                           boxrule=1pt,
+                           colbacktitle=gray!10!white,
+                           colback=bkcolor,
+                           coltitle=black,
+                           colbacklower=white,
+                           % colframe=blue,
+                           colframe=white,
+                           segmentation style={blue, dotted},
+                           borderline={0.2mm}{0mm}{blue},
+                           fonttitle=\bfseries,
+                           sharp corners},
+        styskill/.style={
+                           colback=bkcolor,
+		                   colframe=blue,
+                           boxrule=1pt,
+                           colbacktitle=gray!10!white,
+                           colback=bkcolor,
+                           coltitle=black,
+                           colbacklower=white,
+                           % colframe=blue,
+                           colframe=white,
+                           segmentation style={blue, dotted},
+                           borderline={0.2mm}{0mm}{blue},
+                           fonttitle=\bfseries},
+        styhighlight/.style={
+                           colback=bkcolor,
+		                   colframe=blue,
+                           boxrule=1pt,
+                           colbacktitle=gray!10!white,
+                           colback=bkcolor,
+                           coltitle=black,
+                           colbacklower=white,
+                           % colframe=blue,
+                           colframe=white,
+                           segmentation style={blue, dotted},
+                           borderline={0.2mm}{0mm}{blue,dotted},
+                           fonttitle=\bfseries,
+                           sharp corners},
+        styintro/.style={  enhanced,
+                           colback=bkcolor, 
+		                   frame empty,
+						   interior empty,
+						   colframe=ForestGreen!50!white,
+                           coltitle=ForestGreen!50!black,
+						   fonttitle=\bfseries,
+						   colbacktitle=ForestGreen!15!white,
+                           borderline={0.5mm}{0mm}{ForestGreen!15!white},
+                           borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
+                           attach boxed title to top center={yshift=-3mm},
+                           boxed title style={boxrule=0.4pt},
+						   varwidth boxed title
+						   },
+        introductionsty/.style={
+                           enhanced,
+                           breakable,
+                           colback=structurecolor!10,
+                           colframe=structurecolor,
+                           fonttitle=\bfseries,
+                           colbacktitle=structurecolor,
+                           fontupper=\itshape,
+                           attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+                           boxrule=0pt,
+                           toprule=0.5pt,
+                           bottomrule=0.5pt,
+                           top=8pt,
+                           before skip=8pt,
+                           sharp corners
+                         },
+    }
+}
+
+\xsimsetup{
+      exercise/name =
+    , exercise/template  = easyitem
+    , exercise/print     = true
+    , solution/template  = easyitem
+    , solution/print     = true
+    , blank/blank-style  = \dotuline{\textcolor{blue}{#1}}
+    , blank/filled-style = \dotuline{\makebox[\textwidth][l]{\textcolor{blue}{#1}}}
+}
+
+%-----------------------------------------------------------
+% Below script block is from the manua of XSIM
+%
+%
+%-----------------------------------------------------------
+
+\DeclareExerciseEnvironmentTemplate{easyitem}
+  {\item[\GetExerciseProperty{counter}]}
+  {}
+
+
+\DeclareExerciseEnvironmentTemplate{boxed}
+  {%
+    \tcolorbox[
+      enhanced ,
+      % attach boxed title to top center = {yshift=-7.5pt} ,
+      colback = white , 
+      colbacktitle = white ,
+      coltitle = black , 
+      % colframe = black ,
+      boxed title style = { colframe = black } ,
+      fonttitle=\bfseries,
+      sharp corners=all,
+      breakable,
+      title=
+        \XSIMmixedcase{\GetExerciseName} % -- Comment the exercise name
+        \textbf{\GetExerciseName ~\GetExerciseProperty{counter}}
+        \IfInsideSolutionF{%
+          ~\GetExerciseProperty{counter}%
+           \IfExercisePropertySetT{subtitle}{. \GetExerciseProperty{subtitle}}%
+        }%
+    ]
+    
+    \IfInsideSolutionT{%
+     % \tcbsubtitle{Exercise}
+     %     \GetExerciseBody{exercise}  %% Include exercise body
+          \tcbsubtitle{Solution}
+    }
+    
+  }
+  {
+    \Pointilles[1.5]{4}
+    \endtcolorbox
+  }
+
+
+
+% declare a user command for short answers:
+\NewDocumentCommand\answer{m}{%
+  \IfSolutionPrintT{%
+    \UseExerciseTemplate{begin}{solution}%
+      #1%
+    \UseExerciseTemplate{end}{solution}%
+  }{}%
+}
+
+\usepackage{fontawesome5}
+\usepackage{intcalc}
+\setcounter{tocdepth}{5}
+\usepackage{awesomebox}
+\usepackage{graphicx}
+\usepackage{fontawesome}
+\usepackage{centernot}
+\usepackage{environ}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------
+% Description:
+%     Display common math mistakes
+%
+% URL:
+%     Create custom note boxes
+%
+%     https://tex.stackexchange.com/questions/482643/create-custom-note-boxes
+%
+% Date: 2020.05.28
+%
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+\definecolor{redSeven}{rgb}{0.94, 0.24, 0.24}
+\definecolor{redNine}{rgb}{0.79, 0.16, 0.16}
+
+% ORANGE
+\definecolor{orangeSeven}{rgb}{0.97, 0.4, 0.03}
+\definecolor{orangeNine}{rgb}{0.85, 0.28, 0.06}
+
+%    BANS ----------------------------------------------------------------------
+
+\newcommand{\banBox}[2][ban]{%
+    \ \bigskip\newline         % <----------------- added \ and space
+    \begin{minipage}{.1\textwidth}\centering
+        \textcolor{redSeven}{\fontsize{16}{24}\faicon{#1}}
+    \end{minipage}%
+    \textcolor{redSeven}{\vrule width 3pt \hspace{14pt}}
+    \begin{minipage}{.8\textwidth}
+        \textcolor{redNine}{#2}
+    \end{minipage}
+    \smallskip\newline
+}
+
+\newenvironment{banEnv}[1][ban]%
+{\bigskip\newline%
+    \begin{minipage}{.1\textwidth}\centering%
+        \textcolor{redSeven}{\fontsize{16}{24}\faicon{#1}}%
+    \end{minipage}%
+    \textcolor{redSeven}{\vrule width 3pt \hspace{14pt}}%
+    \begin{minipage}{.8\textwidth}
+        \color{redNine}}
+    {\end{minipage}\bigskip\newline}
+
+%    WARNINGS ------------------------------------------------------------------
+
+\newcommand{\warningBox}[2][exclamation-triangle]{%
+    \bigskip \newline
+    \begin{minipage}{.1\textwidth}\centering
+        \textcolor{orangeSeven}{\fontsize{16}{24}\faicon{#1}}
+    \end{minipage}%
+    \textcolor{orangeSeven}{\vrule width 3pt \hspace{14pt}}
+    \begin{minipage}{.8\textwidth}
+        \textcolor{orangeNine}{#2}
+    \end{minipage}
+    \newline
+}
+
+\newenvironment{warningEnv}[1][exclamation-triangle]%
+{
+    % \bigskip\newline
+    \begin{minipage}{.1\textwidth}\centering%
+        \textcolor{orangeSeven}{\fontsize{16}{24}\faicon{#1}}%
+    \end{minipage}%
+    \textcolor{orangeSeven}{\vrule width 3pt \hspace{14pt}}%
+    \begin{minipage}{.8\textwidth}
+        %\color{orangeNine}
+        }
+    {\end{minipage}\bigskip\newline}
+
+%-------------------------------------------------------------------------------
+
+
+
+% -------------------------------------------------------------------------------------------------
+% Theorem
+%       
+% https://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
+%
+% -------------------------------------------------------------------------------------------------
+
+\newcounter{theo}[section] \setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+\newenvironment{theo}[2][]{%
+\refstepcounter{theo}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Theorem~\thetheo};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Theorem~\thetheo:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+
+
+
+%-------------------------------------------------------------------------------------------------
+% Lemma
+%        
+% https://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
+%
+%-------------------------------------------------------------------------------------------------
+
+\newcounter{lem}[section] \setcounter{lem}{0}
+\renewcommand{\thelem}{\arabic{section}.\arabic{lem}}
+\newenvironment{lem}[2][]{%
+\refstepcounter{lem}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+    frametitle={%
+    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+    \node[anchor=east,rectangle,fill=green!20]
+    {\strut Lemma~\thelem};}}
+}%
+{\mdfsetup{%
+    frametitle={%
+    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+    \node[anchor=east,rectangle,fill=green!20]
+    {\strut Lemma~\thelem:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=green!20,%
+    linewidth=2pt,topline=true,%
+    frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+    \label{#2}}{\end{mdframed}}
+
+
+
+%-------------------------------------------------------------------------------------------------
+% Proof
+%        
+% https://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
+%
+%-------------------------------------------------------------------------------------------------
+\newcounter{prf}[section]\setcounter{prf}{0}
+\renewcommand{\theprf}{\arabic{section}.\arabic{prf}}
+\newenvironment{prf}[2][]{%
+\refstepcounter{prf}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!20]
+{\strut Proof~\theprf};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!20]
+{\strut Proof~\theprf:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=red!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\qed\end{mdframed}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------
+% Skill
+%        
+% https://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
+%
+%-------------------------------------------------------------------------------------------------
+
+\newcounter{skillList}[section] \setcounter{skillList}{0}
+\renewcommand{\theskillList}{\arabic{skillList}}
+\newenvironment{skillList}[2][]{%
+\refstepcounter{skillList}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Skill~\theskillList};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Skill~\theskillList:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+
+
+
+%-------------------------------------------------------------------------------------------------
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------
+%    https://tex.stackexchange.com/questions/28087/example-of-fancy-table-using-tikz-package
+%
+%
+%
+%
+%-------------------------------------------------------------------------------------------------------------
+
+
+\tikzset{ 
+    table/.style={
+        matrix of nodes,
+        row sep=-\pgflinewidth,
+        column sep=-\pgflinewidth,
+        nodes={
+            rectangle,
+            draw=black,
+            align=center
+        },
+        minimum height=1.5em,
+        text depth=0.5ex,
+        text height=2ex,
+        nodes in empty cells,
+%%
+        every odd row/.style={
+            nodes={fill=gray!20}
+        },
+        column 1/.style={
+            nodes={text width=2em,font=\bfseries}
+        },
+        row 1/.style={
+            nodes={
+                fill=gray!40,
+                text=black,
+                font=\bfseries
+            }
+        }
+    }
+}
+
+%----------------------------------------------------------------------------------------
+%    PAGE HEADERS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Required for header and footer configuration
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.\ #1}{}} % Chapter text font settings
+\renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Section text font settings
+\fancyhf{} 
+\fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Font setting for the page number in the header
+\fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
+%\fancyhead[CE,CO]{Date: \underline{\hspace{2cm}} Time: \underline{\hspace{1cm}}}
+\fancyhead[RE]{\leftmark}  % Print the current chapter name on the right side of even pages
+\renewcommand{\headrulewidth}{0.5pt} % Width of the rule under the header
+\addtolength{\headheight}{2.5pt} % Increase the spacing around the header slightly
+\renewcommand{\footrulewidth}{0pt} % Removes the rule in the footer
+
+
+%\fancyfoot[LE,RO]{Guo De Liang Thomas}
+%\fancyfoot[LO]{\textsuperscript{\textcopyright}2018 Cockle Bay Elite Education} % Print the nearest section name on the left side of odd pages
+%\fancyfoot[RE]{\textsuperscript{\textcopyright}2018 Cockle Bay Elite Education} % Print the current chapter name on the right side of even pages
+
+% \renewcommand{\footrulewidth}{2.5pt} % Removes the rule in the footer
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+\iftoggle{biPublish}{
+       \fancyfoot[L]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Education 2019}}
+       \fancyfoot[R]{\href{http://www.eliteducation.net}{http://www.eliteducation.net}}
+       
+       % \fancyfoot[LE,RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Education 2019 http://www.eliteducation.net}}
+    }
+    {
+       \fancyfoot[LE,RO]{KiwiEdu9@gmail.com}  
+    }
+
+
+\iftoggle{biTutorCN}{
+       \fancyfoot[LE]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} 
+                                          \begin{CJK*}{UTF8}{gbsn}精英教育　私塾辅导\end{CJK*}  }}
+       \fancyfoot[RE]{Elite Education Centre  \;\;  74 John Gill Road}
+        
+                      
+       \fancyfoot[RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} Guo DeLiang Thomas \;\; (Mobile: 022 313 4665)     }}
+       
+      % \fancyfoot[RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} \begin{CJK*}{UTF8}{gbsn}郭德良\end{CJK*}  Guo DeLiang Thomas Telephone: 022 313 4665     }}
+       
+       % \fancyfoot[LE,RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Education 2019 http://www.eliteducation.net}}
+    }
+    {
+       \fancyfoot[LE,RO]{KiwiEdu9@gmail.com  }  
+    }
+
+
+
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}} % Style for when a plain pagestyle is specified
+
+% Removes the header from odd empty pages at the end of chapters
+\makeatletter
+\renewcommand{\cleardoublepage}{
+\clearpage\ifodd\c@page\else
+\hbox{}
+\vspace*{\fill}
+\thispagestyle{empty}
+\newpage
+\fi}
+
+                             
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{4}
+
+
+
+%------------------------------------------------------------------------------------
+% Description: 
+%     To display or hide certain informations based on the following tags:
+%
+%      tgRefBook    - Referenced book information
+%      tgRefWeb     - Referenced web URL and information
+%      tgRefExamQ   - Referenced past paper question
+%
+%      tgExamQCIE   - To display past papers of Cambridge
+%      tgExamQNCEA  - To display past papers of NCEA     
+%
+%      tgShowSolution - To display solution
+%
+%
+%                   - To prepare different version of documents such as textbooks, workbooks
+%        
+%        
+%
+%
+% URL:
+%  
+%
+% Date(yyyy.mm.dd): 
+%     2020.04.04
+%
+%--------------------------------------------------------------------
+\usepackage{tagging}
+
+
+
+
+\usetag{tgRefBook}
+\usetag{tgRefExamQ}
+\usetag{tgRefWeb} 
+
+\usetag{tgShowSolution}
+
+\newtcbox{\bxtgRefBook}{colframe=black}
+
+%\newtcolorbox{\enRefBook}{colframe=black}
+
+
+
+\newenvironment{envRefBook}
+{
+    \begin{taggedblock}{tgRefBook}
+    \begin{tcolorbox}[colframe=blue]
+}
+{
+    \end{tcolorbox}
+    \end{taggedblock}
+}
+
+%--------------------------------------------------------------------
+% Description:
+%     Create multiple dotted lines
+%
+% URL:
+%     https://tex.stackexchange.com/questions/248451/how-to-create-multiple-dotted-lines
+%
+% Date: 2019.07.07
+%
+%--------------------------------------------------------------------
+
+
+\newcommand{\Pointilles}[2][3]{%
+    \iftoggle{bDottedLine}{
+        \par\nobreak
+        \noindent\rule{0pt}{1.5\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+        \multido{}{#2}{\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf}% ... dotted lines ...
+        \bigskip% Gap between dots and next paragraph
+    }{}  
+}
+
+
+
+
+
+%--------------------------------------------------------------------
+% Description:
+%     Add page break before each section
+%
+% Sample:
+%     \Pointilles[1.5]{3}
+%
+% URL:
+%     https://tex.stackexchange.com/questions/131015/page-break-after-every-section
+%
+% Date: 2019.06.26
+%
+%--------------------------------------------------------------------
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+
+
+\let\oldsubsection\subsection
+\renewcommand\subsection{\clearpage\oldsubsection}
+
+%\let\oldsubsubsection\subsubsection
+%\renewcommand\subsubsection{\clearpage\oldsubsubsection}
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------------------------
+
+\providecommand{\cmdIGCSE}{}
+\renewcommand{\cmdIGCSE}[9]
+{
+    %---------------------------------------------------------------------------------------------
+    % Exam Questoins by Topic
+    % 
+    % For example:
+    %            0580   - Exam Code  
+    %             17     - Year 2017
+    %            s      - Summer Paper      
+    %            23     - Paper Variance
+    %            1      - Question      (For future use)     
+    %            5-7    - Pages in Exam
+    %            1101   - Difficulty Level         
+    %            1      - Code: 
+    %                        1. Question
+    %                        2. Sample Answer
+    %                        3. Mark Scheme
+    %            1000   - Skill Code
+    %---------------------------------------------------------------------------------------------
+    
+    \ifnumcomp{1}{>}{1}{#5}{     % -- For future use
+    }
+    
+    \ifnumcomp{#2}{>}{\value{nExamYear}}
+    {
+        \ifnumcomp{#7}{>}{\value{nLevelStart}}
+        {
+            \ifnumcomp{#7}{<}{\value{nLevelEnd}}
+            {
+                \setcounter{nOddEven}{\intcalcMod{#2}{2}}
+                \ifnumequal{\value{nWorkBook}}{\value{nOddEven}}{}{ %--- Not Equal
+                     \ifnumequal{#8}{1}{
+                        \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } { 
+                           \includepdf[scale=0.95
+                                       , pages=#6
+                                       , pagecommand={\pagestyle{fancy}}
+                                       ]
+                            {../../Education/ExamPaper/Cambridge_Ages_14_16_IGCSE/Mathematics_0580/0580_#3#2_qp_#4.pdf}
+                            
+                        }
+                     }{}
+                }
+            }{}
+       }{}        
+    }{}
+}
+
+
+
+
+
+
+%---------------------------------------------------------------------------------------------
+% Exam Questoins by Topic
+%
+%      \cmdQuestionCIE{9709}{18}{s}{31}{10i}{5-7}{1110}{1}{Vector, Distance, Point, Line}
+%      
+% For example:
+%            9709   - Exam Code
+%             s17    - Year 2017 Summer Paper             
+%            23     - Paper Variance
+%            10i    - Question (For future use)     
+%            5-7    - Pages in Exam
+%            1101   - Difficulty Level         
+%            1      - Code: 
+%                        1. Question
+%                        2. Worked Solution
+%                        3. Mark Scheme
+%                         
+%                         4. Print All
+%            1000   - Skill Code
+%            Surd   - Skill Description
+%
+% Date:
+%
+%---------------------------------------------------------------------------------------------
+
+\providecommand{\cmdQuestionCIE}{}
+\renewcommand{\cmdQuestionCIE}[7]
+{
+    \ifnumequal{#7}{1}{
+        \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } { 
+            \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}{
+                \includepdf[pages=#5
+                              , scale = 0.95
+                              % , clip=10cm   5cm   5cm  5cm
+                              %, trim=0.5cm 0.5cm 0.5cm 11cm
+                              %, pagecommand={\pagestyle{fancy}}
+                                , frame=true
+                            ]
+                               {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}
+            }{}                     
+        }
+    }{}
+}
+
+
+
+
+
+%---------------------------------------------------------------------------------------------
+% Get the Cambridge Past Paper. 
+%
+%
+%      \cmdPaperCIE{9709}{m19}{13}
+%      \cmdPaperCIE{9709}{w19}{73}
+%       
+% For example:
+%            9709   - Exam Code
+%             s17    - Year 2017 Summer Paper             
+%            23     - Paper Variance
+%            1      - Question      (For future use)     
+%            5-7    - Pages in Exam
+%            1101   - Difficulty Level         
+%            1      - Code: 
+%                        1. Question
+%                        2. Sample Answer
+%                        3. Mark Scheme
+%            1000   - Skill Code
+%            Surd   - Skill Description
+%
+% Date:
+%
+%---------------------------------------------------------------------------------------------
+
+\providecommand{\cmdPaperCIE}{}
+\renewcommand{\cmdPaperCIE}[3]
+{
+    \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } {
+        \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}{    
+            \includepdf[pages=\iPageStart- ,  
+                       addtotoc={\iPageStart, subsection, 1, #1\_#2\_qp\_#3, lable}]
+                 {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}
+        }{}
+    }
+
+    \iftoggle{bSolution}{ 
+        \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}{
+            \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+                {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}
+        }{}
+    }
+
+    \iftoggle{bAnswer} { 
+        \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}{
+            \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+                {../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}
+        }{}
+    }
+
+}
+
+
+%---------------------------------------------------------------------------------------------
+% Get the IB Past Paper. 
+%
+%
+%      \cmdPaperIB{IB-Math-HL-Paper1}{2017}{May}{TZ0}{}{} 
+%     
+%       
+% For example:
+%            MATHL  - Exam Code
+%             HP1    - Year 2017 Summer Paper
+%            Year   -
+%            Season -             
+%            TZ     - Time Zone
+%            1      - Question      (For future use)                
+%            5-7    - Pages in Exam
+%
+%
+%      Below pending to implement:   
+%            1101   - Difficulty Level         
+%            1      - Code: 
+%                        1. Question
+%                        2. Sample Answer
+%                        3. Mark Scheme
+%                        0. Get Question, Solution, and Mark Scheme
+%
+%            1000   - Skill Code
+%            Surd   -      Description
+%
+% Date: 
+%     2020.04.14
+%     
+%     
+%---------------------------------------------------------------------------------------------
+
+
+\providecommand{\cmdPaperIB}{}
+\renewcommand{\cmdPaperIB}[6]
+{
+
+    % \IfSubStr{#6}{-}{  
+        % % Includes a - in the paper type
+        
+        % \StrBefore{#6}{-}[\StrPaper]
+        % \StrBehind{#6}{-}[\StrOption]
+        
+        % The paper is \\
+          % \StrPaper  \\
+        
+        % The option is \\
+              % \StrOption        
+    % }{}
+    
+    \StrSubstitute{#1}{-}{_}[\dStrPaper]
+    
+    
+    \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}{
+            \includepdf[pages=\iPageStart- ,  
+                       addtotoc={\iPageStart, subsection, 1, #3 #2  #4  , lable}]
+                     {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}
+    }{}
+
+    \iftoggle{bSolution} {     
+        \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_Solution.pdf}{
+            \includepdf[pages=1- , 
+                        % frame, 
+                        % scale=0.9, 
+                        pagecommand={},
+                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+                     {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_Solution.pdf}
+        }{}
+    }    
+
+    \iftoggle{bAnswer} { 
+        \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}{
+            \includepdf[pages=1- , 
+                        % frame, 
+                        % scale=0.9, 
+                        pagecommand={},
+                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+                     {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}
+        }{}    
+    }
+
+}
+
+
+
+%---------------------------------------------------------------------------------------------
+% Get the NCEA Past Paper. 
+%
+%
+%      \cmdPaperNCEA{91261}{2019}
+%      \cmdPaperNCEA{91262}{2019}
+%       
+% For example:
+%            9709   - Exam Code
+%             2019   - Year 2019             
+%      
+% Date:
+%
+%---------------------------------------------------------------------------------------------
+
+\providecommand{\cmdPaperNCEA}{}
+\renewcommand{\cmdPaperNCEA}[3][exm]
+{
+    \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } {
+        \IfFileExists{../../Education/ExamPaper/NCEA/#2-#1-#3.pdf}{    
+            \includepdf[pages=\iPageStart- ,  
+                       addtotoc={\iPageStart, section, 1, Year #2, lable}]
+                 {../../Education/ExamPaper/NCEA/#2-#1-#3.pdf}
+                 
+                 
+                 
+        }{}
+    }
+
+    \ifboolexpr{togl{biTutor} or togl{biStudent} } {     
+        \IfFileExists{../../Education/ExamPaper/NCEA/#2-#1-#3-Solution.pdf}{
+            \includepdf[pages=1- , 
+                        % frame, 
+                        % scale=0.9, 
+                        pagecommand={},
+                        addtotoc={1, subsection, 1, Worked Solution, lable}]
+                     {../../Education/ExamPaper/NCEA/#2-#1-#3-Solution.pdf}
+
+        }{}
+    }    
+
+    \ifboolexpr{togl{biTutor} or togl{biStudent} } { 
+        \IfFileExists{../../Education/ExamPaper/NCEA/#2-ass-#3.pdf}{
+            \includepdf[pages=1- , 
+                        % frame, 
+                        % scale=0.9, 
+                        pagecommand={},
+                        addtotoc={1, subsection, 1, Mark Scheme, lable}]
+                     {../../Education/ExamPaper/NCEA/#2-ass-#3.pdf}
+        }{}    
+    }
+
+}
+
+
+%--------------------------------------------------------------------
+%
+% URL:
+%     https://en.wikibooks.org/wiki/LaTeX/Mathematics#Sums_and_integrals
+%
+% Date: 2020.04.04
+%
+%--------------------------------------------------------------------
+
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+
+
+
+\dashundergapssetup{
+    ,gap-number-format = \,\textsuperscript{\normalfont
+                         (\thegapnumber)}
+    ,gap-font = \itshape
+    ,gap-numbers = false
+    ,teacher-gap-format = dot
+    % ,teacher-mode=true 
+    ,gap-widen=true
+}
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% URL:
+%     https://tex.stackexchange.com/questions/332122/dotted-line-with-appropriate-length-for-answering-a-question
+%
+%
+% Function:
+%     1. Add dotted line with appropriate length for answering a question.
+%     2. If it is not given the dotted line stretches as long as it can (to the end of line).
+%
+% Sample:
+%     \answerline[3cm]
+%     \answerline\newline
+%
+% Date: 2020.04.29
+%
+%
+%
+%
+%
+% \newcommand\answerline{\@ifnextchar[%]
+%     \answerlinetowidth\answerlinetoeol 
+%     \bigskip  % Gap between dots and next paragraph
+% }
+%
+%
+%
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+\makeatletter
+\newcommand\answerline{\@ifnextchar[%]
+    \answerlinetowidth\answerlinetoeol}
+\newcommand\answerlinetowidth[1][0pt]
+{
+    \hbox to #1{\leaders\hbox to \answerdotsep{\hss.\hss}\hfill}
+}
+\newcommand\answerlinetoeol{\leaders\hbox to \answerdotsep{\hss.\hss}\hfill\strut}
+\newcommand\answerdotsep{6pt}
+\makeatother
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% URL:
+%     https://tex.stackexchange.com/questions/27258/how-do-i-write-underline-text-but-with-a-dotted-line
+%
+%
+% Function:
+%     Add dotted line 
+%     
+%
+% Sample:
+%     \udensdot{dotty}
+%
+% Date: 2020.06.18
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\udensdot}[2][\textwidth]{%
+    \tikz[baseline=(todotted.base)]{
+        \node[inner sep=1pt,outer sep=0pt] (todotted) {#2};
+        %\draw[densely dotted] (todotted.south west) -- (todotted.south east);
+        %\draw[densely dotted] (todotted.south west) -- +(0:4cm);
+        \draw[densely dotted] (todotted.south west) -- +(0:#1);
+    }%
+}%
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%     https://tex.stackexchange.com/questions/34312/how-to-create-a-command-with-key-values　
+%
+%     https://tex.stackexchange.com/questions/393622/using-key-values-in-newdocumentcommand
+%
+%
+%
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+\pgfkeys{
+    /envAnswer/.is family, /envAnswer,
+    default/.style = {blankline=3, text = Answer:,length=3cm},
+    blankline/.store in=\blankline,
+    text/.store in =\answer,
+    length/.store in=\length,
+}
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% URL:
+%     https://tex.stackexchange.com/questions/290686/have-a-command-acting-on-the-environment-body
+%
+%
+% Function:
+%     Collecting the environment body is easiest with environ package and its \NewEnviron command and \BODY. 
+%     
+%
+% Sample:
+%     
+%   
+%
+% Date: 2020.04.30
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+\NewEnviron{envAnswer}[1][]
+{
+    \pgfkeys{/envAnswer,default, #1}
+    
+    \ifnum \blankline>0
+        \ifboolexpr{not ( togl{bSolution} or togl{bCompress}) } { 
+            \Pointilles[1.5]{\blankline}
+			\vspace{0.3cm}
+        }
+    
+    \fi
+    
+    \iftoggle{bAnswer}{ 
+	    %-- To display answer
+        \hfill \answer \udensdot[\length]{
+                                  \colorbox{green!30!white}{\BODY}
+                                }
+    }{  %-- Set to white color to hide answer
+        \hfill \answer \udensdot[\length]{
+                                  \textcolor{white}{\BODY}
+                                }
+	}
+
+    %%% \ifboolexpr{not (togl{bAnswer} or togl{bCompress}) }{
+    %%%    \hfill \answer \answerline[\length]
+    %%% }
+	
+	\vspace{0.8cm}
+
+}
+{
+}
+
+\NewEnviron{envFillIn}[1][2cm]
+{
+    \iftoggle{bAnswer}
+    { 
+        \udensdot[#1]{\colorbox{green!30!white}{\BODY}}
+    }
+    {
+        \answerline[#1]
+    }
+}
+{
+}
+
+
+\NewEnviron{envSolution}
+{
+    \iftoggle{bSolution}
+    {
+         \begin{bxSolution} \BODY
+         \end{bxSolution}
+    }{}
+}
+
+\NewEnviron{envAnswerInBox}
+{
+    \iftoggle{bAnswer}{ \colorbox{green!30!white}{\BODY}   }{}
+}
+{}
+
+
+\newenvironment{envWorkedSolL}[2][3cm]
+{
+    \iftoggle{bSolution}
+    { 
+       \udensdot[#1]{#2}      
+    }
+    {
+       \Pointilles[1.5]{1}
+    }
+}	
+{
+}
+
+
+
+\newenvironment{envWorkedSolS}[2][3cm]
+{
+    \iftoggle{bSolution}
+    { 
+       \udensdot[#1]{#2}      
+    }
+    {
+       \Pointilles[1.5]{1}
+    }
+}
+{
+}
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Book:
+%     Latex Cookbook
+%
+%
+% Function:
+%     
+%
+% Date: 2020.05.05
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+\rowcolors{2}{bkcolor}{white}
+
+\newcommand{\tblhead}[1]{%
+    \textcolor{black}{\textbf{#1}}
+}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Package:
+%     tcolorbox
+%
+%
+% Function:
+%     
+%
+% Date: 2020.05.10
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+\newtcolorbox[auto counter,number within=section]{bxExample}[2][]{%
+    styexample,
+    skin=bicolor,
+    title=#1
+}
+
+\newtcolorbox[auto counter,number within=section]{bxExampleA}[2][]{%
+    styexample,
+    skin=bicolor,
+	nobeforeafter,
+	#1
+}
+
+\newtcolorbox[auto counter,number within=section]{bxHighlight}[2][]{%
+    styhighlight,
+    skin=bicolor,
+    title=#1
+}
+
+
+\newtcolorbox[auto counter,number within=section]{bxIntro}[2][]{%
+    styintro,
+    skin=bicolor,
+    title=#1
+}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% URL:
+%     https://tex.stackexchange.com/questions/248889/package-for-framed-boxes
+%
+%
+% Function:
+%     
+%
+% Date: 2020.11.07
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+\newtcolorbox[auto counter]{bxSkill}[2][]{
+    styskill,
+    title={\bfseries Skill~\thetcbcounter~#2},
+	enhanced,
+	drop shadow={black!50!white},
+    coltitle=black,
+    top=0.3in,
+    attach boxed title to top left= {xshift=0.5cm,
+	                                 yshift=-\tcboxedtitleheight/2},
+    boxed title style={size=small,colback=white},
+	#1
+}
+
+% \newtcolorbox[]{YetAnotherTheorem}[2][]{%
+    % { enhanced,
+	  % frame empty,
+	  % interior empty,
+	  % colframe=ForestGreen!50!white,
+      % coltitle=ForestGreen!50!black,
+	  % fonttitle=\bfseries,
+	  % colbacktitle=ForestGreen!15!white,
+      % borderline={0.5mm}{0mm}{ForestGreen!15!white},
+      % borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
+      % attach boxed title to top center={yshift=-2mm},
+      % boxed title style={boxrule=0.4pt},
+	  % varwidth boxed title,
+	  % title=#1	 
+ % }
+ 
+ 
+% \newcounter{myexample}
+
+% \newtcbtheorem[use counter=myexample]{YetTheorem}{Theorem}%
+% {enhanced,frame empty,interior empty,colframe=ForestGreen!50!white,
+% coltitle=ForestGreen!50!black,fonttitle=\bfseries,colbacktitle=ForestGreen!15!white,
+% borderline={0.5mm}{0mm}{ForestGreen!15!white},
+% borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
+% attach boxed title to top center={yshift=-2mm},
+% boxed title style={boxrule=0.4pt},varwidth boxed title}{theo}
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Package:
+%     https://tex.stackexchange.com/questions/81897/how-to-box-the-correct-answer-in-exam-class
+%
+%
+% Function:
+%     How to box the correct answer in Exam class?
+%
+% Date: 2020.08.05
+
+%---------------------------------------------------------------------------
+
+% \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+
+% \newcommand{\DrawSmartBox}[1][red]{%
+    % \tikz[overlay,remember picture]{
+    % \draw[#1]
+      % ($(bl)+(-1.75em,1em)$) rectangle
+      % ($(br)+(0.2em,-0.4em)$);}
+% }
+
+% % \MyCorrectSmartChoice:
+% % #1 optional argument: aspect customization
+% % #2 mandatory argument: the answer
+% \newcommand{\MyCorrectSmartChoice}[2][blue]{ \tikzmark{bl}#2\tikzmark{br}\DrawSmartBox[#1]}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Package:
+%     https://tex.stackexchange.com/questions/211914/set-line-spacing-in-tcolorbox
+%
+%
+% Function:
+%     One and half spacing
+%
+% Date: 2020.07.31
+%
+%---------------------------------------------------------------------------
+
+
+\newtcolorbox[auto counter,number within=section]{bxSolution}[1][]{%
+    skin=bicolor,
+    boxrule=1pt,
+	borderline={0.5mm}{0mm}{black,dashed},
+    %colbacktitle=gray!10!white,
+    %colback=gray!10!white,
+	colback=white,
+    coltitle=black,
+    colbacklower=white,
+    colframe=white,
+    fonttitle=\bfseries,
+    %title=Example ~\thetcbcounter: #2,#1
+    title=#1
+}
+
+
+\newtcolorbox{bxTip}[2][]{enhanced,
+    before skip=2mm,
+    after skip=2mm,
+    colback=bkcolor,
+	coltitle=black,
+    colframe=black!50,
+    boxrule=0.2mm,
+    attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=tcbcolback!30!effbkcolor,
+						      draw=black!50]
+                               ([yshift=-1mm,xshift=-1mm]frame.north west)
+                               arc[start angle=0,end angle=180,radius=1mm]
+                               ([yshift=-1mm,xshift=1mm]frame.north east)
+                               arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=tcbcolback!60!effbkcolor,
+						      right color=tcbcolback!60!effbkcolor,
+                              middle color=tcbcolback!80!effbkcolor,
+							  draw=black!50]
+                               ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                               [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+                               -- (frame.south east) -- (frame.south west)
+                               -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                               [sharp corners]-- cycle;
+                      },interior engine=empty,
+    },
+    fonttitle=\bfseries,
+    title={#2},
+    #1
+    }
+
+
+\newtcolorbox{bxTipTable}[3][]{enhanced,
+    before skip=2mm,
+    after skip=2mm,
+    colback=bkcolor,
+	coltitle=black,
+    colframe=black!50,
+    boxrule=0.2mm,
+	top=40mm,
+    attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=tcbcolback!30!effbkcolor,
+						      draw=black!50]
+                               ([yshift=-1mm,xshift=-1mm]frame.north west)
+                               arc[start angle=0,end angle=180,radius=1mm]
+                               ([yshift=-1mm,xshift=1mm]frame.north east)
+                               arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=tcbcolback!60!effbkcolor,
+						      right color=tcbcolback!60!effbkcolor,
+                              middle color=tcbcolback!80!effbkcolor,
+							  draw=black!50]
+                               ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                               [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+                               -- (frame.south east) -- (frame.south west)
+                               -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                               [sharp corners]-- cycle;
+                      },interior engine=empty,
+    },
+    fonttitle=\bfseries,
+	tabularx={#3},
+    title={#2},
+    #1
+    }
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}% see tabularx
+\newtcolorbox{skilltable}[2][]{enhanced jigsaw,
+                               breakable, 
+                               fonttitle=\bfseries\large,
+                               fontupper=\normalsize\sffamily,
+                               colback=white,               %yellow!10!white,
+                               colframe=gray!50!white,
+                               colbacktitle=purple!20!white,
+                               coltitle=black,
+                               center title,
+                               tabularx={#1},
+                               title=#2}
+
+
+\newtcolorbox{bxExamHeader}[1][]{%
+    enhanced,
+	sharp corners,
+	width=\linewidth-6pt,
+    enlarge top by=3pt,
+	enlarge bottom by=3pt,
+    enlarge left by=3pt,
+	enlarge right by=3pt,
+	frame hidden,
+	boxrule=0pt,
+	top=1mm,
+	bottom=1mm,
+    colframe=green!30!black, 
+	colbacktitle=green!50!yellow,
+    coltitle=black, 
+	colback=white,
+    borderline={0.5pt}{-0.5pt}{black,dashed},
+    borderline={1pt}{-3pt}{black},
+	#1
+}
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Original code script is from package Elegantbook
+% 
+%
+%
+% Function:
+%     
+%
+% Date: 2020.08.27
+%
+%---------------------------------------------------------------------------
+
+\newenvironment{introduction}[1][Introduction]{
+    \begin{tcolorbox}[introductionsty,title={#1}]
+        \begin{multicols}{2}
+          \begin{itemize}[label=\textcolor{structurecolor}{\upshape\scriptsize\SquareShadowBottomRight}]}{
+          \end{itemize}
+        \end{multicols}
+    \end{tcolorbox}}
+  
+  
+\everymath{\displaystyle}
+
