@@ -779,7 +779,6 @@ innerbottommargin=5pt]{cBox}
 
 \usepackage{xsim}
 
-\usepackage{tabularx}
 \usepackage{booktabs} % Required for nicer horizontal rules in tables
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable, skins, listings,raster}
@@ -856,10 +855,10 @@ innerbottommargin=5pt]{cBox}
                            top=8pt,
                            before skip=8pt,
                            sharp corners
-                         },
-    }
-}
-{
+                         }
+       }
+   }
+   {
     \tcbset{
         styexample/.style={
                            colback=bkcolor,
@@ -2186,7 +2185,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                       },interior engine=empty,
     },
     fonttitle=\bfseries,
-    title={#2},
+    title={\protect\section{#2}},
     #1
     }
 
