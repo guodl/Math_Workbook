@@ -1,4 +1,4 @@
-﻿﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Structural Definitions File
 % Version 2.0 (9/2/15)
 %
@@ -20,9 +20,10 @@
 %----------------------------------------------------------------------------------------
 %    
 %----------------------------------------------------------------------------------------
-
+\providecommand{\varFolderA}{}
 \providecommand{\varExamCode}{}
 \providecommand{\varExamVar}{}
+
 
 \providecommand{\iPageStart}{1}
 
@@ -35,6 +36,7 @@
 \usepackage{pgfkeys}
 \usepackage{xparse}
 \usepackage{csvsimple}
+\usepackage{gensymb}
 
 \usepackage{colortbl}
 \usepackage{xcolor} % Required for specifying colors by name
@@ -185,6 +187,8 @@
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
 \usepackage{mathtools}
+\usepackage{latexsym}
+\usepackage{bbding}
 
 %-------------------------------------------------------------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Special_Characters#Degree_symbol_for_temperature_and_math
@@ -783,155 +787,9 @@ innerbottommargin=5pt]{cBox}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable, skins, listings,raster}
 
-\iftoggle{biPrintOnly}{
-    \tcbset{
-        styexample/.style={
-                           colback=bkcolor,
-		                   colframe=blue,
-                           boxrule=1pt,
-                           colbacktitle=gray!10!white,
-                           colback=bkcolor,
-                           coltitle=black,
-                           colbacklower=white,
-                           % colframe=blue,
-                           colframe=white,
-                           segmentation style={blue, dotted},
-                           borderline={0.2mm}{0mm}{blue},
-                           fonttitle=\bfseries,
-                           sharp corners},
-        styskill/.style={
-                           colback=bkcolor,
-		                   colframe=blue,
-                           boxrule=1pt,
-                           colbacktitle=gray!10!white,
-                           colback=bkcolor,
-                           coltitle=black,
-                           colbacklower=white,
-                           % colframe=blue,
-                           colframe=white,
-                           segmentation style={blue, dotted},
-                           borderline={0.2mm}{0mm}{blue},
-                           fonttitle=\bfseries},
-        styhighlight/.style={
-                           colback=bkcolor,
-		                   colframe=blue,
-                           boxrule=1pt,
-                           colbacktitle=gray!10!white,
-                           colback=bkcolor,
-                           coltitle=black,
-                           colbacklower=white,
-                           % colframe=blue,
-                           colframe=white,
-                           segmentation style={blue, dotted},
-                           borderline={0.2mm}{0mm}{blue,dotted},
-                           fonttitle=\bfseries,
-                           sharp corners},
-        styintro/.style={  enhanced,
-                           colback=bkcolor, 
-		                   frame empty,
-						   interior empty,
-						   colframe=ForestGreen!50!white,
-                           coltitle=ForestGreen!50!black,
-						   fonttitle=\bfseries,
-						   colbacktitle=ForestGreen!15!white,
-                           borderline={0.5mm}{0mm}{ForestGreen!15!white},
-                           borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
-                           attach boxed title to top center={yshift=-3mm},
-                           boxed title style={boxrule=0.4pt},
-						   varwidth boxed title
-						   },
-        introductionsty/.style={
-                           enhanced,
-                           breakable,
-                           colback=structurecolor!10,
-                           colframe=structurecolor,
-                           fonttitle=\bfseries,
-                           colbacktitle=structurecolor,
-                           fontupper=\itshape,
-                           attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
-                           boxrule=0pt,
-                           toprule=0.5pt,
-                           bottomrule=0.5pt,
-                           top=8pt,
-                           before skip=8pt,
-                           sharp corners
-                         }
-       }
+\iftoggle{biPrintOnly}{  \input{tcbset_gray}
    }
-   {
-    \tcbset{
-        styexample/.style={
-                           colback=bkcolor,
-		                   colframe=blue,
-                           boxrule=1pt,
-                           colbacktitle=gray!10!white,
-                           colback=bkcolor,
-                           coltitle=black,
-                           colbacklower=white,
-                           % colframe=blue,
-                           colframe=white,
-                           segmentation style={blue, dotted},
-                           borderline={0.2mm}{0mm}{blue},
-                           fonttitle=\bfseries,
-                           sharp corners},
-        styskill/.style={
-                           colback=bkcolor,
-		                   colframe=blue,
-                           boxrule=1pt,
-                           colbacktitle=gray!10!white,
-                           colback=bkcolor,
-                           coltitle=black,
-                           colbacklower=white,
-                           % colframe=blue,
-                           colframe=white,
-                           segmentation style={blue, dotted},
-                           borderline={0.2mm}{0mm}{blue},
-                           fonttitle=\bfseries},
-        styhighlight/.style={
-                           colback=bkcolor,
-		                   colframe=blue,
-                           boxrule=1pt,
-                           colbacktitle=gray!10!white,
-                           colback=bkcolor,
-                           coltitle=black,
-                           colbacklower=white,
-                           % colframe=blue,
-                           colframe=white,
-                           segmentation style={blue, dotted},
-                           borderline={0.2mm}{0mm}{blue,dotted},
-                           fonttitle=\bfseries,
-                           sharp corners},
-        styintro/.style={  enhanced,
-                           colback=bkcolor, 
-		                   frame empty,
-						   interior empty,
-						   colframe=ForestGreen!50!white,
-                           coltitle=ForestGreen!50!black,
-						   fonttitle=\bfseries,
-						   colbacktitle=ForestGreen!15!white,
-                           borderline={0.5mm}{0mm}{ForestGreen!15!white},
-                           borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},
-                           attach boxed title to top center={yshift=-3mm},
-                           boxed title style={boxrule=0.4pt},
-						   varwidth boxed title
-						   },
-        introductionsty/.style={
-                           enhanced,
-                           breakable,
-                           colback=structurecolor!10,
-                           colframe=structurecolor,
-                           fonttitle=\bfseries,
-                           colbacktitle=structurecolor,
-                           fontupper=\itshape,
-                           attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
-                           boxrule=0pt,
-                           toprule=0.5pt,
-                           bottomrule=0.5pt,
-                           top=8pt,
-                           before skip=8pt,
-                           sharp corners
-                         },
-    }
+   {                     \input{tcbset_color}  
 }
 
 \xsimsetup{
@@ -1285,18 +1143,18 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 
 %\fancyfoot[LE,RO]{Guo De Liang Thomas}
-%\fancyfoot[LO]{\textsuperscript{\textcopyright}2018 Cockle Bay Elite Education} % Print the nearest section name on the left side of odd pages
-%\fancyfoot[RE]{\textsuperscript{\textcopyright}2018 Cockle Bay Elite Education} % Print the current chapter name on the right side of even pages
+%\fancyfoot[LO]{\textsuperscript{\textcopyright}2021 Elite Tuition Limited} % Print the nearest section name on the left side of odd pages
+%\fancyfoot[RE]{\textsuperscript{\textcopyright}2021 Elite Tuition Limited} % Print the current chapter name on the right side of even pages
 
 % \renewcommand{\footrulewidth}{2.5pt} % Removes the rule in the footer
 
 \renewcommand{\footrulewidth}{0.4pt}
 
 \iftoggle{biPublish}{
-       \fancyfoot[L]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Education 2019}}
+       \fancyfoot[L]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Tuition 2021}}
        \fancyfoot[R]{\href{http://www.eliteducation.net}{http://www.eliteducation.net}}
        
-       % \fancyfoot[LE,RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Education 2019 http://www.eliteducation.net}}
+       % \fancyfoot[LE,RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Tuition 2021 http://www.eliteducation.net}}
     }
     {
        \fancyfoot[LE,RO]{KiwiEdu9@gmail.com}  
@@ -1305,8 +1163,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \iftoggle{biTutorCN}{
        \fancyfoot[LE]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} 
-                                          \begin{CJK*}{UTF8}{gbsn}精英教育　私塾辅导\end{CJK*}  }}
-       \fancyfoot[RE]{Elite Education Centre  \;\;  74 John Gill Road}
+                                          \begin{CJK*}{UTF8}{gbsn}精英补习　私塾辅导\end{CJK*}  }}
+       \fancyfoot[RE]{Elite Tuition  \;\;  74 John Gill Road}
         
                       
        \fancyfoot[RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} Guo DeLiang Thomas \;\; (Mobile: 022 313 4665)     }}
@@ -1584,26 +1442,49 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \providecommand{\cmdPaperCIE}{}
 \renewcommand{\cmdPaperCIE}[3]
 {
-    \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } {
+    \iftoggle{bQuestion} {
+	    %--------------------------------------------------------------------------
+		% \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } {
+		%
+		%--------------------------------------------------------------------------
         \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}{    
             \includepdf[pages=\iPageStart- ,  
                        addtotoc={\iPageStart, subsection, 1, #1\_#2\_qp\_#3, lable}]
                  {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}
         }{}
+
+        \iftoggle{bSolution}{ 
+            \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}{
+                \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+                    {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}
+            }{}
+        }
+
+        \iftoggle{bAnswer} { 
+            \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}{
+                \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+                    {../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}
+            }{}
+        }
     }
 
-    \iftoggle{bSolution}{ 
+	
+    \ifboolexpr{(not togl{bQuestion}) and togl {bSolution}}{ 
         \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}{
             \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
-                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+                        addtotoc={1, subsection, 1, #1\_#2\_qp\_#3, lable,
+						          1, subsubsection, 1, Worked Solution, lable}]
                 {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}
         }{}
     }
 
-    \iftoggle{bAnswer} { 
+    \ifboolexpr{(not togl{bQuestion}) and togl {bAnswer}} { 
         \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}{
             \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
-                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+                        addtotoc={1, subsection, 1, #1\_#2\_qp\_#3, lable,
+						          1, subsubsection, 1, Mark Scheme, lable}]
                 {../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}
         }{}
     }
@@ -1620,7 +1501,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %       
 % For example:
 %            MATHL  - Exam Code
-%             HP1    - Year 2017 Summer Paper
+%            HP1    - Year 2017 Summer Paper
 %            Year   -
 %            Season -             
 %            TZ     - Time Zone
@@ -1663,9 +1544,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
               % \StrOption        
     % }{}
     
-    \StrSubstitute{#1}{-}{_}[\dStrPaper]
-    
-    
+    \StrSubstitute{#1}{-}{_}[\dStrPaper] 
+	
     \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}{
             \includepdf[pages=\iPageStart- ,  
                        addtotoc={\iPageStart, subsection, 1, #3 #2  #4  , lable}]
@@ -1748,6 +1628,84 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                         addtotoc={1, subsection, 1, Mark Scheme, lable}]
                      {../../Education/ExamPaper/NCEA/#2-ass-#3.pdf}
         }{}    
+    }
+
+}
+
+
+%---------------------------------------------------------------------------------------------
+% Get the Past Paper by Year. 
+%
+%
+%      \cmdPaperByYear{9709}{m19}{13}
+%      \cmdPaperCIE{9709}{w19}{73}
+%       
+% For example:
+%            9709   - Exam Code
+%             s17    - Year 2017 Summer Paper             
+%            23     - Paper Variance
+%            1      - Question      (For future use)     
+%            5-7    - Pages in Exam
+%            1101   - Difficulty Level         
+%            1      - Code: 
+%                        1. Question
+%                        2. Sample Answer
+%                        3. Mark Scheme
+%            1000   - Skill Code
+%            Surd   - Skill Description
+%
+% Date:
+%
+%---------------------------------------------------------------------------------------------
+
+\providecommand{\cmdPaperByYear}{}
+\renewcommand{\cmdPaperByYear}[4]
+{    
+    \iftoggle{bQuestion} {
+	    %--------------------------------------------------------------------------
+		% \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } {
+		%
+		%--------------------------------------------------------------------------
+        \IfFileExists{../../Education/ExamPaper/#1/#2-#3.pdf}{    
+            \includepdf[pages=\iPageStart- ,  
+                       addtotoc={\iPageStart, subsection, 1, #4, lable}]
+                 {../../Education/ExamPaper/#1/#2-#3.pdf}
+        }{}
+
+        \iftoggle{bSolution}{ 
+            \IfFileExists{../../Education/ExamPaper/HSC/#1-#2-Solution.pdf}{
+                \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+                    {../../Education/ExamPaper/#1/#2-#3-Solution.pdf}
+            }{}
+        }
+
+        \iftoggle{bAnswer} { 
+            \IfFileExists{../../Education/ExamPaper/#1/#2-#3-ms.pdf}{
+                \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+                    {../../Education/ExamPaper/#1/#2-#3-ms.pdf}
+            }{}
+        }
+    }
+
+	
+    \ifboolexpr{(not togl{bQuestion}) and togl {bSolution}}{ 
+        \IfFileExists{../../Education/ExamPaper/#1/#2-#3-Solution.pdf}{
+            \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsection, 1, #4, lable,
+						          1, subsubsection, 1, Worked Solution, lable}]
+                {../../Education/ExamPaper/#1/#2-#3-Solution.pdf}
+        }{}
+    }
+
+    \ifboolexpr{(not togl{bQuestion}) and togl {bAnswer}} { 
+        \IfFileExists{../../Education/ExamPaper/#1/#2-#3-ms.pdf}{
+            \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsection, 1, #4, lable,
+						          1, subsubsection, 1, Mark Scheme, lable}]
+                {../../Education/ExamPaper/#1/#2-#3-ms.pdf}
+        }{}
     }
 
 }
@@ -1838,12 +1796,22 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %-----------------------------------------------------------------------------------------------------------------------------------------
 
 \newcommand{\udensdot}[2][\textwidth]{%
-    \tikz[baseline=(todotted.base)]{
-        \node[inner sep=1pt,outer sep=0pt] (todotted) {#2};
-        %\draw[densely dotted] (todotted.south west) -- (todotted.south east);
-        %\draw[densely dotted] (todotted.south west) -- +(0:4cm);
-        \draw[densely dotted] (todotted.south west) -- +(0:#1);
-    }%
+	\iftoggle{bAnswer}{
+		\tikz[baseline=(todotted.base)]{
+			\node[inner sep=1pt,outer sep=0pt] (todotted) {#2};
+			%\draw[densely dotted] (todotted.south west) -- (todotted.south east);
+			%\draw[densely dotted] (todotted.south west) -- +(0:4cm);
+			\draw[densely dotted] (todotted.south west) -- +(0:#1);
+		}%
+	}
+	{
+		\tikz[baseline=(todotted.base)]{
+			\node[inner sep=1pt,outer sep=0pt] (todotted) {\phantom{#2}};
+			%\draw[densely dotted] (todotted.south west) -- (todotted.south east);
+			%\draw[densely dotted] (todotted.south west) -- +(0:4cm);
+			\draw[densely dotted] (todotted.south west) -- +(0:#1);
+		}%
+	}
 }%
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
@@ -1949,7 +1917,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \newenvironment{envWorkedSolL}[2][3cm]
 {
-    \iftoggle{bSolution}
+    \iftoggle{bAnswer}
     { 
        \udensdot[#1]{#2}      
     }
@@ -1964,7 +1932,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \newenvironment{envWorkedSolS}[2][3cm]
 {
-    \iftoggle{bSolution}
+    \iftoggle{bAnswer}
     { 
        \udensdot[#1]{#2}      
     }
@@ -2031,7 +1999,9 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 	#1
 }
 
-\newtcolorbox[auto counter,number within=section]{bxHighlight}[2][]{%
+
+
+\newtcolorbox[]{bxHighlight}[2][]{%
     styhighlight,
     skin=bicolor,
     title=#1
@@ -2044,31 +2014,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     title=#1
 }
 
-%-----------------------------------------------------------------------------------------------------------------------------------------
-%
-% URL:
-%     https://tex.stackexchange.com/questions/248889/package-for-framed-boxes
-%
-%
-% Function:
-%     
-%
-% Date: 2020.11.07
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------
 
-\newtcolorbox[auto counter]{bxSkill}[2][]{
-    styskill,
-    title={\bfseries Skill~\thetcbcounter~#2},
-	enhanced,
-	drop shadow={black!50!white},
-    coltitle=black,
-    top=0.3in,
-    attach boxed title to top left= {xshift=0.5cm,
-	                                 yshift=-\tcboxedtitleheight/2},
-    boxed title style={size=small,colback=white},
-	#1
-}
+
 
 % \newtcolorbox[]{YetAnotherTheorem}[2][]{%
     % { enhanced,
@@ -2157,7 +2104,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 
 
-\newtcolorbox{bxTip}[2][]{enhanced,
+\newtcolorbox[auto counter]{bxTip}[2][]{enhanced,
     before skip=2mm,
     after skip=2mm,
     colback=bkcolor,
@@ -2168,7 +2115,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     varwidth boxed title*=-3cm,
     boxed title style={frame code={
                         \path[fill=tcbcolback!30!effbkcolor,
-						      draw=black!50]
+						      draw=blue!50]
                                ([yshift=-1mm,xshift=-1mm]frame.north west)
                                arc[start angle=0,end angle=180,radius=1mm]
                                ([yshift=-1mm,xshift=1mm]frame.north east)
@@ -2185,8 +2132,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                       },interior engine=empty,
     },
     fonttitle=\bfseries,
-    title={\protect\section{#2}},
-    #1
+    title=~\thetcbcounter: #2,    %-------- {\protect\section{#2}},
+    #1%
     }
 
 
@@ -2231,8 +2178,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                                fonttitle=\bfseries\large,
                                fontupper=\normalsize\sffamily,
                                colback=white,               %yellow!10!white,
-                               colframe=gray!50!white,
-                               colbacktitle=purple!20!white,
+                               colframe=gray!90!white,
+                               colbacktitle=purple!10!white,
                                coltitle=black,
                                center title,
                                tabularx={#1},
@@ -2259,6 +2206,52 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     borderline={1pt}{-3pt}{black},
 	#1
 }
+
+
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+% 
+%
+%
+% Function:
+%     
+%
+% Date: 2020.08.27
+%
+%---------------------------------------------------------------------------
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+                                                    \node[shape=circle,draw,inner sep=2pt] (char) {#1};
+													}
+					   }
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Function:
+%        Output current date as yyyy.mm.dd. 
+%        For example:
+%                    2021.08.21 
+% 
+% Webpage: 
+%        https://tex.stackexchange.com/questions/152392/date-format-yyyy-mm-dd     
+%
+% Function:
+%     
+%
+% Date: 2021.08.21
+%
+%---------------------------------------------------------------------------
+
+\def\myCurrentDate{\leavevmode\hbox{\the\year.\twodigits\month.\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+
+
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
 % Original code script is from package Elegantbook
@@ -2282,4 +2275,35 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
   
   
 \everymath{\displaystyle}
+
+
+%-------------------------------------------------------------------------------------------------
+%  https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
+%
+%
+%-------------------------------------------------------------------------------------------------
+\setlength{\mathindent}{1cm}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Get the current chapter name, section name, subsection name
+% 
+% Function:
+%     
+%  https://tex.stackexchange.com/questions/62241/how-to-get-the-current-chapter-name-section-name-subsection-name-etc
+%
+% Date: 2020.08.27
+%
+%---------------------------------------------------------------------------
+
+\let\Chaptermark\chaptermark
+\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
+\let\Sectionmark\sectionmark
+\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+\let\Subsectionmark\subsectionmark
+\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
+\let\Subsubsectionmark\subsubsectionmark
+\def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
+
 

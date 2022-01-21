@@ -8,27 +8,41 @@ Set File=
 
 ren call housekeep.bat
 
+call GenPDF  Past_Papers_HSC_Math
 
-call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper1
-call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper2
-call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper3
+
 exit
+
+
+REM -------------------------------------------------------------------------------------------------
+REM
+REM
+REM
+REM
+REM -------------------------------------------------------------------------------------------------
+
+
+call GenPdf  Past_Papers_Cambridge_IGCSE_Math_0580_Extended
+call GenPDF  Past_Papers_Cambridge_IGCSE_Math_0606
 
 call GenPdf  Past_Papers_Cambridge_Pure_Math1_9709
 call GenPdf  Past_Papers_Cambridge_Pure_Math3_9709
 
-
 call GenPdf  Past_Papers_Cambridge_Statistics1_9709
 call GenPdf  Past_Papers_Cambridge_Statistics2_9709
 
+call GenPdf  Past_Papers_NCEA_Level_2_Math
+call GenPDF  Past_Papers_NCEA_Level_3_Calculus
 
-call GenPDF  Past_Papers_Cambridge_Biology_9700
-call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper1
-call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper2
-call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper3
 
-call GenPDF  Past_Papers_Cambridge_Chemistry_9701
-call GenPDF  Past_Papers_Cambridge_Physics_AS_9702
+call GenPdf  Cambridge_Pure_Mathematics_1_Practice_Workbook
+call GenPdf  Cambridge_Pure_Mathematics_3_Practice_Workbook
+ 
+
+call GenPDF  Past_Papers_IB_Math_MAA_HL
+call GenPDF  Past_Papers_IB_Math_MAA_SL
+call GenPDF  Past_Papers_IB_Math_MAI_HL
+call GenPDF  Past_Papers_IB_Math_MAI_SL
 
 call GenPDF  Past_Papers_IB_Math_HL_Option
 
@@ -37,44 +51,21 @@ call GenPDF  Past_Papers_IB_Math_FURSL
 call GenPDF  Past_Papers_IB_Math_SDSL
 
 
-call GenPDF  Past_Papers_IB_Math_HL
-call GenPDF  Past_Papers_IB_Math_SL
+call GenPDF  Past_Papers_Cambridge_Biology_9700_AS
+call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper1
+call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper2
+call GenPDF  Past_Papers_Cambridge_Biology_9700_Paper3
 
-call GenPDF  Past_Papers_Cambridge_IGCSE_Math_0606
-call GenPdf  Past_Papers_Cambridge_IGCSE_Math_0580_Extended
+call GenPDF  Past_Papers_Cambridge_Biology_9700_A2
 
-
-
-call GenPDF  Past_Papers_NCEA_Level_3_Calculus
-call GenPdf  Past_Papers_NCEA_Level_2_Math
-
+call GenPDF  Past_Papers_Cambridge_Chemistry_9701_AS
+call GenPDF  Past_Papers_Cambridge_Chemistry_9701_A2
 
 
-call GenPdf  Past_Papers_NCEA_Level_2_Math
+call GenPDF  Past_Papers_Cambridge_Physics_AS_9702
+call GenPDF  Past_Papers_Cambridge_Physics_A2_9702
 
 
-call GenPdf  Cambridge_Pure_Mathematics_1_Practice_Workbook
-call GenPdf  Cambridge_Pure_Mathematics_3_Practice_Workbook
- 
-exit
-
-
-
-call GenPdf %File%
-
-
-REM call GenPdf  %FileName%
-
-Copy %FileName%.pdf %FileCheck%
-
-
-
-
-
-call GenPDF Cambridge_Pure_Mathematics_1_Practice_Workbook
-
-call Cambridge_Pure_Mathematics_1_Practice_Workbook.pdf
-call GenPDF Cambridge_Pure_Mathematics_3_Practice_Workbook
 
 call GenPdf  Math_Year07
 call GenPdf  Math_Year08
