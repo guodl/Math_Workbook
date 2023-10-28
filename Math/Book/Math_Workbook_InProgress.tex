@@ -1,8 +1,140 @@
+\newtcbox{envDashBox}{enhanced,frame hidden,borderline={0.5pt}{0pt}{red,dashed} }
+
+
+\begin{envDashBox} mark 123
+     $\frac{1}{x}  $
+\end{envDashBox}
+\clearpage
+
+\begin{enumerate}[leftmargin=0cm] 
+
+\item The curve of $f(x)=x^3-ax^2+bx+4 $ has a tangent with gradient 2 at the point (1,6).\\Find the coordinates of the point on the curve where $x$=2.
+    \begin{envAnswer}[blankline=8]         $   f(x)=x^3-2x^2+3x+4            $ \end{envAnswer}
+
+
+\end{enumerate}
+
+
+
+\clearpage
+
+
+
+\begin{bxTip}{Skill: Composite functions}
+\begin{enumerate}[leftmargin=0cm] 
+
+\item Let $f(x)=(x+1)^3$. Let $g$ be a function so that $fg(x)=27x^9$. Find $g(x)$.
+    \begin{envAnswer}[blankline=3]         $               $ \end{envAnswer}
+
+
+\item Let $f(x)=(x+1)^2$. Let $g$ be a function so that $fg(x)=8x^6$. Find $g(x)$.
+    \begin{envAnswer}[blankline=3]         $               $ \end{envAnswer}
+
+\item Let $g(x)=x+5$. Let $g$ be a function so that $fg(x)=x^2+10x+25$. Find $f(x)$.
+    \begin{envAnswer}[blankline=3]         $               $ \end{envAnswer}
+
+
+\end{enumerate}
+
+\end{bxTip}
+
+
+\begin{bxTip}{Skill: Integration by reverse of chain rule}
+    \pdfbookmark[section]{Integration}{Reverse of chain rule}
+
+    Find $ \int x^2 cos(x^3-5) \, dx         $
+
+\tcbline 
+
+Analysis and elaboration:\indent \indent \indent \indent
+\vspace{0.5cm} 
+
+$\begin{WithArrows}
+       \qquad   &  \int x^2 cos(x^3-5)  \, dx 	                   \Arrow{\circled{1} Observe: $(x^3-5)=3x^2 $ }   \\[20pt]
+	          = &  \int \frac{1}{3}(x^3-5)' \cos(x^3-5) dx         \Arrow{\circled{2}                          }\\[20pt]
+              = &  \frac{1}{3} \int  (x^3-5)' \cos(x^3-5) dx                  \\[10pt]                                  
+              = &                                                  \Arrow{\circled{3} \HandRight Integration by reverse of chain rule. } \\[10pt]     
+			  = &  \frac{1}{3} \sin(x^3-5)+c
+\end{WithArrows}$
+
+
+\tcbline
+
+Solution:\indent \indent \indent \indent
+\vspace{0.5cm} 
+
+$\begin{WithArrows}
+       \qquad   &  \int xe^{2x} \, dx 	                             \\[20pt]
+	          = & \int x \cdot (\frac{1}{2} e^{2x})' \, dx           \\[20pt]
+              = & x \cdot \frac{1}{2} e^{2x} -    \int (x)' \cdot \frac{1}{2} e^{2x} \, dx     \\[10pt]                                  
+              = & x \cdot \frac{1}{2} e^{2x} -    \int 1 \times \frac{1}{2} e^{2x} \, dx       \\[10pt]                                  
+              = & \frac{x}{2} e^{2x} -    \int \frac{1}{2} e^{2x} \, dx                \\[10pt]     
+              = & \frac{x}{2} e^{2x} -    \frac{1}{4} e^{2x} + c                       \\[10pt]     
+			  = & \frac{1}{4} (2x-1)e^{2x}+c
+\end{WithArrows}$
+
+
+\end{bxTip}
+
+
+
+
+\clearpage
+
+
+
+\begin{bxTip}{Skill: Integration by parts}
+    \pdfbookmark[section]{Integration}{Integration by parts}
+
+    Find $ \int xe^{2x} \, dx         $
+
+\tcbline 
+
+Analysis and elaboration:\indent \indent \indent \indent
+\vspace{0.5cm} 
+
+$\begin{WithArrows}
+       \qquad   &  \int xe^{2x} \, dx 	                           \Arrow{\circled{1} Integrate $e^{2x}$ }   \\[20pt]
+	          = & \int x \cdot (\frac{1}{2} e^{2x})' \, dx         \Arrow{\circled{2} \HandRight Integration by parts: $\int uv' \, dx  = uv - \int u'v \, dx $   }  \\[20pt]
+              = & x \cdot \frac{1}{2} e^{2x} -    \int (x)' \cdot \frac{1}{2} e^{2x} \, dx     \\[10pt]                                  
+              = & x \cdot \frac{1}{2} e^{2x} -    \int 1 \times \frac{1}{2} e^{2x} \, dx       \\[10pt]                                  
+              = & \frac{x}{2} e^{2x} -    \int \frac{1}{2} e^{2x} \, dx                \\[10pt]     
+              = & \frac{x}{2} e^{2x} -    \frac{1}{4} e^{2x} + c                       \Arrow{\circled{3} Factorising }   \\[10pt]     
+			  = & \frac{1}{4} (2x-1)e^{2x}+c
+\end{WithArrows}$
+
+
+\tcbline
+
+Solution:\indent \indent \indent \indent
+\vspace{0.5cm} 
+
+$\begin{WithArrows}
+       \qquad   &  \int xe^{2x} \, dx 	                             \\[20pt]
+	          = & \int x \cdot (\frac{1}{2} e^{2x})' \, dx           \\[20pt]
+              = & x \cdot \frac{1}{2} e^{2x} -    \int (x)' \cdot \frac{1}{2} e^{2x} \, dx     \\[10pt]                                  
+              = & x \cdot \frac{1}{2} e^{2x} -    \int 1 \times \frac{1}{2} e^{2x} \, dx       \\[10pt]                                  
+              = & x \cdot \frac{1}{2} e^{2x} -    \int \frac{1}{2} e^{2x} \, dx                \\[10pt]     
+              = & x \cdot \frac{1}{2} e^{2x} -    \frac{1}{4} e^{2x} + c                       \\[10pt]     
+			  = & \frac{1}{4} (2x-1)e^{2x}+c
+\end{WithArrows}$
+
+
+\end{bxTip}
+
+
+
+
+\clearpage
+
 
 
 \begin{bxExample}{Example}    
-    \textbf{Example} The equation $5-\frac{3}{x^2}=-5x-2$ can be written in the form $x^3+ax^2+b=0$.\\
-	Find the value of $a$ and the value of $b$.
+    \textbf{Example}
+	\begin{itemize}
+	     \item[] The equation $5-\frac{3}{x^2}=-5x-2$ can be written in the form $x^3+ax^2+b=0$.\\
+	     Find the value of $a$ and the value of $b$.
+	\end{itemize}
 \tcbline 
 
 Solution:\indent \indent \indent \indent
@@ -19,11 +151,11 @@ $\begin{WithArrows}%[format = l]
 
 Note:
 \begin{itemize}
-       \item[] Above is one common error in solving absolute value inequlities as 
-                \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
+       % \item[] Above is one common error in solving absolute value inequlities as 
+                % \[    \lvert a \rvert \geqslant b       \centernot\implies     a^2 \geqslant b^2  \quad  \quad \text{if b is negative.} \]    
     
       \item[]  For example, $x=0$ is a valid value in the above inequality but
-                \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
+                % \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
 \end{itemize}
 
 \end{bxExample}
@@ -93,12 +225,14 @@ abcd123\\
     %\end{bxExample}
 \end{bxTip}
 
+\clearpage
+\setcounter{page}{1}
+
 \begin{bxExamHeader}
-    \begin{center}\Huge{Mathematics and Statistics Year 8 Algebra} \end{center}
-	\null\hfill Elite Education Centre
-
-    \vspace*{2\baselineskip}
-
+    
+    \pdfbookmark[section]{Year 8 Algebra}{sec2}
+    \begin{center}\huge{Mathematics and Statistics Year 8 Algebra} \end{center}
+	\null\hfill Elite Tuition Centre \\
     Instructions 
     \begin{itemize}
         \item Without sufficient working, correct answers may be awarded no marks.
@@ -107,20 +241,17 @@ abcd123\\
 three significant figures. Give answers in degrees to one decimal place.
     \end{itemize}
 	
-    \vspace*{2\baselineskip}
+    \vspace*{\baselineskip}
 	
 	Advice
 	\begin{itemize}
 	    \item Read each question carefully before you start to answer it.
         \item Check your answers if you have time at the end.
 	\end{itemize}
-
-    \vspace*{\baselineskip}
-	
 \end{bxExamHeader}
 
 
-\begin{enumerate}[leftmargin=0cm] 
+\begin{enumerate}%[leftmargin=0cm] 
 
 \item $x^2+8x$ can be written in the form $(x+a)^2+b$. Find the value of $a$ and the value of $b$.
     \begin{envAnswer}[blankline=3]         $     4          $ \end{envAnswer}
@@ -153,7 +284,7 @@ three significant figures. Give answers in degrees to one decimal place.
 
 
 
-\begin{bxTipTable}[colbacktitle=green]{Skill: Rearranging Formulae Check2}{X|Y|Y}
+\begin{bxTipTable}[colbacktitle=green]{Skill: Rearranging Formulae Check2  abcde98}{X|Y|Y}
 \hline
 Algebra & One & Two \\\hline
 Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $ \newline aaaa \newline bbbb  aaa  & Two \\[10pt]\hline
@@ -192,11 +323,25 @@ Sum & 6000.00 & 9000.00 & 12000.00 & 15000.00 & 42000.00
 
 
 \begin{bxHighlight}{}    
-a
+a12345678911abc
 \end{bxHighlight}
 
+\begin{bxHighlight}[sharp corners]    
+12345678911a
+\end{bxHighlight}
+
+\begin{bxHighlight}[sharp corners]{}    
+12345678911b
+\end{bxHighlight}
+
+
+\begin{bxHighlight}[sharp corners]{sharp corners}    
+12345678911c
+\end{bxHighlight}
+
+
 \begin{bxHighlight}{}    
-123456789
+12345678911
 \end{bxHighlight}
 
 
@@ -454,6 +599,7 @@ watermark text=\tcbsegmentstate]
 \noindent 
 Every line is inside an equal height group:
 \begin{tcbraster}[raster equal height,
+                  raster column skip=-1pt,
                   title=Box \thetcbrasternum,
                   enhanced,
                   size=small,
@@ -519,15 +665,7 @@ Note:
       \item[]  For example, $x=0$ is a valid value in the above inequality but
                 \[     \lvert 0 \rvert \geqslant -10       \centernot\implies     0^2 \geqslant (-10)^2 \] 
 \end{itemize}
-
-
-
-
-
-
-    
 \end{tcolorbox}
-
 \begin{tcolorbox}    
  ddddd\\
  
@@ -541,22 +679,103 @@ Note:
 
 
 $\frac{1}{1+3}$
-\end{tcolorbox} \begin{tcolorbox}
+\end{tcolorbox}
+\begin{tcolorbox}
   ccccc\\
   ddd
   
 \end{tcolorbox}
-
 \begin{tcolorbox}aaa \end{tcolorbox}
-
 \end{tcbraster}
 
 
-E 11111111111very line is inside an equal height group:
+\clearpage
+
+
+EF Mark001  11111111111very line is inside an equal height group:
+\begin{tcbraster}[raster columns=2, raster equal height=rows,
+title=Box \thetcbrasternum,
+enhanced,size=small]
+\begin{tcolorbox}[colback=white,    before skip=2mm,
+    after skip=2mm,
+    colback=bkcolor,
+	coltitle=black,
+    colframe=black!50,
+    boxrule=0.2mm,
+    attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=tcbcolback!30!effbkcolor,
+						      draw=blue!50]
+                               ([yshift=-1mm,xshift=-1mm]frame.north west)
+                               arc[start angle=0,end angle=180,radius=1mm]
+                               ([yshift=-1mm,xshift=1mm]frame.north east)
+                               arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=tcbcolback!60!effbkcolor,
+						      right color=tcbcolback!60!effbkcolor,
+                              middle color=tcbcolback!80!effbkcolor,
+							  draw=black!50]
+                               ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                               [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+                               -- (frame.south east) -- (frame.south west)
+                               -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                               [sharp corners]-- cycle;
+                      },interior engine=empty,
+    },
+    fonttitle=\bfseries
+    ]
+
+$x^2$   abc def First line\\second line\\
+The height of this box rules.\end{tcolorbox}
+\begin{tcolorbox}[use height from group]Test\end{tcolorbox}
+\begin{tcolorbox}
+First line\\second line\end{tcolorbox}
+\begin{tcolorbox}The height of this box rules.\end{tcolorbox}
+\begin{bxTip}23The height of this box rules.\end{bxTip}
+\begin{bxTip}12 The height of this box rules.\end{bxTip}
+\end{tcbraster}
+
+
+
+
+
+
+\clearpage
+
+E Mark345  11111111111very line is inside an equal height group:
 \begin{tcbraster}[raster equal height,
 title=Box \thetcbrasternum,
 enhanced,size=small]
-\begin{tcolorbox}First line\\second line\\
+\begin{tcolorbox}[colback=white,    before skip=2mm,
+    after skip=2mm,
+    colback=bkcolor,
+	coltitle=black,
+    colframe=black!50,
+    boxrule=0.2mm,
+    attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=tcbcolback!30!effbkcolor,
+						      draw=blue!50]
+                               ([yshift=-1mm,xshift=-1mm]frame.north west)
+                               arc[start angle=0,end angle=180,radius=1mm]
+                               ([yshift=-1mm,xshift=1mm]frame.north east)
+                               arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=tcbcolback!60!effbkcolor,
+						      right color=tcbcolback!60!effbkcolor,
+                              middle color=tcbcolback!80!effbkcolor,
+							  draw=black!50]
+                               ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                               [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+                               -- (frame.south east) -- (frame.south west)
+                               -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                               [sharp corners]-- cycle;
+                      },interior engine=empty,
+    },
+    fonttitle=\bfseries
+    ]
+
+$x^2$   abc def First line\\second line\\
 The height of this box rules.\end{tcolorbox}
 \begin{tcolorbox}[use height from group]Test\end{tcolorbox}
 \begin{tcolorbox}
@@ -565,9 +784,37 @@ First line\\second line\end{tcolorbox}
 \end{tcbraster}
 
 
+
+
+E 11111111111 Mark123 very line is inside an equal height group:
+\begin{tcbraster}[raster columns=2,raster equal height=rows,  raster valign=top,
+title=Box \thetcbrasternum,
+enhanced,size=small]
+\begin{bxExample}[]First line\\second line\\
+The height of this box rules.
+
+\end{bxExample}
+\begin{bxExample}[use height from group]Test
+\end{bxExample}
+\begin{bxExample}[]First line\\second line\\
+The height of this box rules.
+
+\end{bxExample}
+\begin{bxExample}[use height from group, colback=white]Test 22222
+\end{bxExample}
+\begin{tcolorbox}[colback=white]
+First line\\second line\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white]The height of this box rules.\end{tcolorbox}
+\end{tcbraster}
+
+
+
 \clearpage
 
-\begin{tcbraster}[standard,raster equal height,raster columns=2,
+Mark 988\\
+
+\begin{tcbraster}[standard,      raster equal height=rows,raster columns=2,
 colback=LightGreen,colframe=DarkGreen,colbacktitle=LimeGreen!75!DarkGreen,
 left=1mm,right=1mm,top=1mm,bottom=1mm,middle=1mm]
 
@@ -605,8 +852,6 @@ Note:
 
     
 \end{tcolorbox}
-
-
 \begin{tcolorbox}
     Example: Solve the inequality $ \lvert x \rvert \geqslant 2x-10. $
 

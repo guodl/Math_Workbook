@@ -1,4 +1,4 @@
-﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Structural Definitions File
 % Version 2.0 (9/2/15)
 %
@@ -12,7 +12,7 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -23,6 +23,14 @@
 \providecommand{\varFolderA}{}
 \providecommand{\varExamCode}{}
 \providecommand{\varExamVar}{}
+
+\providecommand{\txtTitleA}{}
+\providecommand{\txtTitleB}{}
+\providecommand{\txtTitleC}{}
+\providecommand{\txtVersion}{}
+\providecommand{\txtFoot}{}
+\providecommand{\txtEmail}{}
+
 
 
 \providecommand{\iPageStart}{1}
@@ -37,17 +45,22 @@
 \usepackage{xparse}
 \usepackage{csvsimple}
 \usepackage{gensymb}
+\usepackage{ifthen}
 
 \usepackage{colortbl}
 \usepackage{xcolor} % Required for specifying colors by name
-\usepackage{pgf,tikz,pgfplots}
+\usepackage{pgf,pgfplots}
+\usepackage{tikz}         % Required for drawing custom shapes
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+
 \pgfplotsset{compat=1.15}
 \usepackage{mathrsfs}
-\usetikzlibrary{arrows,matrix,calc,shapes}
+\usetikzlibrary{3d,angles,arrows,bending,calc,decorations.softclip,fillbetween,matrix,positioning,quotes,shapes}
 
 \usepackage{pifont,manfnt,bbding}
 
-\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,headsep=10pt,a4paper]{geometry} % Page margins
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm,headsep=10pt,a4paper]{geometry} % Page margins
 
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
@@ -60,14 +73,11 @@
 \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
 \definecolor{structurecolor}{RGB}{0,120,2}% From Elegantbook - Green
 
-\usepackage{tikz}         % Required for drawing custom shapes
-\usepackage{tkz-fct}
-\usepackage{tkz-euclide}
 
 \usepackage[english]{babel} % English language/hyphenation
 
 \usepackage{enumitem} % Customize lists
-\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+%\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
 
 \usepackage{booktabs} % Required for nicer horizontal rules in tables
 
@@ -77,6 +87,33 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{witharrows}
+\usepackage{paracol}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%  Function:
+%      Straight "upright" integration symbol
+%
+%  Webpage:
+%      https://tex.stackexchange.com/questions/503527/how-to-write-upright-integrals-with-automatic-sizing
+%      https://tex.stackexchange.com/questions/425098/which-opentype-math-fonts-are-available
+%
+%  Date:
+%      2023.08.22
+%
+%----------------------------------------------------------------------------------------
+
+
+%\usepackage{unicode-math}
+%\usepackage[upint]{stix}
+
+%\setmathfont[StylisticSet=8]{STIX Two Math}
+
+%\usepackage[integrals]{wasysym}
+\usepackage[nolimits]{cmupint}
+
 
 %----------------------------------------------------------------------------------------
 %    FONTS
@@ -84,7 +121,11 @@
 
 \usepackage{avant} % Use the Avantgarde font for headings
 %\usepackage{times} % Use the Times font for headings
-\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font 
+                      % together with math symbols from the Symbol, 
+					  % Chancery and Computer Modern fonts
+
 
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage[utf8]{inputenc} % Required for including letters with accents
@@ -94,7 +135,10 @@
 %    BIBLIOGRAPHY AND INDEX
 %----------------------------------------------------------------------------------------
 
-\usepackage[style=numeric,citestyle=numeric,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\usepackage[style=numeric,citestyle=numeric,sorting=nyt
+                         ,sortcites=true,autopunct=true
+						 ,babel=hyphen,hyperref=true
+						 ,abbreviate=false,backref=true,backend=biber]{biblatex}
 \addbibresource{bibliography.bib} % BibTeX bibliography file
 \defbibheading{bibempty}{}
 
@@ -342,13 +386,18 @@ innerbottommargin=5pt]{cBox}
 % Date: 15/02/2020
 %
 %-------------------------------------------------------------------------------
-%%　\newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
+%% \newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
 
 % \newtcbtheorem[auto counter,number within=section]{theo}%
   % {Theorem}{fonttitle=\bfseries\upshape, fontupper=\slshape,
      % arc=0mm, colback=blue!5!white,colframe=blue!75!black}{theorem}
 
-\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}                  
+%----------------------------------------------------------------------------
+% Comment to avoid compile error
+%
+%%%%% \newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}                  
+
+
 \newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}    
 \newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}        
 \newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}    
@@ -534,6 +583,8 @@ innerbottommargin=5pt]{cBox}
 \usepackage{todonotes}
 \usepackage{multicol}
 \usepackage{multiaudience}
+\usepackage{etoolbox}
+\usepackage{arydshln}
 
 
 % \SetNewAudience{Tutor}
@@ -550,6 +601,8 @@ innerbottommargin=5pt]{cBox}
 
 \usepackage{CJKutf8}               % Note: For Chinese Characters
 %\usepackage{ctex}
+
+\usepackage{tabto}
 
 \let\exercise\pkexercise
 
@@ -580,6 +633,9 @@ innerbottommargin=5pt]{cBox}
 
 \togglefalse{biPublish}
 
+
+\newtoggle{biCompact}              % Compact Format, no blank space or line
+\togglefalse{biCompact}
 
 \newtoggle{biTutorCN}              % Tutition in Chinese
 \toggletrue{biTutorCN}
@@ -620,8 +676,10 @@ innerbottommargin=5pt]{cBox}
 %     8. bWorkedSolL           - Indicator Worked Solution Long
 %     9. bWorkedSolS           - Indicator Worked Solution Short
 
-%　　　　bCompress             - Indicator if printed blank space
+%    10. bCompact              - Indicator if printed blank space
 %------------------------------------------------------------------------------------------------------------------------
+
+\newtoggle{bRef}
 
 \newtoggle{bTextbook}
 \newtoggle{bRevision}
@@ -636,7 +694,7 @@ innerbottommargin=5pt]{cBox}
 \newtoggle{bWorkedSolS}
 
 \newtoggle{bDottedLine}
-\newtoggle{bCompress}
+\newtoggle{bCompact}
 
 \newtoggle{biMacleans}             % bi Boolean Indicator
 \newtoggle{biStKent}
@@ -665,13 +723,14 @@ innerbottommargin=5pt]{cBox}
 %
 %-----------------------------------------------------------------------------------------------------
 
+\toggletrue{bRef}
+
 \togglefalse{bTextbook}
 \toggletrue{bRevision}
 \togglefalse{bWorkbook}
 \toggletrue{bTest}
 \togglefalse{bPastPaper}
 
-\toggletrue{bDottedLine}
 
 \togglefalse{biPrintOnly}
 \toggletrue{biNoCoverPage}
@@ -688,13 +747,15 @@ innerbottommargin=5pt]{cBox}
 %\toggletrue{biStKent}
 %\toggletrue{biACGStrathAllan} 
 
+\toggletrue{bDottedLine}
+\togglefalse{bCompact}
+
 
 \toggletrue{bQuestion}
 \togglefalse{bSolution}
 \togglefalse{bAnswer}
 \togglefalse{bWorkedSolL}
 \togglefalse{bWorkedSolS}
-\togglefalse{bCompress}
 
 \setcounter{nExamYear}{00}     %------ Exam Year 2017
 
@@ -775,97 +836,38 @@ innerbottommargin=5pt]{cBox}
 
 
 
-%-----------------------------------------------------------
-% Setup: xsim 
-%
-%
-%-----------------------------------------------------------
-
-\usepackage{xsim}
 
 \usepackage{booktabs} % Required for nicer horizontal rules in tables
 \usepackage{tcolorbox}
-\tcbuselibrary{breakable, skins, listings,raster}
+\tcbuselibrary{breakable, skins, listings,raster,poster, most}
+
+
+%\usepackage{fontawesome}
+\usepackage{fontawesome5}
+\usepackage{awesomebox}
+\usepackage{intcalc}
+\setcounter{tocdepth}{5}
+\usepackage{graphicx}
+\usepackage{centernot}
+
+%--------------------------------------------------------------------
+%
+%  Comment to avoid compile error
+%
+%%%%\usepackage{fontawesome}
+
+\usepackage{environ}
+
+
+
+
+
 
 \iftoggle{biPrintOnly}{  \input{tcbset_gray}
    }
    {                     \input{tcbset_color}  
 }
 
-\xsimsetup{
-      exercise/name =
-    , exercise/template  = easyitem
-    , exercise/print     = true
-    , solution/template  = easyitem
-    , solution/print     = true
-    , blank/blank-style  = \dotuline{\textcolor{blue}{#1}}
-    , blank/filled-style = \dotuline{\makebox[\textwidth][l]{\textcolor{blue}{#1}}}
-}
-
-%-----------------------------------------------------------
-% Below script block is from the manua of XSIM
-%
-%
-%-----------------------------------------------------------
-
-\DeclareExerciseEnvironmentTemplate{easyitem}
-  {\item[\GetExerciseProperty{counter}]}
-  {}
-
-
-\DeclareExerciseEnvironmentTemplate{boxed}
-  {%
-    \tcolorbox[
-      enhanced ,
-      % attach boxed title to top center = {yshift=-7.5pt} ,
-      colback = white , 
-      colbacktitle = white ,
-      coltitle = black , 
-      % colframe = black ,
-      boxed title style = { colframe = black } ,
-      fonttitle=\bfseries,
-      sharp corners=all,
-      breakable,
-      title=
-        \XSIMmixedcase{\GetExerciseName} % -- Comment the exercise name
-        \textbf{\GetExerciseName ~\GetExerciseProperty{counter}}
-        \IfInsideSolutionF{%
-          ~\GetExerciseProperty{counter}%
-           \IfExercisePropertySetT{subtitle}{. \GetExerciseProperty{subtitle}}%
-        }%
-    ]
-    
-    \IfInsideSolutionT{%
-     % \tcbsubtitle{Exercise}
-     %     \GetExerciseBody{exercise}  %% Include exercise body
-          \tcbsubtitle{Solution}
-    }
-    
-  }
-  {
-    \Pointilles[1.5]{4}
-    \endtcolorbox
-  }
-
-
-
-% declare a user command for short answers:
-\NewDocumentCommand\answer{m}{%
-  \IfSolutionPrintT{%
-    \UseExerciseTemplate{begin}{solution}%
-      #1%
-    \UseExerciseTemplate{end}{solution}%
-  }{}%
-}
-
-\usepackage{fontawesome5}
-\usepackage{intcalc}
-\setcounter{tocdepth}{5}
-\usepackage{awesomebox}
-\usepackage{graphicx}
-\usepackage{fontawesome}
-\usepackage{centernot}
-\usepackage{environ}
 
 %--------------------------------------------------------------------------------------------------------------------------------------------------
 % Description:
@@ -1091,7 +1093,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %
 %-------------------------------------------------------------------------------------------------------------
 
-
 \tikzset{ 
     table/.style={
         matrix of nodes,
@@ -1106,7 +1107,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
         text depth=0.5ex,
         text height=2ex,
         nodes in empty cells,
-%%
         every odd row/.style={
             nodes={fill=gray!20}
         },
@@ -1120,8 +1120,126 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                 font=\bfseries
             }
         }
-    }
+    },
 }
+
+\tcbset{	
+    styleTitle/.style={
+	                   enhanced,
+                       attach boxed title to top left={yshift=-\tcboxedtitleheight/2,xshift=4ex},
+                       colframe=black,
+                       colback=white,
+                       fonttitle=\bfseries,
+                       colbacktitle=white,
+                       coltitle=black,
+                       boxed title style={
+                                           boxrule=0pt,
+                                           colframe=white,
+                                         },
+	},
+    styleTip/.style={
+	                 enhanced,
+	                 before skip=2mm,
+    	             after skip=2mm,
+                     colback=bkcolor,
+                     coltitle=black,
+                     colframe=black!50,
+                     boxrule=0.2mm,
+                     attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+                     varwidth boxed title*=-3cm,
+                     boxed title style={
+                           frame code={
+                             \path[fill=tcbcolback!30!effbkcolor,
+						           draw=blue!50]
+                                       ([yshift=-1mm,xshift=-1mm]frame.north west)
+                                       arc[start angle=0,end angle=180,radius=1mm]
+                                       ([yshift=-1mm,xshift=1mm]frame.north east)
+                                       arc[start angle=180,end angle=0,radius=1mm];
+                             \path[left color=tcbcolback!60!effbkcolor,
+						           right color=tcbcolback!60!effbkcolor,
+                                   middle color=tcbcolback!80!effbkcolor,
+							       draw=black!50]
+                               ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                               [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+                               -- (frame.south east) -- (frame.south west)
+                               -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                               [sharp corners]-- cycle;
+                          },
+					      interior engine=empty,
+                     },
+                     fonttitle=\bfseries,
+	},
+    styleDashed/.style={
+        enhanced,
+        borderline={0.5pt}{0pt}{dashed,gray},
+        before skip=0pt, 
+        after skip=0pt,
+        boxrule=0.5pt,
+        colframe=white, 
+        colback=white, 
+        arc=0.5ex,
+        boxsep=.5ex, 
+        top=1.5ex, bottom=0.5ex, left=0.5em, right=0.5em,
+        colbacktitle=white, 
+        coltitle=black,
+        attach boxed title to top left={
+                                        xshift=0.7cm, 
+                                        yshift =-\tcboxedtitleheight/2
+                                        },
+        boxed title style={enhanced, 
+                           boxrule=0.25pt, 
+                           colframe=white
+                        },
+        fonttitle=\bfseries,
+    },
+}
+
+\iftoggle{bSolution}{
+       \tcbset{styleUnderline/.style={
+                                      %-------styleDashed,
+		                                enhanced,
+                                        borderline={0.5pt}{0pt}{dashed,gray},
+                                        before skip=0pt, 
+                                        after skip=0pt,
+                                        boxrule=0.5pt,
+                                        colframe=white, 
+                                        colback=white, 
+                                        arc=0.5ex,
+                                        boxsep=.5ex, 
+                                        top=1.5ex, bottom=0.5ex, left=0.5em, right=0.5em,
+                                        colbacktitle=white, 
+                                        coltitle=black,
+                                        attach boxed title to top left={
+                                               xshift=0.7cm, 
+                                               yshift =-\tcboxedtitleheight/2
+                                            },
+                                        boxed title style={ enhanced, 
+                                                            boxrule=0.25pt, 
+                                                            colframe=white
+                                                          },
+                                        fonttitle=\bfseries,
+
+	                               } 
+              } 
+    }{
+       \tcbset{styleUnderline/.style={ 
+                                      enhanced,
+									  sharp corners,
+									  colframe=white,
+									  colback=white,
+		                              underlay={\begin{tcbclipinterior} 
+		                                                 \draw[help lines,
+														       blue,
+				                                               densely dotted, 
+						                				 	   xstep=0,  
+											                   ystep=1.2cm,                                                                 black,
+                              shift={(interior.north west)}
+															   ]
+			                               	                         (interior.north west)+(0,-0.01cm) grid (interior.south east);
+		                                        \end{tcbclipinterior}}
+	                                 } 
+        } 
+    }
 
 %----------------------------------------------------------------------------------------
 %    PAGE HEADERS
@@ -1143,38 +1261,38 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 
 %\fancyfoot[LE,RO]{Guo De Liang Thomas}
-%\fancyfoot[LO]{\textsuperscript{\textcopyright}2021 Elite Tuition Limited} % Print the nearest section name on the left side of odd pages
-%\fancyfoot[RE]{\textsuperscript{\textcopyright}2021 Elite Tuition Limited} % Print the current chapter name on the right side of even pages
+%\fancyfoot[LO]{\textsuperscript{\textcopyright}2023 Elite Tuition Limited} % Print the nearest section name on the left side of odd pages
+%\fancyfoot[RE]{\textsuperscript{\textcopyright}2023 Elite Tuition Limited} % Print the current chapter name on the right side of even pages
 
 % \renewcommand{\footrulewidth}{2.5pt} % Removes the rule in the footer
 
 \renewcommand{\footrulewidth}{0.4pt}
 
 \iftoggle{biPublish}{
-       \fancyfoot[L]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Tuition 2021}}
-       \fancyfoot[R]{\href{http://www.eliteducation.net}{http://www.eliteducation.net}}
+       \fancyfoot[L]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} mathxue \the\year}}
+       \fancyfoot[R]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} mathxue \the\year}}
        
        % \fancyfoot[LE,RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Tuition 2021 http://www.eliteducation.net}}
     }
     {
-       \fancyfoot[LE,RO]{KiwiEdu9@gmail.com}  
+       \fancyfoot[LE,RO]{gipnc63@gmail.com}  
     }
 
 
 \iftoggle{biTutorCN}{
-       \fancyfoot[LE]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} 
-                                          \begin{CJK*}{UTF8}{gbsn}精英补习　私塾辅导\end{CJK*}  }}
+       \fancyfoot[LE]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} 
+                                          \begin{CJK*}{UTF8}{gbsn}???? ????\end{CJK*}  }}
        \fancyfoot[RE]{Elite Tuition  \;\;  74 John Gill Road}
         
                       
-       \fancyfoot[RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} Guo DeLiang Thomas \;\; (Mobile: 022 313 4665)     }}
+       \fancyfoot[RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} Guo DeLiang Thomas \;\; (Mobile: 022 313 4665)     }}
        
-      % \fancyfoot[RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright} \begin{CJK*}{UTF8}{gbsn}郭德良\end{CJK*}  Guo DeLiang Thomas Telephone: 022 313 4665     }}
+      % \fancyfoot[RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} \begin{CJK*}{UTF8}{gbsn}???\end{CJK*}  Guo DeLiang Thomas Telephone: 022 313 4665     }}
        
-       % \fancyfoot[LE,RO]{\href{http://www.eliteducation.net}{\textsuperscript{\textcopyright}Elite Education 2019 http://www.eliteducation.net}}
+       % \fancyfoot[LE,RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright}Elite Tuition 2019 http://www.mathxue.com}}
     }
     {
-       \fancyfoot[LE,RO]{KiwiEdu9@gmail.com  }  
+       \fancyfoot[LE,RO]{gipnc63@gmail.com  }  
     }
 
 
@@ -1264,6 +1382,9 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \newcommand{\Pointilles}[2][3]{%
     \iftoggle{bDottedLine}{
+        %\par\nobreak
+        %\noindent\rule{0pt}{1.5\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
+        %\multido{}{#2}{\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf}% ... dotted lines ...
         \par\nobreak
         \noindent\rule{0pt}{1.5\baselineskip}% Provides a larger gap between the preceding paragraph and the dots
         \multido{}{#2}{\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf}% ... dotted lines ...
@@ -1347,7 +1468,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                 \ifnumequal{\value{nWorkBook}}{\value{nOddEven}}{}{ %--- Not Equal
                      \ifnumequal{#8}{1}{
                         \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } { 
-                           \includepdf[scale=0.95
+                           \include	[scale=0.95
                                        , pages=#6
                                        , pagecommand={\pagestyle{fancy}}
                                        ]
@@ -1362,6 +1483,38 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 
 
+%---------------------------------------------------------------------------------------------
+% Exam Questoins by Topic
+%
+%      \cmdQuestionByTopic{Page-Range}{Path}
+%      
+%      
+% For example:
+%      2-3                        -  Page Range
+%      ../../9709_w18_qp_13.pdf   -  Latex File Name include Path (generate by Excel)
+%                                    Need to add "" if include space             
+%
+% Date:
+%     2023.04.16
+%
+%
+%---------------------------------------------------------------------------------------------
+
+\newcommand{\cmdQuestionByTopic}[2]
+{
+    \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } { 
+        \IfFileExists{#2}{
+            \includepdf[pages=#1
+                          , scale = 0.95
+                          % , clip=10cm   5cm   5cm  5cm
+                          %, trim=0.5cm 0.5cm 0.5cm 11cm
+                          %, pagecommand={\pagestyle{fancy}}
+                            , frame=true
+                        ]{#2}
+        }{}                     
+    }
+}
+
 
 
 
@@ -1370,10 +1523,10 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 % Exam Questoins by Topic
 %
 %      \cmdQuestionCIE{9709}{18}{s}{31}{10i}{5-7}{1110}{1}{Vector, Distance, Point, Line}
-%      
+%      \cmdQuestionCIE{9709}{w18}  {12}{10}{16-17}{60}{1}
 % For example:
 %            9709   - Exam Code
-%             s17    - Year 2017 Summer Paper             
+%            s17    - Year 2017 Summer Paper             
 %            23     - Paper Variance
 %            10i    - Question (For future use)     
 %            5-7    - Pages in Exam
@@ -1394,9 +1547,12 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \providecommand{\cmdQuestionCIE}{}
 \renewcommand{\cmdQuestionCIE}[7]
 {
+0000000000\\ 
     \ifnumequal{#7}{1}{
+	    11111111111\\ 
         \ifboolexpr{togl{biTutor} or togl{biPrintOnly} or togl{biStudent} } { 
             \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}{
+			     2222222222\\
                 \includepdf[pages=#5
                               , scale = 0.95
                               % , clip=10cm   5cm   5cm  5cm
@@ -1449,22 +1605,27 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 		%--------------------------------------------------------------------------
         \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}{    
             \includepdf[pages=\iPageStart- ,  
-                       addtotoc={\iPageStart, subsection, 1, #1\_#2\_qp\_#3, lable}]
+                       addtotoc={\iPageStart, subsection, 1, #1\_#2\_qp\_#3, lable\_#1\_#2\_qp\_#3}]
                  {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3.pdf}
         }{}
 
         \iftoggle{bSolution}{ 
             \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}{
                 \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
-                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+                        addtotoc={6, subsubsection, 1, Worked Solution, lable\_#1\_#2\_qp\_#3}]
                     {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}
             }{}
         }
 
         \iftoggle{bAnswer} { 
             \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}{
-                \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
-                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+                \includepdf[pages=1- 
+				            %----- , frame, scale=0.9
+							, pagecommand={},
+                        addtotoc={6,                %--- Page Number 
+						          subsubsection,    %--- Section 
+ 								  1,                %--- Level
+								  Mark Scheme, lable\_#1\_#2\_qp\_#3}]
                     {../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}
             }{}
         }
@@ -1474,17 +1635,19 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     \ifboolexpr{(not togl{bQuestion}) and togl {bSolution}}{ 
         \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}{
             \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
-                        addtotoc={1, subsection, 1, #1\_#2\_qp\_#3, lable,
-						          1, subsubsection, 1, Worked Solution, lable}]
+                        addtotoc={1, subsection, 1, #1\_#2\_qp\_#3, lable\_#1\_#2\_qp\_#3,
+						          1, subsubsection, 1, Worked Solution, lable\_#1\_#2\_qp\_#3}]
                 {../../Education/ExamPaper/Cambridge/#1_#2_qp_#3_Solution.pdf}
         }{}
     }
 
     \ifboolexpr{(not togl{bQuestion}) and togl {bAnswer}} { 
         \IfFileExists{../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}{
-            \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
-                        addtotoc={1, subsection, 1, #1\_#2\_qp\_#3, lable,
-						          1, subsubsection, 1, Mark Scheme, lable}]
+            \includepdf[pages=1- 
+			            %----  , frame, scale=0.9
+						, pagecommand={},
+                        addtotoc={1, subsection, 1, #1\_#2\_qp\_#3, lable\_#1\_#2\_qp\_#3,
+						          6, subsubsection, 1, Mark Scheme, lable\_#1\_#2\_qp\_#3}]
                 {../../Education/ExamPaper/Cambridge/#1_#2_ms_#3.pdf}
         }{}
     }
@@ -1545,34 +1708,50 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     % }{}
     
     \StrSubstitute{#1}{-}{_}[\dStrPaper] 
-	
-    \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}{
-            \includepdf[pages=\iPageStart- ,  
-                       addtotoc={\iPageStart, subsection, 1, #3 #2  #4  , lable}]
-                     {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}
-    }{}
 
-    \iftoggle{bSolution} {     
-        \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_Solution.pdf}{
-            \includepdf[pages=1- , 
-                        % frame, 
-                        % scale=0.9, 
-                        pagecommand={},
-                        addtotoc={1, subsubsection, 1, Worked Solution, lable}]
-                     {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_Solution.pdf}
-        }{}
-    }    
+    \iftoggle{bQuestion} {  	
+		\IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}{
+				\includepdf[pages=\iPageStart- ,  
+						   addtotoc={\iPageStart, subsection, 1, #3 #2  #4  , lable}]
+						 {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4.pdf}
+		}{}
 
-    \iftoggle{bAnswer} { 
-        \IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}{
-            \includepdf[pages=1- , 
-                        % frame, 
-                        % scale=0.9, 
-                        pagecommand={},
-                        addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
-                     {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}
-        }{}    
-    }
+
+		\iftoggle{bSolution} {     
+			\IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_Solution.pdf}{
+				\includepdf[pages=1- , 
+							% frame, 
+							% scale=0.9, 
+							pagecommand={},
+							addtotoc={1, subsubsection, 1, Worked Solution, lable}]
+						 {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_Solution.pdf}
+			}{}
+		}    
+
+		\iftoggle{bAnswer} { 
+			\IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}{
+				\includepdf[pages=1- , 
+							% frame, 
+							% scale=0.9, 
+							pagecommand={},
+							addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
+						 {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}
+			}{}    
+		}
+	}
+
+    \ifboolexpr{(not togl{bQuestion}) and togl {bAnswer}} { 
+		\IfFileExists{../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}{
+			\includepdf[pages=1- , 
+							% frame, 
+							% scale=0.9, 
+							pagecommand={},
+							addtotoc={1, subsection,    1, #3 #2  #4  , #3#2#4,
+							          1, subsubsection, 1, Mark Scheme, #3#2#4ms}]
+						 {../../Education/ExamPaper/IB/\dStrPaper_#2_#3_#4_ms.pdf}
+		}{}
+		
+	}
 
 }
 
@@ -1667,13 +1846,13 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 		%
 		%--------------------------------------------------------------------------
         \IfFileExists{../../Education/ExamPaper/#1/#2-#3.pdf}{    
-            \includepdf[pages=\iPageStart- ,  
+            \includepdf[pages=1- ,  
                        addtotoc={\iPageStart, subsection, 1, #4, lable}]
                  {../../Education/ExamPaper/#1/#2-#3.pdf}
         }{}
 
         \iftoggle{bSolution}{ 
-            \IfFileExists{../../Education/ExamPaper/HSC/#1-#2-Solution.pdf}{
+            \IfFileExists{../../Education/ExamPaper/#1/#2-#3-Solution.pdf}{
                 \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
                         addtotoc={1, subsubsection, 1, Worked Solution, lable}]
                     {../../Education/ExamPaper/#1/#2-#3-Solution.pdf}
@@ -1685,6 +1864,14 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                 \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
                         addtotoc={1, subsubsection, 1, Mark Scheme, lable}]
                     {../../Education/ExamPaper/#1/#2-#3-ms.pdf}
+            }{}
+        }
+		
+        \iftoggle{bAnswer} { 
+            \IfFileExists{../../Education/ExamPaper/#1/#2-#3-rpt.pdf}{
+                \includepdf[pages=1- , frame, scale=0.9, pagecommand={},
+                        addtotoc={1, subsubsection, 1, Examiner Report , lable}]
+                    {../../Education/ExamPaper/#1/#2-#3-rpt.pdf}
             }{}
         }
     }
@@ -1806,7 +1993,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 	}
 	{
 		\tikz[baseline=(todotted.base)]{
-			\node[inner sep=1pt,outer sep=0pt] (todotted) {\phantom{#2}};
+			\node[inner sep=1pt,outer sep=0pt] (todotted) {\color{white}{#2}};
 			%\draw[densely dotted] (todotted.south west) -- (todotted.south east);
 			%\draw[densely dotted] (todotted.south west) -- +(0:4cm);
 			\draw[densely dotted] (todotted.south west) -- +(0:#1);
@@ -1815,7 +2002,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }%
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
-%     https://tex.stackexchange.com/questions/34312/how-to-create-a-command-with-key-values　
+%     https://tex.stackexchange.com/questions/34312/how-to-create-a-command-with-key-values
 %
 %     https://tex.stackexchange.com/questions/393622/using-key-values-in-newdocumentcommand
 %
@@ -1857,7 +2044,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     \pgfkeys{/envAnswer,default, #1}
     
     \ifnum \blankline>0
-        \ifboolexpr{not ( togl{bSolution} or togl{bCompress}) } { 
+        \ifboolexpr{not ( togl{bSolution} or togl{bCompact}) } {
             \Pointilles[1.5]{\blankline}
 			\vspace{0.3cm}
         }
@@ -1875,7 +2062,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                                 }
 	}
 
-    %%% \ifboolexpr{not (togl{bAnswer} or togl{bCompress}) }{
+    %%% \ifboolexpr{not (togl{bAnswer} or togl{bCompact}) }{
     %%%    \hfill \answer \answerline[\length]
     %%% }
 	
@@ -1892,27 +2079,102 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
         \udensdot[#1]{\colorbox{green!30!white}{\BODY}}
     }
     {
-        \answerline[#1]
+        \udensdot[#1]{\phantom{\BODY}}}
     }
 }
 {
 }
 
 
-\NewEnviron{envSolution}
-{
-    \iftoggle{bSolution}
-    {
-         \begin{bxSolution} \BODY
-         \end{bxSolution}
-    }{}
+%---------------------------------------------------------------------------------------
+% Obsolute
+%
+%
+%
+%
+%
+%---------------------------------------------------------------------------------------
+
+%\NewEnviron{envSolution}
+%{
+%    \iftoggle{bSolution}
+%    {
+%         \begin{bxSolution} \BODY
+%         \end{bxSolution}
+%    }{}
+%}
+
+
+
+%------------------------------------------------------------------------------
+% https://tex.stackexchange.com/questions/24240/is-there-a-simple-way-to-retroactively-add-the-long-prefix-to-a-macros-definit
+%
+%
+%
+%
+%------------------------------------------------------------------------------
+\newtoks\patchtoks    % helper token register
+\def\longpatch#1%     % worker macro
+  {\let\myoldmac#1%
+   \long\def#1##1{\patchtoks={##1}\myoldmac{\the\patchtoks}}}
+   
+\longpatch{\phantom}
+
+
+% \NewTColorBox[auto counter,number within=section]{bxSpace}{+!O{}}{%
+    % enhanced,
+    % sharp corners,
+    % %colframe=white,
+    % colback=white,
+    % coltitle=green!40!black,
+    % fonttitle=\bfseries,
+    % styleUnderline,
+    % label={exercise@\thetcbcounter},
+    % attach title to upper=\quad,
+    % lowerbox=ignored,
+    % savelowerto=solutions/exercise-\thetcbcounter.tex,
+    % record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
+    % #1
+% }
+
+\NewTColorBox[auto counter,number within=section]{bxSpace}{+!O{}}{%
+    styleUnderline,
+	%before skip=-0.1cm,
+	after skip=2cm,
+	noparskip,
+	height=6cm,
+    label={exercise@\thetcbcounter},
+    attach title to upper=\quad,
+    lowerbox=ignored
+    % savelowerto=solutions/exercise-\thetcbcounter.tex,
+    % record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
+    #1
 }
+
+
+
+\NewDocumentEnvironment{envSolution}{ +b }{%
+  \iftoggle{bSolution}{\begin{bxSpace}{\color{blue}#1}\end{bxSpace}}%
+                      {%
+                        \iftoggle{bCompact}{}{\begin{bxSpace}\phantom{\parbox{\textwidth}{#1}}%
+                         \end{bxSpace}%
+                        }%
+                      }%
+  }{}
+
+
+
 
 \NewEnviron{envAnswerInBox}
 {
     \iftoggle{bAnswer}{ \colorbox{green!30!white}{\BODY}   }{}
 }
 {}
+
+
+
+
+
 
 
 \newenvironment{envWorkedSolL}[2][3cm]
@@ -1943,8 +2205,161 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 {
 }
 
+\newenvironment{envSol}[1][]
+{
+  \iftoggle{bCompact} 
+  {} % Compact, do nothing.
+  {  % Not compact mode 
+	\cmdUline \textcolor{white}{.}  & \iftoggle{bSolution} {#1}{\phantom{#1}} & \textcolor{white}{.}  \\[0.5cm]
+  }
+}
+{}
 
 
+%------------------------------------------------------------------------------
+% Function:
+%     Draw rounded corner densley dotted box.
+%
+% Reference:
+%     https://tex.stackexchange.com/questions/285487/dashed-version-of-boxed
+%
+% Date:
+%     2023.09.24
+%------------------------------------------------------------------------------
+
+\newtcbox{\boxAnswerC}[1][]{
+  nobeforeafter,
+  colback=white,
+  boxrule=1pt,
+  enhanced jigsaw,
+  arc=5pt,
+  rounded coners,
+  box align=bottom,
+  borderline horizontal={1pt}{0pt}{densely dotted},
+  borderline vertical={1pt}{0pt}{densely dotted},
+  width=5cm,
+  #1
+}
+
+\newtcbox{\boxAnswer}[1][]{
+%\newtcolorbox[]{\boxAnswer}[2][]{
+    nobeforeafter,
+    %enhanced,
+	width=13cm,
+    %boxrule=2pt,
+	%boxsep=0pt,
+	%top=2pt,
+	%left=2pt,
+	%bottom=2pt,
+    %colback=white, 
+    %colframe=red, 
+    %frame hidden,
+    box align=base,
+    overlay={\draw[densely dotted, rounded corners=1mm] (frame.south west) rectangle (frame.north east);},
+    #1
+}
+
+
+\newtcolorbox{boxAns}[1][]{
+    width=6cm,
+    nobeforeafter,
+    enhanced,
+    boxrule=2pt,
+	%boxsep=0pt,
+	% %top=2pt,
+	% %left=2pt,
+	bottom=2pt,
+    colback=white, 
+    % %colframe=red, 
+    frame hidden,
+    box align=base,
+	baseline=2mm,
+    overlay={\draw[densely dotted, rounded corners=1mm] (frame.south west) rectangle (frame.north east);},
+    #1
+}
+
+%----------------------------------------------------------------------------------
+% Function:
+%    
+% URL:
+%    https://tex.stackexchange.com/questions/248889/package-for-framed-boxes
+%
+% Date:
+%----------------------------------------------------------------------------------
+\newtcolorbox[auto counter]{boxSkill}[2][]{
+    title={\bfseries #2},
+    enhanced, 
+    %-- drop shadow={black!50!white},
+    coltitle=black,
+    colback=white,
+    top=0.3in,
+    attach boxed title to top left={
+        xshift=1.5em,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={size=big,colback=white},
+    #1
+}
+
+
+%-----------------------------------------------------------------
+% Function:
+%     Draw an underline under math forumlae.
+% Webpage:
+%     https://tex.stackexchange.com/questions/78929/underlining-an-equation-in-an-align-block
+% Date:
+%     2023.02.26
+%-----------------------------------------------------------------
+
+
+
+%% code by Andrew Stacey 
+% http://tex.stackexchange.com/questions/51582/background-coloring-with-overlay-specification-in-algorithm2e-beamer-package#51582
+
+
+
+\newcommand{\cmdUline}{%
+	\noindent 
+	\tikz[remember picture,overlay,baseline=4ex]
+	\draw[densely dotted] (0,0) --(\linewidth, 0) ;}
+
+
+
+\newcommand{\cmdSolution}[1]{%
+   
+	\iftoggle{bSolution} {\cmdUline \textcolor{white}{.} 111  & #1  & \textcolor{white}{.}  \\[0.5cm]}
+	                     { % ----------------------------------------------
+						   % Not solution, then check if in compact mode 
+                           % 						   
+						    \iftoggle{bCompact}{ 333 4} %
+							                   {\cmdUline 2222 \textcolor{white}{.} & \phantom{#1} & \textcolor{white}{.}  \\[0.5cm]}
+				         } 
+}
+
+
+
+
+\newcommand{\cmdWorking}[1]{%
+	\cmdUline \iftoggle{bSolution} {#1}{\phantom{#1}} \\[0.5cm]
+}
+
+\newcommand{\cmdAnswer}[1]{%
+	\cmdUline \textcolor{white}{1}  & \iftoggle{bAnswer} {#1}{\phantom{#1}} & \textcolor{white}{1}  \\[0.5cm]
+}
+
+
+
+\newcounter{cntTask}
+
+
+\setlist[enumerate]{leftmargin=1.2cm, labelsep=0.5cm,labelwidth=1.5cm}
+\settasks{
+	    column-sep=1cm,
+		counter=cntTask,
+	    label = \arabic*.,
+		label-offset=1.5em,
+    }
+    
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
@@ -1985,7 +2400,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------
 
-
 \newtcolorbox[auto counter,number within=section]{bxExample}[2][]{%
     styexample,
     skin=bicolor,
@@ -2002,7 +2416,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 
 \newtcolorbox[]{bxHighlight}[2][]{%
-    styhighlight,
+    styleHighlight,
     skin=bicolor,
     title=#1
 }
@@ -2208,6 +2622,90 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 
 
+\newtcolorbox[auto counter]{bxGeneral}[1][]{%
+    #1
+}
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Package:
+%     https://tex.stackexchange.com/questions/210928/tcolorbox-how-do-i-align-on-the-baseline-of-the-title
+%
+%
+% Function:
+%     Answer in box (tcolorbox)
+%
+% Date: 2023.08.05
+%
+%---------------------------------------------------------------------------
+
+% \newtcolorbox{boxDashed}[2][]{
+  % enhanced,
+  % attach boxed title to top left={yshift=-\tcboxedtitleheight/2,xshift=4ex},
+  % colframe=black,
+  % colback=white,
+  % fonttitle=\bfseries,
+  % colbacktitle=white,
+  % coltitle=black,
+  % boxed title style={
+    % boxrule=0pt,
+    % colframe=white,
+    % },
+  % title=#2,
+  % #1}
+  
+ \newtcolorbox{boxDashed}[2][]{
+   title={#2},
+   %%123 styleDashed,
+   #1,
+ }
+ 
+
+
+
+%---------------------------------------------------------------------------------------------
+% Include book, exam paper and so on
+%    
+%
+% Note:
+%      Strictly for internal use or draft copy only.
+%
+%
+%
+%      \cmdRef{Page, FileName}
+%      
+% For example:
+%            
+%
+% Date:
+%      2022.10.15
+%
+%---------------------------------------------------------------------------------------------
+
+\providecommand{\cmdRef}{}
+\newcommand{\cmdRefObselete}[2]
+{
+    \iftoggle{bRef} { 
+        \IfFileExists{#2}{
+            \includepdf[pages=#1,
+                              , scale = 0.95
+                              % , clip=10cm   5cm   5cm  5cm
+                              % , trim=0.5cm 0.5cm 0.5cm 11cm
+                              % , pagecommand={\pagestyle{fancy}}
+                                , frame=true
+                            ]{#2}
+        }{}
+	}{}
+}
+
+\renewcommand{\cmdRef}[2]
+{
+    \iftoggle{bRef} { 
+        \IfFileExists{#2}{
+            \includepdf[#1]{#2}
+        }{}
+	}{}
+}
 
 
 
@@ -2252,6 +2750,39 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \def\twodigits#1{\ifnum#1<10 0\fi\the#1}
 
 
+
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Function:
+%        Define pgStyleSkill using package fancyhdr (Fancy Header/Footer) 
+
+% 
+% Webpage: 
+%
+%     
+%
+% Date: 2023.04.14
+%
+%---------------------------------------------------------------------------
+
+\fancypagestyle{pgStyleSkill}{%
+    \fancyhf{}
+    % %\fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Font setting for the page number in the header
+    % %\fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
+    % %\fancyhead[CE,CO]{Date: \underline{\hspace{2cm}} Time: \underline{\hspace{1cm}}}
+    % %\fancyhead[RE]{\leftmark}  % Print the current chapter name on the right side of even pages
+
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[LO,RE]{\cmdWebLink}
+    \fancyfoot[LE,RO] {\thepage}
+}
+
+
+
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
 % Original code script is from package Elegantbook
@@ -2266,16 +2797,66 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %---------------------------------------------------------------------------
 
 \newenvironment{introduction}[1][Introduction]{
-    \begin{tcolorbox}[introductionsty,title={#1}]
+    \begin{tcolorbox}[styleIntro,title={#1}]
         \begin{multicols}{2}
           \begin{itemize}[label=\textcolor{structurecolor}{\upshape\scriptsize\SquareShadowBottomRight}]}{
           \end{itemize}
         \end{multicols}
     \end{tcolorbox}}
   
+
+\providecommand{\cmdWebLink}{}
+
+\renewcommand{\cmdWebLink}{
+	\href{http://www.mathxue.com}{\copyright\, $www.mathxue.com$ }   
+}
+
+%-------------------------------------------------------------------------------------------------
+%   Description:
+%       To easily move the entire tikzpicture
+%  
+%   Webpage:
+%       https://tex.stackexchange.com/questions/447909/how-to-easily-move-an-entire-drawing
+%
+%   Date:
+%       2023.04.14
+%-------------------------------------------------------------------------------------------------
+
+
+\tikzset{shift entire picture/.style n args={2}{execute at end picture={
+\pgfmathtruncatemacro{\tmpx}{sign(#1)}
+\pgfmathtruncatemacro{\tmpy}{sign(#2)}
+\ifnum\tmpx=1
+  \ifnum\tmpy=1
+   \path[use as bounding box] ([xshift=-#1,yshift=-#2]current bounding box.south west) rectangle 
+(current bounding box.north east);
+  \else
+   \path[use as bounding box] ([xshift=-#1]current bounding box.south west) rectangle 
+([yshift=-#2]current bounding box.north east);
+  \fi
+\else  
+  \ifnum\tmpy=1
+   \path[use as bounding box] ([yshift=-#2]current bounding box.south west) rectangle 
+([xshift=-#1]current bounding box.north east);
+  \else
+   \path[use as bounding box] (current bounding box.south west) rectangle 
+([xshift=-#1,yshift=-#2]current bounding box.north east); 
+  \fi
+\fi}}}
+
+%-------------------------------------------------------------------------------------------------
+%   Description:
+%       Not working
+%  
+%   Webpage:
+%       https://liam.page/2015/05/07/make-every-equations-in-your-document-upright/
+%
+%   Date:
+%       2023.04.12
+%-------------------------------------------------------------------------------------------------
+
   
 \everymath{\displaystyle}
-
 
 %-------------------------------------------------------------------------------------------------
 %  https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics
@@ -2283,6 +2864,171 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %
 %-------------------------------------------------------------------------------------------------
 \setlength{\mathindent}{1cm}
+
+
+
+%-----------------------------------------------------------
+% Setup: xsim 
+%
+%
+%-----------------------------------------------------------
+
+\usepackage{xsim}
+
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------
+% Function:
+%     A key for \xsimsetup to be defined (Require Expl3)
+%
+% Webpage: 
+%     https://tex.stackexchange.com/questions/632962/xsim-shortsolution-appear-after-each-exercise
+%
+%
+%-----------------------------------------------------------------------------------------------------------------
+
+ \ExplSyntaxOn
+ \bool_new:N \l_xsim_shortsolution_bool
+
+ \keys_define:nn {xsim}
+   { shortsolution/print .bool_set:N = \l_xsim_shortsolution_bool }
+
+ % new environment:
+ \NewDocumentEnvironment{shortsolution}{+b}
+   {
+     \tl_set:NV \ExerciseType \g_xsim_exercise_type_tl
+     \tl_set:NV \ExerciseID \g_xsim_exercise_id_tl
+     \SetExerciseProperty {shortsolution} {#1}
+     \bool_if:NT \l_xsim_shortsolution_bool
+       { #1}
+   }
+   {}
+ \ExplSyntaxOff
+
+
+
+
+
+
+
+
+
+
+\xsimsetup{
+	exercise/template=simple,
+	exercise/the-counter=\arabic{exercise},
+	solution/print=true,
+	shortsolution/print = true
+	% exercise/within = section
+}
+
+%\DeclareExerciseEnvironmentTemplate{simple}
+%{\par\noindent\textbf{\GetExerciseProperty{counter}}. }
+%{\par}
+
+%\DeclareExerciseEnvironmentTemplate{simple}
+%  {\item[\XSIMmixedcase{\GetExerciseName}~\GetExerciseProperty{counter}]}
+%  {}
+
+\DeclareExerciseEnvironmentTemplate{simple}
+    {\item[\GetExerciseProperty{counter}.]}
+    {}
+
+
+\DeclareExerciseEnvironmentTemplate{simple}
+    {}
+    {}
+
+
+% new property:
+\DeclareExerciseProperty{shortsolution}
+
+% new environment:
+\NewDocumentEnvironment{shortsolution}{+b}
+{%
+	\edef\ExerciseType{\csname g_xsim_exercise_type_tl\endcsname}%
+	\edef\ExerciseID{\csname g_xsim_exercise_id_tl\endcsname}%
+	\SetExerciseProperty{shortsolution}{#1}%
+}
+{}
+
+% we'll use a description list for the list of short solutions:
+\newcommand\printshortsolutions{%
+	\begin{boxDashed}{Answer}
+		\begin{description}
+			\ForEachUsedExerciseByType{%
+				\ifnum\ExercisePropertyGet{##1}{##2}{chapter-value}=\value{chapter}
+					\ifnum\ExercisePropertyGet{##1}{##2}{section-value}=\value{section}
+						\GetExercisePropertyT{shortsolution}
+							{\item[##3.]####1}%
+					\fi
+				\fi				
+			}%
+		\end{description}
+	\end{boxDashed}
+}
+
+
+
+%-----------------------------------------------------------
+% Below script block is from the manual of XSIM
+%
+%
+%-----------------------------------------------------------
+
+% \DeclareExerciseEnvironmentTemplate{easyitem}
+% {\item[\GetExerciseProperty{counter}]}
+% {}
+
+
+% \DeclareExerciseEnvironmentTemplate{boxed}
+% {%
+	% \tcolorbox[
+	% enhanced ,
+	% % attach boxed title to top center = {yshift=-7.5pt} ,
+	% colback = white , 
+	% colbacktitle = white ,
+	% coltitle = black , 
+	% % colframe = black ,
+	% boxed title style = { colframe = black } ,
+	% fonttitle=\bfseries,
+	% sharp corners=all,
+	% breakable,
+	% title=
+	% \XSIMmixedcase{\GetExerciseName} % -- Comment the exercise name
+	% \textbf{\GetExerciseName ~\GetExerciseProperty{counter}}
+	% \IfInsideSolutionF{%
+		% ~\GetExerciseProperty{counter}%
+		% \IfExercisePropertySetT{subtitle}{. \GetExerciseProperty{subtitle}}%
+	% }%
+	% ]
+	
+	% \IfInsideSolutionT{%
+		% % \tcbsubtitle{Exercise}
+		% %     \GetExerciseBody{exercise}  %% Include exercise body
+		% \tcbsubtitle{Solution}
+	% }
+	
+% }
+% {
+	% \Pointilles[1.5]{4}
+	% \endtcolorbox
+% }
+
+
+
+% declare a user command for short answers:
+\NewDocumentCommand\answer{m}{%
+	\IfSolutionPrintT{%
+		\UseExerciseTemplate{begin}{solution}%
+		#1%
+		\UseExerciseTemplate{end}{solution}%
+	}{}%
+}
+
+
 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------

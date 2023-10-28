@@ -1,136 +1,256 @@
+
+
+
 \chapterimage{chapter_head_2.pdf}
 \chapter{Skill List}
 
 
 \section{Algebra}
 
-\cmdQuestionCIE{9709}{19}{m}{32}{1}{3}{60}{1}{11aaaaaaaa}
+
+
+\clearpage
+
+\begin{bxExample}{Differentiation - Product Rule}    
+    \textbf{Example} \indent
+	\begin{itemize}
+	     \item[] Differentiate $y=e^x \sin x.
+	\end{itemize}
+\tcbline 
+
+Solution:\indent \indent \indent \indent
+\vspace{0.5cm} 
+
+$\begin{WithArrows}%[format = l]
+       \qquad           y'    &=  (e^x)' \sin x + e^x (\sin x)' 	      \Arrow{Product Rule $(uv)'=u'v+uv'$}\\[10pt]
+	                          &=  e^x \sin x + e^x \cos x                 \Arrow{Factorising} \\[10pt]
+                              &=  e^x(\sin x + \cos x)                                             
+\end{WithArrows}$
+
+\tcbline
+
+Note:\\
+\begin{warningEnv}
+    $\begin{WithArrows}%[format = l]
+        \qquad y  &=  e^x sinx          \Arrow{ $ $}\\[10pt]
+		       y' &=  (e^x)' (sinx)'   \\
+	              &=  e^x cosx
+    \end{WithArrows}$
+	
+\end{warningEnv}
+
+\end{bxExample}
 
 
 
 
-\section{Logarithmic and exponential functions}
-
-\section{Trigonometry}
 
 
 
-
-\section{Differentiation}
-
-
-
-\section{Integration}
-
-
-\begin{taggedblock}{tgRefBook}
-    \bxtgRefBook{Pure Mathematics 2 and 3 by Sophie Goldie, ISBN 978-1-144441-4646-2, page 124}
-\end{taggedblock}
-
-% \begin{envRefBook}
-    % Pure Mathematics 2 an
-% \end{envRefBook}
-
-\begin{skilltable}[X|Y|Y]{Algebra}
-Algebra & One & Two \\\hline
-Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $ \newline aaaa \newline bbbb  aaa  & Two \\\hline
-Algebra & \begin{equation*} \frac{a}{\frac{a^2}{aaa^2 + b^2  }}  \end{equation*}  & Two \\\hline
-Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
-Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
-Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
-Algebra & a $\frac{a}{\frac{a^2}{aaa^2 + b^2  }}  $  b  c & Two \\\hline
-Algebra & $\frac{a}{\frac{a^2}{aaa^2 + b^2  }} $& Two \\\hline
-Algebra & One & Two \\\hline
-Algebra & One & Two 
-\end{skilltable}
-
-
-%--------------------------------------------------------------------------------
-%  https://en.wikibooks.org/wiki/LaTeX/Mathematics#Sums_and_integrals
-%
-%
-%--------------------------------------------------------------------------------
-
-
-\begin{exercise} Find these indefinite integrals.
-\begin{tasks}[label=(\arabic*), after-item-skip=2pt,after-skip=3pt, label-width=4ex](2)
-    \task  $ \displaystyle \int sinx     \dd x $   \\    \dotuline{dotty}
-           \blank{$ =-cosx + c $}
-           
-           \iftoggle{bDottedLine}{
-        
-            \dotuline{ My Answer is: $ =-cosx + c $ }
-           }
-           {
-           }
-           
-      %     \iftagged{tgShowSolution}{}{\Pointilles[1.5]{2} }
-               
-    \task  $ \displaystyle \int sin^2x   \dd x $   
-                     % \answer{ my Answer is: \\  $ cosx +  cc $  
-                                 % \\
-                                 % \\
-                                 % }
-    \task  $ \displaystyle \int sin^3x   \dd x $     \Pointilles[1.5]{4} 
-    \task  $ \displaystyle \int sin^4x   \dd x $     \Pointilles[1.5]{4} 
-    \task  $ \displaystyle \int sin^5x   \dd x $     \Pointilles[1.5]{5} 
-\end{tasks}
-
-\end{exercise}
-
-
-
-
-\begin{exercise} Find these indefinite integrals.
-\begin{tasks}[label=(\arabic*), after-item-skip=2pt,after-skip=3pt, label-width=4ex](2)
-    \task  $ \displaystyle \int sinx     \dd x $   \\    \dotuline{dotty}
-           \blank{$ =-cosx + c $}
-           
-           \iftoggle{bDottedLine}{
-        
-            \dotuline{ My Answer is: $ =-cosx + c $ }
-           }
-           {
-           }
-           
-           \iftagged{tgShowSolution}{}{\Pointilles[1.5]{2} }
-               
-    \task  $ \displaystyle \int sin^2x   \dd x $   
-                     % \answer{ my Answer is: \\  $ cosx +  cc $  
-                                 % \\
-                                 % \\
-                                 % }
-    \task  $ \displaystyle \int sin^3x   \dd x $     \Pointilles[1.5]{4} 
-    \task  $ \displaystyle \int sin^4x   \dd x $     \Pointilles[1.5]{4} 
-    \task  $ \displaystyle \int sin^5x   \dd x $     \Pointilles[1.5]{5} 
-\end{tasks}
-
-\end{exercise}
-
-
-\begin{solution}
-   $ = cosx +c $ \\
-    \blank{$ =-cosx + c $}
-    
-    
-\Pointilles[1.5]{4}
- \end{solution} 
+\clearpage
+\noindent Differentiate.
+\begin{tasks}(2)
+    \task \begin{exercise}$(x^2+5sinx-10)^6$
+              \begin{envSolution}
+                 $ =2(x^2-25)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 2(x+5)(x-5)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
  
+    \task \begin{exercise}$(x^2+sinx+cosx+9)^6$
+              \begin{envSolution}
+                 $ =3(x^2-4)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3(x+2)(x-2)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(5sinx-3cosx+10x^2-10x+7)^4$
+              \begin{envSolution}
+                 $ =3a(4-a^2)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3a(2+a)(2-a)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
 
-\section{Numerical solution of equations}
+    \task \begin{exercise}$(20x-5+7sinx)^8$
+              \begin{envSolution}
+                 $ =5(x^2-4y^2)   $\\
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 5(x+2y)(x-2y)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+\end{tasks}
 
 
-\printsolutions
+
+\clearpage
+\noindent Differentiate.
+\begin{tasks}(2)
+    \task \begin{exercise}$(x^2+5)^2 (x^2-2x+5)^8$
+              \begin{envSolution}
+                 $ =2(x^2-25)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 2(x+5)(x-5)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(x^2+2x+1)^8 (x^2-2x+1)^8$
+              \begin{envSolution}
+                 $ =3(x^2-4)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3(x+2)(x-2)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(x^2+5)\sqrt{2x+1}$
+              \begin{envSolution}
+                 $ =3a(4-a^2)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3a(2+a)(2-a)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+
+    \task \begin{exercise}$(x^2+10)^6 (1-2x^2)^5$
+              \begin{envSolution}
+                 $ =5(x^2-4y^2)   $\\
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 5(x+2y)(x-2y)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+\end{tasks}
 
 
-\section{Vectors}
 
 
 
-\section{Differential equations}
+\clearpage
+\noindent Differentiate.
+\begin{tasks}(2)
+    \task \begin{exercise}$(x^2+5)e^x$
+              \begin{envSolution}
+                 $ =2(x^2-25)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 2(x+5)(x-5)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(x^2+5)sinx$
+              \begin{envSolution}
+                 $ =3(x^2-4)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3(x+2)(x-2)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(x^2+5)cosx$
+              \begin{envSolution}
+                 $ =3a(4-a^2)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3a(2+a)(2-a)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+
+    \task \begin{exercise}$e^x sinx$
+              \begin{envSolution}
+                 $ =5(x^2-4y^2)   $\\
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 5(x+2y)(x-2y)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+
+    \task \begin{exercise}$e^x cosx$
+              \begin{envSolution}
+                 $ =5(x^2-4y^2)   $\\
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 5(x+2y)(x-2y)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+\end{tasks}
 
 
-\section{Complex numbers}
+
+
+
+\clearpage
+\printshortsolutions
+
+
+\clearpage
+\noindent Differentiate.
+\begin{tasks}(2)
+    \task \begin{exercise}$(x^2+5sinx-10)^5$
+              \begin{envSolution}
+                 $ =2(x^2-25)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 2(x+5)(x-5)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(x^2+sinx+cosx+9)^4$
+              \begin{envSolution}
+                 $ =3(x^2-4)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3(x+2)(x-2)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+    \task \begin{exercise}$(5sinx-3cosx+10x^2-10x+7)^8$
+              \begin{envSolution}
+                 $ =3a(4-a^2)   $\\ 
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 3a(2+a)(2-a)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+
+    \task \begin{exercise}$(20x-5+7sinx)^5$
+              \begin{envSolution}
+                 $ =5(x^2-4y^2)   $\\
+                 $ =$			 
+                     \begin{shortsolution}
+  	                    $ 5(x+2y)(x-2y)$
+                     \end{shortsolution}
+              \end{envSolution}%
+          \end{exercise}
+ 
+\end{tasks}
+
 
 
 

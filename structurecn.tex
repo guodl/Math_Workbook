@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% 
+% 
+%
+% 
+% 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%--------------------------------------------------------------
+% Description:
+%     LaTeX 使用Windows系统本地字体的方法
+% 
+% Webpage:
+%     https://www.bilibili.com/read/cv2521639
+%
+% Date:
+%     2023.04.19
+%
+%--------------------------------------------------------------
+\usepackage{fontspec}
+\newfontfamily{\ftXingKai}{STXingkai}
+
+
+
+%---------------------------------------------------------------------------------------------
+% Description:
+%     Create a environment to change font
+%
+%     
+%
+% Date: 
+%     2023.09.19
+%
+%--------------------------------------------------------------------------------------------
+
+\newfontfamily{\fontFangSong}{FangSong}
+\newfontfamily{\fontJianXingKai}{JXK}
+\newfontfamily{\fontMsJianLiShu}{微软简隶书}
+\newfontfamily{\fontHuaWenXingKai}{华文行楷}
+
+\newenvironment{envTitle}
+{
+    
+    \begin{center}
+       \fontJianXingKai \fontsize{50}{58}\selectfont  
+    }
+    { 
+     \end{center}
+    } 
+}
+
+\setmainfont{Arial}
