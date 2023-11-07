@@ -927,11 +927,26 @@ innerbottommargin=5pt]{cBox}
     \newline
 }
 
-\newenvironment{warningEnv}[1][exclamation-triangle]%
+
+
+\newenvironment{warningEnvPend}[1][exclamation-triangle]%
 {
     % \bigskip\newline
     \begin{minipage}{.1\textwidth}\centering%
         \textcolor{orangeSeven}{\fontsize{16}{24}\faicon{#1}}%
+    \end{minipage}%
+    \textcolor{orangeSeven}{\vrule width 3pt \hspace{14pt}}%
+    \begin{minipage}{.8\textwidth}
+        %\color{orangeNine}
+        }
+    {\end{minipage}\bigskip\newline}
+
+
+\newenvironment{warningEnv}%
+{
+    % \bigskip\newline
+    \begin{minipage}{.1\textwidth}\centering%
+        \textcolor{orangeSeven}{\fontsize{16}{24}\faExclamationTriangle}%
     \end{minipage}%
     \textcolor{orangeSeven}{\vrule width 3pt \hspace{14pt}}%
     \begin{minipage}{.8\textwidth}
@@ -2635,31 +2650,19 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 % Function:
 %     Answer in box (tcolorbox)
 %
-% Date: 2023.08.05
+% Date: 
+%     2023.08.05
+%
+% Example：
+%     \begin{boxA}[styleDashed]{Title: Answer}
+%	  \end{boxA}   
+%
 %
 %---------------------------------------------------------------------------
 
-% \newtcolorbox{boxDashed}[2][]{
-  % enhanced,
-  % attach boxed title to top left={yshift=-\tcboxedtitleheight/2,xshift=4ex},
-  % colframe=black,
-  % colback=white,
-  % fonttitle=\bfseries,
-  % colbacktitle=white,
-  % coltitle=black,
-  % boxed title style={
-    % boxrule=0pt,
-    % colframe=white,
-    % },
-  % title=#2,
-  % #1}
-  
- \newtcolorbox{boxDashed}[2][]{
-   title={#2},
-   %%123 styleDashed,
-   #1,
- }
- 
+\newtcolorbox{boxA}[2][]{
+    title=#2,
+    #1}
 
 
 
@@ -2956,7 +2959,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 % we'll use a description list for the list of short solutions:
 \newcommand\printshortsolutions{%
-	\begin{boxDashed}{Answer}
+	\begin{boxA}[styleDashed]{Answer}
 		\begin{description}
 			\ForEachUsedExerciseByType{%
 				\ifnum\ExercisePropertyGet{##1}{##2}{chapter-value}=\value{chapter}
@@ -2967,7 +2970,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 				\fi				
 			}%
 		\end{description}
-	\end{boxDashed}
+	\end{boxA}
 }
 
 
