@@ -35,28 +35,106 @@
 
 \providecommand{\iPageStart}{1}
 
+
+%----------------------------------------------------------------------------------------
+%    FONTS
+%----------------------------------------------------------------------------------------
+
+
+%\usepackage{times} % Use the Times font for headings
+
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font 
+                      % together with math symbols from the Symbol, 
+					  % Chancery and Computer Modern fonts
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+
+%\input{str-pdflatex} 
+\input{str-xelatex}
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%    THEOREM STYLES
+%----------------------------------------------------------------------------------------
+\usepackage{amsmath,amsfonts,amssymb, amsthm} %     For math equations, theorems, symbols, etc
+\usepackage{accents}
+\usepackage{undertilde}  
+\usepackage{mathtools}
+\usepackage{latexsym}
+\usepackage{bbding}
+
+
 %----------------------------------------------------------------------------------------
 %    VARIOUS REQUIRED PACKAGES AND CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 \usepackage{dashundergaps}
 \usepackage{anyfontsize}
 \usepackage{qrcode}
-\usepackage{pgfkeys}
 \usepackage{xparse}
+\usepackage{pgfkeys}
 \usepackage{csvsimple}
 \usepackage{gensymb}
 \usepackage{ifthen}
 
-\usepackage{colortbl}
+\usepackage{color,colortbl}
 \usepackage{xcolor} % Required for specifying colors by name
-\usepackage{pgf,pgfplots}
+
 \usepackage{tikz}         % Required for drawing custom shapes
+\usepackage{scalerel}
 \usepackage{tkz-fct}
 \usepackage{tkz-euclide}
+\usepackage{pict2e}
 
-\pgfplotsset{compat=1.15}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns,arrows.meta}
+\usetikzlibrary{shadows}
+\usetikzlibrary{external}
+\usepackage{nicefrac}
+\usepackage{lscape}
+\usepackage{pdflscape}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%  Function:
+%
+%  Webpage:
+%      https://www.youtube.com/@MathPartner
+%      https://www.overleaf.com/project/60facb8e5bf7a5f50459ca38
+%
+%  Date:
+%      2025.04.10
+%
+%----------------------------------------------------------------------------------------
+
+\usepackage{pgf,pgfplots}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{
+    compat=1.15,
+	standard/.style={
+        axis line style = thick,
+        trig format=rad,
+        enlargelimits,
+        axis x line=middle,
+        axis y line=middle,
+        enlarge x limits=0.15,
+        enlarge y limits=0.15,
+        every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+        every axis y label/.style={at={(current axis.above origin)},anchor=south east},
+		ticklabel style={font=\tiny, fill=white}
+	}
+}
+
 \usepackage{mathrsfs}
-\usetikzlibrary{3d,angles,arrows,bending,calc,decorations.softclip,fillbetween,matrix,positioning,quotes,shapes}
+\usetikzlibrary{3d,angles,arrows,bending,calc,decorations.softclip,fillbetween,intersections,matrix,positioning,quotes,shapes}
 
 \usepackage{pifont,manfnt,bbding}
 
@@ -67,7 +145,7 @@
 
 \usepackage{lipsum} % Inserts dummy text
 
-\usepackage[explicit]{titlesec}
+\usepackage{titlesec}
 \usepackage{varwidth}
 
 \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
@@ -86,8 +164,12 @@
 \usepackage{multido}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{tabularray}
+\UseTblrLibrary{counter}
+
 \usepackage{witharrows}
 \usepackage{paracol}
+\usepackage{wrapfig}
 
 
 
@@ -106,7 +188,7 @@
 %----------------------------------------------------------------------------------------
 
 
-%\usepackage{unicode-math}
+\usepackage{unicode-math}
 %\usepackage[upint]{stix}
 
 %\setmathfont[StylisticSet=8]{STIX Two Math}
@@ -115,21 +197,9 @@
 \usepackage[nolimits]{cmupint}
 
 
-%----------------------------------------------------------------------------------------
-%    FONTS
-%----------------------------------------------------------------------------------------
-
-\usepackage{avant} % Use the Avantgarde font for headings
-%\usepackage{times} % Use the Times font for headings
-
-\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font 
-                      % together with math symbols from the Symbol, 
-					  % Chancery and Computer Modern fonts
 
 
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[utf8]{inputenc} % Required for including letters with accents
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
 
 %----------------------------------------------------------------------------------------
 %    BIBLIOGRAPHY AND INDEX
@@ -151,6 +221,7 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage{titletoc} % Required for manipulating the table of contents
+\usepackage{catchfile}
 
 \contentsmargin{0cm} % Removes the default margin
 
@@ -167,6 +238,7 @@
 {\color{ocre!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
 {\color{ocre}}  
 {\color{ocre!60}\normalsize\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
 
 % Section text styling
 \titlecontents{section}[1.25cm] % Indentation
@@ -225,14 +297,7 @@
 {}
 {}
 
-%----------------------------------------------------------------------------------------
-%    THEOREM STYLES
-%----------------------------------------------------------------------------------------
 
-\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
-\usepackage{mathtools}
-\usepackage{latexsym}
-\usepackage{bbding}
 
 %-------------------------------------------------------------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Special_Characters#Degree_symbol_for_temperature_and_math
@@ -509,6 +574,7 @@ innerbottommargin=5pt]{cBox}
 %----------------------------------------------------------------------------------------
 
 % A switch to conditionally include a picture, implemented by  Christian Hupfer
+
 \newif\ifusechapterimage
 \usechapterimagetrue
 \newcommand{\thechapterimage}{}%
@@ -585,6 +651,8 @@ innerbottommargin=5pt]{cBox}
 \usepackage{multiaudience}
 \usepackage{etoolbox}
 \usepackage{arydshln}
+\usepackage{dashrule}
+\usepackage{nicematrix}
 
 
 % \SetNewAudience{Tutor}
@@ -598,9 +666,11 @@ innerbottommargin=5pt]{cBox}
 \usepackage[final]{pdfpages}
 \usepackage{tasks}
 \usepackage[makeroom]{cancel}
+\usepackage{cellspace}
+\usepackage{enumext}
 
-\usepackage{CJKutf8}               % Note: For Chinese Characters
-%\usepackage{ctex}
+%\usepackage{CJKutf8}               % Note: For Chinese Characters
+\usepackage{ctex}
 
 \usepackage{tabto}
 
@@ -637,6 +707,15 @@ innerbottommargin=5pt]{cBox}
 \newtoggle{biCompact}              % Compact Format, no blank space or line
 \togglefalse{biCompact}
 
+
+\newtoggle{biShow}                % bi Boolean Indicator - Show Contents
+\toggletrue{biShow}
+
+
+\newtoggle{biTutor}                % bi Boolean Indicator - Tutor
+\toggletrue{biTutor}
+
+
 \newtoggle{biTutorCN}              % Tutition in Chinese
 \toggletrue{biTutorCN}
 
@@ -650,13 +729,16 @@ innerbottommargin=5pt]{cBox}
 \newtoggle{biWorksheet}            % bi Boolean Indicator - Worksheet
 \newtoggle{biExcercise}            % bi Boolean Indicator - Excercise
 
-
 \newtoggle{biSolution}             % bi Boolean Indicator - Solution
 \newtoggle{biMarkScheme}           % bi Boolean Indicator - Mark Scheme
 
 
+\newtoggle{biExBook}               % bi Boolean Indicator - Extracted from Book
+\newtoggle{biExPaper}              % bi Boolean Indicator - Extracted from Paper
 
-\newtoggle{biTutor}                % bi Boolean Indicator - Tutor
+\toggletrue{biExBook}    
+\toggletrue{biExPaper}  
+
 
 
 \newtoggle{biChinese}              % bi Boolean Indicator - Include Chinese.
@@ -690,8 +772,14 @@ innerbottommargin=5pt]{cBox}
 \newtoggle{bQuestion}
 \newtoggle{bSolution}
 \newtoggle{bAnswer}
+\newtoggle{bShortAnswer}
 \newtoggle{bWorkedSolL}
 \newtoggle{bWorkedSolS}
+
+
+\newtoggle{biCIE}     % Boolean Indicator -  to indicate if it is CIE.
+\newtoggle{bisAnswer} % Boolean Indicator -  to show Answer in Sample.  
+\newtoggle{birAnswer} % Boolean Indicator -  to show Answer in Revision.
 
 \newtoggle{bDottedLine}
 \newtoggle{bCompact}
@@ -748,14 +836,23 @@ innerbottommargin=5pt]{cBox}
 %\toggletrue{biACGStrathAllan} 
 
 \toggletrue{bDottedLine}
-\togglefalse{bCompact}
 
 
-\toggletrue{bQuestion}
-\togglefalse{bSolution}
-\togglefalse{bAnswer}
 \togglefalse{bWorkedSolL}
 \togglefalse{bWorkedSolS}
+
+\toggletrue{bQuestion}
+\togglefalse{bCompact}
+\togglefalse{bSolution}
+\togglefalse{bAnswer}
+
+\toggletrue{biCIE}
+\toggletrue{bisAnswer}
+\toggletrue{birAnswer}
+
+\iftoggle{bAnswer}{ \toggletrue{bSolution} }{}
+
+\togglefalse{bShortAnswer}
 
 \setcounter{nExamYear}{00}     %------ Exam Year 2017
 
@@ -774,7 +871,6 @@ innerbottommargin=5pt]{cBox}
 %
 %
 %-----------------------------------------------------------------------------------------------------
-\iftoggle{bAnswer}{ \toggletrue{bSolution}}{}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
@@ -795,9 +891,20 @@ innerbottommargin=5pt]{cBox}
 	\colorlet{effbkcolor}{white}
 }
 {
-    \colorlet{bkcolor}{gray!15}
+    %\colorlet{bkcolor}{gray!15}
+	\colorlet{bkcolor}{white}
 	\colorlet{effbkcolor}{white}
 }
+
+
+%-----------------------------------------------------------
+% Setup: xsim 
+%
+%
+%-----------------------------------------------------------
+
+\usepackage{xsim}
+
 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
@@ -830,8 +937,6 @@ innerbottommargin=5pt]{cBox}
 % Date: 2020.05.05
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 
 
@@ -1184,11 +1289,21 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                      },
                      fonttitle=\bfseries,
 	},
-    styleDashed/.style={
+	styleDashed/.style={
+		enhanced, 
+		% frame hidden, 
+		borderline= {0.5pt}{0pt}{blue,dashed},
+        colback=white, 
+        colframe=white, 
+        before skip=1mm,
+        after skip=2mm,
+        top=0.1mm, bottom=0.1mm, left=0.1mm, right=0.1mm,
+	},
+    styleDashedTitle/.style={
         enhanced,
         borderline={0.5pt}{0pt}{dashed,gray},
-        before skip=0pt, 
-        after skip=0pt,
+        % before skip=0.1cm, 
+        after skip=0.2cm,
         boxrule=0.5pt,
         colframe=white, 
         colback=white, 
@@ -1197,7 +1312,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
         top=1.5ex, bottom=0.5ex, left=0.5em, right=0.5em,
         colbacktitle=white, 
         coltitle=black,
-        attach boxed title to top left={
+        attach boxed title to
+		top left={
                                         xshift=0.7cm, 
                                         yshift =-\tcboxedtitleheight/2
                                         },
@@ -1207,15 +1323,58 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                         },
         fonttitle=\bfseries,
     },
+	styleExamHeader/.style={
+        enhanced,
+        sharp corners,
+        width=\linewidth-6pt,
+        enlarge top by=3pt,
+        enlarge bottom by=3pt,
+        enlarge left by=3pt,
+        enlarge right by=3pt,
+        frame hidden,
+        boxrule=0pt,
+        top=1mm,
+        bottom=1mm,
+        colframe=green!30!black, 
+        colbacktitle=green!50!yellow,
+        coltitle=black, 
+        colback=white,
+        borderline={0.5pt}{-0.5pt}{black,dashed},
+        borderline={1pt}{-3pt}{black},
+        beforeafter skip balanced=1mm,
+        after skip=5mm,		
+    },
+	%----------------------------------------------------------------------------------
+	% Function:
+	%    
+    % URL:
+    %    https://tex.stackexchange.com/questions/248889/package-for-framed-boxes
+    %
+    % Date:
+    %----------------------------------------------------------------------------------
+    styleTitleLeft/.style={
+        %-- title={\bfseries #2},
+	    enhanced, 
+	    %-- drop shadow={black!50!white},
+	    coltitle=black,
+        colback=white,
+        top=0.3in,
+        attach boxed title to top left={
+            xshift=1.5em,
+            yshift=-\tcboxedtitleheight/2
+        },
+        boxed title style={colback=white},
+		fonttitle=\huge,
+    },
 }
 
 \iftoggle{bSolution}{
        \tcbset{styleUnderline/.style={
-                                      %-------styleDashed,
-		                                enhanced,
+                                      %-------styleDashedTitle,
+                                        enhanced,
                                         borderline={0.5pt}{0pt}{dashed,gray},
-                                        before skip=0pt, 
-                                        after skip=0pt,
+                                        before skip=0.1cm,
+                                        after skip=0.2cm,
                                         boxrule=0.5pt,
                                         colframe=white, 
                                         colback=white, 
@@ -1233,26 +1392,28 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                                                             colframe=white
                                                           },
                                         fonttitle=\bfseries,
-
-	                               } 
+                               }
               } 
     }{
        \tcbset{styleUnderline/.style={ 
-                                      enhanced,
-									  sharp corners,
-									  colframe=white,
-									  colback=white,
-		                              underlay={\begin{tcbclipinterior} 
-		                                                 \draw[help lines,
-														       blue,
-				                                               densely dotted, 
-						                				 	   xstep=0,  
-											                   ystep=1.2cm,                                                                 black,
-                              shift={(interior.north west)}
-															   ]
-			                               	                         (interior.north west)+(0,-0.01cm) grid (interior.south east);
-		                                        \end{tcbclipinterior}}
-	                                 } 
+                     enhanced,
+	                 before skip=0.1cm,
+	                 after skip=0.2cm,
+                     sharp corners,
+                     colframe=white,
+                     colback=white,
+                     underlay={\begin{tcbclipinterior} 
+                                          \draw[help lines,
+                                                blue,
+                                                densely dotted, 
+                                                xstep=0,  
+                                                ystep=1.2cm,                                                         
+                                                black,
+                                                shift={(interior.north west)}
+                                                  ]
+                                                        (interior.north west)+(0,-0.01cm) grid (interior.south east);
+                              \end{tcbclipinterior}}
+                     } 
         } 
     }
 
@@ -1296,13 +1457,16 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \iftoggle{biTutorCN}{
        \fancyfoot[LE]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} 
-                                          \begin{CJK*}{UTF8}{gbsn}???? ????\end{CJK*}  }}
+                                          % \begin{CJK*}{UTF8}{gbsn}
+										  精英补习　私塾辅导
+										  % \end{CJK*}  
+										  }}
        \fancyfoot[RE]{Elite Tuition  \;\;  74 John Gill Road}
         
                       
        \fancyfoot[RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} Guo DeLiang Thomas \;\; (Mobile: 022 313 4665)     }}
        
-      % \fancyfoot[RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} \begin{CJK*}{UTF8}{gbsn}???\end{CJK*}  Guo DeLiang Thomas Telephone: 022 313 4665     }}
+      % \fancyfoot[RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} \begin{CJK*}{UTF8}{gbsn}精英补习　私塾辅导\end{CJK*}  Guo DeLiang Thomas Telephone: 022 313 4665     }}
        
        % \fancyfoot[LE,RO]{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright}Elite Tuition 2019 http://www.mathxue.com}}
     }
@@ -1314,6 +1478,42 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}} % Style for when a plain pagestyle is specified
 
+\fancypagestyle{pgStyWeb}{
+    \fancyhf{} % Clear all header and footer fields
+	\addtolength{\headheight}{5mm}
+    \fancyhead[LE,RO]{\boxNote{Date: $\quad\quad $/$\quad\quad $/\the\year } \vspace{1mm}} % Clear all header and footer fields
+    \fancyfoot[LE,RO]{\tiny \href{http://www.mathxue.com}{www.mathxue.com}}
+	\fancyfoot[C]{\tiny \thepage} % Center of the footer - Page number
+    \renewcommand{\headrulewidth}{0.1pt} % Header rule width
+    \renewcommand{\footrulewidth}{0.1pt} % Footer rule width
+} 
+
+\fancypagestyle{pgStyPaper}{
+    \fancyhf{} % Clear all header and footer fields
+	
+	\fancyfoot[LE,RO]{\rmfamily \scriptsize  \hspace{2cm} [\thepage] \hspace{2cm}   }  
+	
+    \renewcommand{\headrulewidth}{0pt} % Header rule width
+    \renewcommand{\footrulewidth}{0pt} % Footer rule width
+} 
+
+\fancypagestyle{pgStyWorkbook}{
+    \fancyhf{} % Clear all header and footer fields
+    \renewcommand{\headrulewidth}{0pt} % Header rule width
+    \renewcommand{\footrulewidth}{0pt} % Footer rule width
+
+
+    \fancyhead[LE,RO]{\boxNote{Date: $\quad\quad $/$\quad\quad $/\the\year } } % Clear all header and footer fields
+	
+	\fancyfoot[LE,RO]{\rmfamily \scriptsize  \hspace{2cm} [\thepage] \hspace{2cm}   }  
+} 
+
+
+%\fancypagestyle{pgstyDate}{\fancyhead[L]{\Huge{Date:} }
+%                           \fancyfoot[L]{{\tiny{\href{http://www.mathxue.com}{\textsuperscript{\textcopyright} MathXue} }}
+%                           } 
+%                          }
+						  
 % Removes the header from odd empty pages at the end of chapters
 \makeatletter
 \renewcommand{\cleardoublepage}{
@@ -1369,8 +1569,22 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \newtcbox{\bxtgRefBook}{colframe=black}
 
-%\newtcolorbox{\enRefBook}{colframe=black}
 
+\newtcbox{\bxNote}[1][]{
+      styleDashed,
+      box align=base,
+      borderline= {0.1pt}{0pt}{blue,dashed},
+	  left=2mm,
+      nobeforeafter,	  
+	  #1
+}
+
+
+\NewDocumentCommand{\boxNote}{O{biShow} O{} m}{%
+    \iftoggle{#1}{%
+         \bxNote[#2]{#3}%
+	}{}%   
+}%
 
 
 \newenvironment{envRefBook}
@@ -1922,7 +2136,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %
 %--------------------------------------------------------------------
 
-\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\dx}{\mathop{}\, dx}
 
 
 
@@ -1997,13 +2211,16 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------
 
-\newcommand{\udensdot}[2][\textwidth]{%
+\newcommand{\udensdot}[2][\linewidth]{%
 	\iftoggle{bAnswer}{
 		\tikz[baseline=(todotted.base)]{
 			\node[inner sep=1pt,outer sep=0pt] (todotted) {#2};
+			
 			%\draw[densely dotted] (todotted.south west) -- (todotted.south east);
 			%\draw[densely dotted] (todotted.south west) -- +(0:4cm);
-			\draw[densely dotted] (todotted.south west) -- +(0:#1);
+			%\draw[densely dotted] (todotted.south west) -- (0:#1);
+			\draw[densely dotted]  (todotted.south west) -- (todotted.south east);
+			%\draw[densely dotted] let \p1=(todotted.south west),\p2=(todotted.south east), in (todotted.south east) -- (#1,\y1);
 		}%
 	}
 	{
@@ -2011,7 +2228,8 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 			\node[inner sep=1pt,outer sep=0pt] (todotted) {\color{white}{#2}};
 			%\draw[densely dotted] (todotted.south west) -- (todotted.south east);
 			%\draw[densely dotted] (todotted.south west) -- +(0:4cm);
-			\draw[densely dotted] (todotted.south west) -- +(0:#1);
+			%\draw[densely dotted] (todotted.south west) -- (0:#1);
+			\draw[densely dotted] let \p1=(todotted.south west) in (todotted.south west) -- (#1 - \x1,\y1);
 		}%
 	}
 }%
@@ -2091,10 +2309,10 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 {
     \iftoggle{bAnswer}
     { 
-        \udensdot[#1]{\colorbox{green!30!white}{\BODY}}
+        \udensdot[#1]{\colorbox{green!30!white}{\textcolor{blue}{\BODY}}}
     }
     {
-        \udensdot[#1]{\phantom{\BODY}}}
+        \udensdot[#1]{\phantom{\BODY}}
     }
 }
 {
@@ -2124,7 +2342,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %------------------------------------------------------------------------------
 % https://tex.stackexchange.com/questions/24240/is-there-a-simple-way-to-retroactively-add-the-long-prefix-to-a-macros-definit
 %
-%
+% https://zhuanlan.zhihu.com/p/130917584
 %
 %
 %------------------------------------------------------------------------------
@@ -2132,9 +2350,18 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \def\longpatch#1%     % worker macro
   {\let\myoldmac#1%
    \long\def#1##1{\patchtoks={##1}\myoldmac{\the\patchtoks}}}
-   
 \longpatch{\phantom}
 
+\newcommand{\mphantom}[1]{%
+  \phantom{\parbox[t]{\textwidth}{#1}}%
+}
+
+\NewDocumentEnvironment{envShow}{O{bAnswer} +b}{%
+    \begingroup % Start group for local changes 
+    \iftoggle{#1}{#2} {\phantom{\parbox[t]{\textwidth}{#2}}}%
+}{%
+    \endgroup
+ }
 
 % \NewTColorBox[auto counter,number within=section]{bxSpace}{+!O{}}{%
     % enhanced,
@@ -2154,29 +2381,16 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \NewTColorBox[auto counter,number within=section]{bxSpace}{+!O{}}{%
     styleUnderline,
-	%before skip=-0.1cm,
-	after skip=2cm,
 	noparskip,
-	height=6cm,
+	after skip=1cm,
+	height from=4cm to 30cm,
     label={exercise@\thetcbcounter},
     attach title to upper=\quad,
-    lowerbox=ignored
+    lowerbox=ignored,
     % savelowerto=solutions/exercise-\thetcbcounter.tex,
     % record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
     #1
 }
-
-
-
-\NewDocumentEnvironment{envSolution}{ +b }{%
-  \iftoggle{bSolution}{\begin{bxSpace}{\color{blue}#1}\end{bxSpace}}%
-                      {%
-                        \iftoggle{bCompact}{}{\begin{bxSpace}\phantom{\parbox{\textwidth}{#1}}%
-                         \end{bxSpace}%
-                        }%
-                      }%
-  }{}
-
 
 
 
@@ -2242,13 +2456,24 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %     2023.09.24
 %------------------------------------------------------------------------------
 
-\newtcbox{\boxAnswerC}[1][]{
+\newtcolorbox{boxAns}[1][]{
+    nobeforeafter,
+    colback=white,
+    boxrule=0pt,
+    enhanced jigsaw,
+    arc=5pt,
+    box align=bottom,
+    borderline={0.5pt}{0pt}{densely dotted},
+    width=5cm,
+	#1
+}
+
+\newtcbox{\ObsoleteboxAnswerCD}[1][]{
   nobeforeafter,
   colback=white,
   boxrule=1pt,
   enhanced jigsaw,
   arc=5pt,
-  rounded coners,
   box align=bottom,
   borderline horizontal={1pt}{0pt}{densely dotted},
   borderline vertical={1pt}{0pt}{densely dotted},
@@ -2256,7 +2481,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
   #1
 }
 
-\newtcbox{\boxAnswer}[1][]{
+\newtcbox{\ObsoleteboxAnswer}[1][]{
 %\newtcolorbox[]{\boxAnswer}[2][]{
     nobeforeafter,
     %enhanced,
@@ -2275,7 +2500,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 
 
-\newtcolorbox{boxAns}[1][]{
+\newtcolorbox{ObsoleteboxAns}[1][]{
     width=6cm,
     nobeforeafter,
     enhanced,
@@ -2290,29 +2515,6 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     box align=base,
 	baseline=2mm,
     overlay={\draw[densely dotted, rounded corners=1mm] (frame.south west) rectangle (frame.north east);},
-    #1
-}
-
-%----------------------------------------------------------------------------------
-% Function:
-%    
-% URL:
-%    https://tex.stackexchange.com/questions/248889/package-for-framed-boxes
-%
-% Date:
-%----------------------------------------------------------------------------------
-\newtcolorbox[auto counter]{boxSkill}[2][]{
-    title={\bfseries #2},
-    enhanced, 
-    %-- drop shadow={black!50!white},
-    coltitle=black,
-    colback=white,
-    top=0.3in,
-    attach boxed title to top left={
-        xshift=1.5em,
-        yshift=-\tcboxedtitleheight/2
-    },
-    boxed title style={size=big,colback=white},
     #1
 }
 
@@ -2334,9 +2536,22 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 
 \newcommand{\cmdUline}{%
-	\noindent 
-	\tikz[remember picture,overlay,baseline=4ex]
+	\noindent
+	\tikz[remember picture,overlay,baseline=2mm]
 	\draw[densely dotted] (0,0) --(\linewidth, 0) ;}
+
+\newcommand{\cmdAnswer}[1]{%
+	\cmdUline \textcolor{white}{1}  & \iftoggle{bAnswer} {#1}{\phantom{#1}} & \textcolor{white}{1}  \\[0.5cm]
+}
+\newcommand{\cmdAnsLn}[2][3cm]{%
+    \tikz[baseline=2mm]
+    \draw[densely dotted] (0,0) -- (#1, 0) 
+            node[above] at (1cm,0) {\iftoggle{bAnswer}{\textcolor{blue}{#2}}{\phantom{#2}}};%
+}
+
+\newcommand{\cmdAns}[1]{%
+    \iftoggle{bAnswer}{\textcolor{blue}{#1}}{\phantom{#1}}%
+}
 
 
 
@@ -2358,23 +2573,120 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 	\cmdUline \iftoggle{bSolution} {#1}{\phantom{#1}} \\[0.5cm]
 }
 
-\newcommand{\cmdAnswer}[1]{%
-	\cmdUline \textcolor{white}{1}  & \iftoggle{bAnswer} {#1}{\phantom{#1}} & \textcolor{white}{1}  \\[0.5cm]
+%--------------------------------------------------------------------------------------------------
+% Function:
+%    Create the custom \cmdTest command with an optional parameter and default to oDensdotted     
+%
+% Webpage:
+%
+%
+% Date:
+%     2024.09.12
+%--------------------------------------------------------------------------------------------------
+
+
+% Define the boolean variable
+\newif\ifbTest
+\bTesttrue  % Set to true; change to \bTestfalse for false condition
+
+% Create the custom \cmdTest command with an optional parameter and default to oDensdotted
+\NewDocumentCommand{\cmdTest}{O{oDensdotted} m}{
+    \IfStrEq{#1}{oWave}{
+        \ifbTest
+            \uwave{\phantom{#2}}  % True case for oWave
+        \else
+            \uwave{#2}  % False case for oWave
+        \fi
+    }{}
+    \IfStrEq{#1}{oUnderline}{
+        \ifbTest
+            \underline{\phantom{#2}}  % True case for oUnderline
+        \else
+            \underline{#2}  % False case for oUnderline
+        \fi
+    }{}
+    \IfStrEq{#1}{oDensdotted}{
+        \ifbTest
+            \cmdUline \phantom{#2}  % True case for oDensdotted
+        \else
+            \cmdUline #2  % False case for oDensdotted
+        \fi
+    }{}
+    \IfStrEq{#1}{oTcbox}{
+        \ifbTest
+            \begin{boxA}[styleDashedTitle]{}\phantom{#2} % True case for oTcbox
+            \end{boxA}
+        \else
+            \begin{boxA}[styleDashedTitle]{}#2  % False case for oTcbox
+            \end{boxA}
+        \fi
+    }{}
 }
 
-
-
 \newcounter{cntTask}
+\newcounter{cntmTask}
+\newcounter{cntSubTask}
 
 
-\setlist[enumerate]{leftmargin=1.2cm, labelsep=0.5cm,labelwidth=1.5cm}
+\setlist[enumerate]{align=left,
+                    leftmargin=0.6cm,
+                    labelsep=0cm,
+					labelwidth=0.6cm, 
+					%listparindent=0.7cm,
+					%itemindent=0.2cm,
+					topsep=0pt,
+                    parsep=0pt
+                   }
 \settasks{
 	    column-sep=1cm,
 		counter=cntTask,
 	    label = \arabic*.,
-		label-offset=1.5em,
+		item-indent=0.6cm,
+		label-width=0.6cm,
+		label-offset=0cm,
+		after-item-skip=0.2cm,
     }
     
+\NewTasksEnvironment[before-skip=0pt,
+                     column-sep=1cm,
+		             counter=cntTask,
+	                 label = \arabic*.,
+					 item-indent=0.6cm,
+					 label-width=0.6cm,
+		             label-offset=0cm,
+		             after-item-skip=0.2cm,
+					 ]{stask}
+
+\NewTasksEnvironment[before-skip=2mm,
+                     column-sep=1cm,
+		             counter=cntmTask,
+	                 label = \arabic*.,
+					 item-indent=0.6cm,
+					 label-width=0.6cm,
+		             label-offset=0cm,
+		             after-item-skip=2mm,
+					 after-skip=2mm
+					 ]{mtask}
+					 
+\NewTasksEnvironment[before-skip=0pt,
+                     column-sep=1cm,
+		             counter=cntSubTask,
+	                 % label = (\alph*),
+					 item-indent=0.6cm,
+					 label-width=0.6cm,
+		             label-offset=0cm,
+		             after-item-skip=0.2cm,
+					 ]{subtask}
+
+\NewTasksEnvironment[before-skip=0pt,
+                     column-sep=0.2cm,
+		             counter=cntTask,
+	                 label = \arabic*.,
+					 item-indent=0.1cm,
+					 label-width=0.1cm,
+		             label-offset=0cm,
+		             after-item-skip=0.2cm,
+					 ]{tasksample}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
@@ -2488,19 +2800,46 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 %---------------------------------------------------------------------------
 
-% \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+%----------------------------------------------------------------------------------------
+%    URL: 
+%        https://tex.stackexchange.com/questions/81897/how-to-box-the-correct-answer-in-exam-class
+%
+%    Description: 
+%        Box the correct answer in the multiple choice
+%
+%
+%    Date:
+%        2022.11.06 
+%
+%----------------------------------------------------------------------------------------
 
-% \newcommand{\DrawSmartBox}[1][red]{%
-    % \tikz[overlay,remember picture]{
-    % \draw[#1]
-      % ($(bl)+(-1.75em,1em)$) rectangle
-      % ($(br)+(0.2em,-0.4em)$);}
-% }
+\newcommand{\cmdBox}[1]{\begin{tikzpicture} \node [rectangle, draw=black, rounded corners=3pt, dashed] {#1}; \end{tikzpicture} }
 
-% % \MyCorrectSmartChoice:
-% % #1 optional argument: aspect customization
-% % #2 mandatory argument: the answer
-% \newcommand{\MyCorrectSmartChoice}[2][blue]{ \tikzmark{bl}#2\tikzmark{br}\DrawSmartBox[#1]}
+
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+
+\newcommand{\drawBox}[1][red]{%
+    \tikz[overlay,remember picture]{
+    \draw[#1]
+      ($(bl)+(-2.5em,1em)$) rectangle
+      ($(br)+(0.5em,-0.4em)$);}
+}
+
+
+
+\iftoggle{bAnswer}
+{ 
+   \newcommand{\Myopt}[1]{\item \fbox{#1}}
+
+   % \MyCorrectSmartChoice:
+   % #1 optional argument: aspect customization
+   % #2 mandatory argument: the answer
+   \newcommand{\myopt}[2][blue]{\item \tikzmark{bl}#2\tikzmark{br}\drawBox[#1]}
+}
+{
+   \newcommand{\Myopt}[1]{\item #1}
+   \newcommand{\myopt}[2][black]{\item #1}
+}
 
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
@@ -2537,6 +2876,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     before skip=2mm,
     after skip=2mm,
     colback=bkcolor,
+	colbacktitle=white,
 	coltitle=black,
     colframe=black!50,
     boxrule=0.2mm,
@@ -2560,8 +2900,9 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                                [sharp corners]-- cycle;
                       },interior engine=empty,
     },
-    fonttitle=\bfseries,
-    title=~\thetcbcounter: #2,    %-------- {\protect\section{#2}},
+    fonttitle=\Huge,
+    %title=~\thetcbcounter: #2,    %-------- {\protect\section{#2}},
+    title=#2,
     #1%
     }
 
@@ -2603,7 +2944,9 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 \newcolumntype{Y}{>{\raggedleft\arraybackslash}X}% see tabularx
 \newtcolorbox{skilltable}[2][]{enhanced jigsaw,
-                               breakable, 
+                               breakable,
+                               top=5mm,
+                               bottom=5mm,							   
                                fonttitle=\bfseries\large,
                                fontupper=\normalsize\sffamily,
                                colback=white,               %yellow!10!white,
@@ -2614,32 +2957,15 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
                                tabularx={#1},
                                title=#2}
 
-
-\newtcolorbox{bxExamHeader}[1][]{%
-    enhanced,
-	sharp corners,
-	width=\linewidth-6pt,
-    enlarge top by=3pt,
-	enlarge bottom by=3pt,
-    enlarge left by=3pt,
-	enlarge right by=3pt,
-	frame hidden,
-	boxrule=0pt,
-	top=1mm,
-	bottom=1mm,
-    colframe=green!30!black, 
-	colbacktitle=green!50!yellow,
-    coltitle=black, 
-	colback=white,
-    borderline={0.5pt}{-0.5pt}{black,dashed},
-    borderline={1pt}{-3pt}{black},
-	#1
-}
+%------------------------------------------------------------------------------------------------------------
+% Remove Later
+%
+% Date:
+%     2024.08.16
+%
+%------------------------------------------------------------------------------------------------------------
 
 
-\newtcolorbox[auto counter]{bxGeneral}[1][]{%
-    #1
-}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
@@ -2653,17 +2979,25 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 % Date: 
 %     2023.08.05
 %
-% Example：
-%     \begin{boxA}[styleDashed]{Title: Answer}
+% Example:
+%     \begin{boxA}[styleDashedTitle]{Title: Answer}
 %	  \end{boxA}   
 %
 %
 %---------------------------------------------------------------------------
 
 \newtcolorbox{boxA}[2][]{
-    title=#2,
-    #1}
+    title={#2},
+	before={\stepcounter{nskill}},
+    #1,	
+	}
 
+
+\newtcolorbox{boxSkill}[2][styleTitleLeft]{
+    title={#2},
+	before={\clearpage\noindent\stepcounter{nskill}},
+    #1,	
+	}
 
 
 %---------------------------------------------------------------------------------------------
@@ -2780,8 +3114,10 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
     % %\fancyhead[RE]{\leftmark}  % Print the current chapter name on the right side of even pages
 
     \renewcommand{\headrulewidth}{0pt}
-    \fancyfoot[LO,RE]{\cmdWebLink}
-    \fancyfoot[LE,RO] {\thepage}
+    \fancyfoot[L]{\cmdWebLink}
+	%\fancyfoot[R]{\begin{CJK*}{UTF8}{gbsn}郭老师数学辅导\end{CJK*}}
+	\fancyfoot[R]{郭老师数学辅导}
+    %\fancyfoot[LE,RO] {\thepage}
 }
 
 
@@ -2870,13 +3206,7 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 
 
 
-%-----------------------------------------------------------
-% Setup: xsim 
-%
-%
-%-----------------------------------------------------------
 
-\usepackage{xsim}
 
 
 
@@ -2892,39 +3222,35 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %
 %-----------------------------------------------------------------------------------------------------------------
 
- \ExplSyntaxOn
- \bool_new:N \l_xsim_shortsolution_bool
+% new property:
+\DeclareExerciseProperty{shortsolution}
 
- \keys_define:nn {xsim}
-   { shortsolution/print .bool_set:N = \l_xsim_shortsolution_bool }
-
- % new environment:
- \NewDocumentEnvironment{shortsolution}{+b}
-   {
-     \tl_set:NV \ExerciseType \g_xsim_exercise_type_tl
-     \tl_set:NV \ExerciseID \g_xsim_exercise_id_tl
-     \SetExerciseProperty {shortsolution} {#1}
-     \bool_if:NT \l_xsim_shortsolution_bool
-       { #1}
-   }
-   {}
- \ExplSyntaxOff
-
-
-
-
-
-
-
+% new environment:
+\NewDocumentEnvironment{shortsolution}{+b}
+{%
+	\edef\ExerciseType{\csname g_xsim_exercise_type_tl\endcsname}%
+	\edef\ExerciseID{\csname g_xsim_exercise_id_tl\endcsname}%
+	\SetExerciseProperty{shortsolution}{#1}%
+	\iftoggle{bShortAnswer}{%
+      {\hfill\boxNote{\color{blue}#1}}
+    }{%
+        \iftoggle{bCompact}{%
+        % If bSolution is false and bCompact is true, show nothing
+        }{%
+            {\color{white}#1}
+        }
+    }
+}{}%
 
 
 
 \xsimsetup{
 	exercise/template=simple,
-	exercise/the-counter=\arabic{exercise},
 	solution/print=true,
-	shortsolution/print = true
-	% exercise/within = section
+	exercise/within = {section},
+	%exercise/the-counter=\arabic{exercise},
+	exercise/the-counter = \thesection.\arabic{exercise},
+	% print-solutions/section =true,
 }
 
 %\DeclareExerciseEnvironmentTemplate{simple}
@@ -2935,43 +3261,126 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 %  {\item[\XSIMmixedcase{\GetExerciseName}~\GetExerciseProperty{counter}]}
 %  {}
 
-\DeclareExerciseEnvironmentTemplate{simple}
-    {\item[\GetExerciseProperty{counter}.]}
-    {}
+% \DeclareExerciseEnvironmentTemplate{simple}
+    % {\item[\GetExerciseProperty{counter}.]}
+    % {}
 
 
 \DeclareExerciseEnvironmentTemplate{simple}
     {}
     {}
 
-
-% new property:
-\DeclareExerciseProperty{shortsolution}
-
-% new environment:
-\NewDocumentEnvironment{shortsolution}{+b}
-{%
-	\edef\ExerciseType{\csname g_xsim_exercise_type_tl\endcsname}%
-	\edef\ExerciseID{\csname g_xsim_exercise_id_tl\endcsname}%
-	\SetExerciseProperty{shortsolution}{#1}%
-}
-{}
 
 % we'll use a description list for the list of short solutions:
-\newcommand\printshortsolutions{%
-	\begin{boxA}[styleDashed]{Answer}
-		\begin{description}
-			\ForEachUsedExerciseByType{%
+% \newcommand\printshortsolutions{%
+	% \begin{boxA}[styleDashedTitle]{Answer}
+	   % \begin{multicols}{2}
+		  % {\footnotesize % Set smaller font size within this group
+	  	     % \begin{description}
+			   % \ForEachUsedExerciseByType{%
+				% \ifnum\ExercisePropertyGet{##1}{##2}{chapter-value}=\value{chapter}
+					% \ifnum\ExercisePropertyGet{##1}{##2}{section-value}=\value{section}
+						% \GetExercisePropertyT{shortsolution}
+							% {\item[##3.]####1}%
+					% \fi
+				% \fi				
+			   % }%
+		     % \end{description}
+		  % }	 
+	   % \end{multicols}
+	% \end{boxA}
+% }
+
+
+%-----------------------------------------------------------------------------------------------------------------
+% Function:
+%     
+%
+% Webpage: 
+%     https://tex.stackexchange.com/questions/576998/how-to-print-questions-and-exercises-in-place-with-xsim
+%
+%
+%-----------------------------------------------------------------------------------------------------------------
+
+
+
+% \NewDocumentCommand{\printshortsolutions}{O{3}}{% Output columns (Default: 3 columns
+	% \begin{boxA}[styleDashedTitle]{Answer}
+	   % \begin{multicols}{#1}
+		  % {\footnotesize % Set smaller font size within this group
+	  	     % \begin{description}
+			   % \ForEachUsedExerciseByType{%
+				% \ifnum\ExercisePropertyGet{##1}{##2}{chapter-value}=\value{chapter}
+					% \ifnum\ExercisePropertyGet{##1}{##2}{section-value}=\value{section}
+					  	   % \GetExercisePropertyT{shortsolution}
+						  	  % %{\item[##3.]####1}%
+							  % {\item[\GetExerciseProperty{##1}{##2}.]####1}%
+					% \fi
+				% \fi				
+			   % }%
+		     % \end{description}
+		  % }	 
+	   % \end{multicols}
+	% \end{boxA}
+	% \clearpage
+% }
+
+
+
+
+
+
+
+\NewDocumentCommand{\printshortsolutions}{O{3}}{% Output columns (Default: 3 columns
+	\begin{boxA}[styleDashedTitle]{Answer}
+	   \begin{multicols}{#1}
+		  {\footnotesize % Set smaller font size within this group
+	  	     \begin{description}
+			   \ForEachUsedExerciseByType{%
 				\ifnum\ExercisePropertyGet{##1}{##2}{chapter-value}=\value{chapter}
 					\ifnum\ExercisePropertyGet{##1}{##2}{section-value}=\value{section}
 						\GetExercisePropertyT{shortsolution}
-							{\item[##3.]####1}%
+							%{\item[##3.]####1}%
+							{\item[\GetExerciseProperty{##1}{##2}.]####1}%
 					\fi
 				\fi				
-			}%
-		\end{description}
+			   }%
+		     \end{description}
+		  }	 
+	   \end{multicols}
 	\end{boxA}
+	\clearpage
 }
+
+
+
+
+
+
+
+
+
+\NewDocumentCommand{\pShortSolutionSubsection}{O{3}}{% Output columns (Default: 3 columns
+	\begin{boxA}[styleDashedTitle]{Answer}
+	   \begin{multicols}{#1}
+		  {\footnotesize % Set smaller font size within this group
+	  	     \begin{description}
+			   \ForEachUsedExerciseByType{%
+				\ifnum\ExercisePropertyGet{##1}{##2}{chapter-value}=\value{chapter}
+					\ifnum\ExercisePropertyGet{##1}{##2}{section-value}=\value{section}
+					  	   \GetExercisePropertyT{shortsolution}
+						  	  %{\item[##3.]####1}%
+							  {\item[\GetExerciseProperty{##1}{##2}.]####1}%
+					\fi
+				\fi				
+			   }%
+		     \end{description}
+		  }	
+	   \end{multicols}
+	\end{boxA}
+	\clearpage
+}
+
 
 
 
@@ -3032,7 +3441,381 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 }
 
 
+% Define envSolution environment
+\NewDocumentEnvironment{envSolution}{o +b}
+{
+    \begingroup % Start group for local changes
+    \iftoggle{bSolution}{%
+        \begin{bxSpace}[#1]{\color{blue}#2}
+        \end{bxSpace}
+    }{%
+        \iftoggle{bCompact}{%
+            % If bSolution is false and bCompact is true, show nothing
+        }{%
+            \begin{bxSpace}[#1]{\color{white}#2}\end{bxSpace}
+        }
+    }
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
 
+% Define envSolution environment
+\NewDocumentEnvironment{envSolut}{O{false} +b }
+{
+    \begingroup % Start group for local changes
+    \iftoggle{bSolution}{%
+        \begin{bxSpace}
+        #1
+        \end{bxSpace}
+    }{%
+        \iftoggle{bCompact}{%
+            % If bSolution is false and bCompact is true, show nothing
+        }{%
+            \begin{bxSpace}
+            #1
+            \end{bxSpace}
+        }
+    }
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+
+
+%--------------------------------------------------------------------------------
+% Sample Usage:
+%                \begin{envIn}[bSample][black]
+%                    ......
+%                \end{envIn}
+% Function:
+%    
+%
+% Date:
+%     2024/07/13
+% 
+%--------------------------------------------------------------------------------
+\NewDocumentEnvironment{envIn}{O{true} O{black} +b}
+{
+    \begingroup % Start group for local changes
+    \iftoggle{#1}{%
+        \textcolor{#2}{#3}
+    }{%
+    }
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+%--------------------------------------------------------------------------------
+% Sample Usage:
+%     \begin{envInfoOut}[bSample]
+%           bSample
+%           bSampleSol
+%           bSampleSolSpace
+% Function:
+%    
+%
+% Date:
+%     2024/07/13
+% 
+%--------------------------------------------------------------------------------
+\NewDocumentEnvironment{envOutPending}{O{true} O{true} O{false} O{blue} +b}
+{
+    \begingroup % Start group for local changes   
+    \iftoggle{#1}{% If content such as bSample is displayed, then check if it is answer output required
+        \iftoggle{#2}{% Solution is true, output solution
+            \textcolor{#4}{#5}
+        }{%
+            \iftoggle{#3}{% If bSolution is false and bSpace is true, show space
+               \mphantom{#5}
+            }{% Show nothing
+            }
+        } % #2
+    }{}% #1
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+%--------------------------------------------------------------------------------
+% Sample Usage:
+%     \begin{envSample}
+% Function:
+%    
+%
+% Date:
+%     2024/11/16
+% 
+%--------------------------------------------------------------------------------
+\NewDocumentEnvironment{envOut}{O{} m +b}
+{
+    \begingroup % Start group for local changes   
+	\begin{boxG}[styleDashed,#1]
+        \iftoggle{#2}{\textcolor{blue}{#3}}{\phantom{#3}}
+	\end{boxG}	
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+\NewDocumentEnvironment{envCell}{m +b}
+{
+    \begingroup % Start group for local changes   
+        \iftoggle{#1}{\textcolor{blue}{#2}}{\phantom{#2}}
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+\NewDocumentEnvironment{envO}{m +b}
+{
+    \begingroup % Start group for local changes   
+        \iftoggle{#1}{\textcolor{blue}{#2}}{\phantom{#2}}
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+\NewDocumentEnvironment{envS}{+b}
+{
+    \begingroup % Start group for local changes   
+    \iftoggle{bSolution}{\textcolor{blue}{#1}}{\phantom{#1}}
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+\NewDocumentEnvironment{envCellT}{+b}
+{
+    \begingroup % Start group for local changes   
+    \iftoggle{bAnswer}{\textcolor{blue}{#1}}{\phantom{#1}}
+}
+{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+%-----------------------------------------------------------
+% Sample Usage:
+%     \envHeader[Test - Algebra Test][Cambridge Pure Mathematics 3 (9709)]{Algebra Test} 
+%    
+% Function:
+%     To generate exam header including
+%           - Exam Header 1
+%           - Exam Header 2
+%           - Instructions
+%           - Advice
+%
+% Date:
+%     2024.07.22
+%
+%-----------------------------------------------------------
+\NewDocumentEnvironment{envHeader}{O{Mathematics and Statistics} O{Topic Test} O{}}{
+    \begin{tcolorbox}[styleExamHeader, before=\clearpage\noindent]
+        \pdfbookmark[section]{#3}{tocbk#1}
+        \begin{center}\huge{#1} \Large{#2}\end{center}
+       Instructions: 
+         \begin{itemize}
+}{
+            \item If the degree of accuracy is not specified in the question, and if the answer is not exact, give the answer to
+three significant figures. Give answers in degrees to one decimal place.
+            \item Show all necessary working clearly. Without sufficient working, correct answers may be awarded no marks.
+         \end{itemize}
+      Advice:
+	    \begin{itemize}
+	        \item Read each question carefully before you start to answer it.
+            \item Check your answers if you have time at the end.
+	    \end{itemize}
+
+    \end{tcolorbox}
+}
+
+
+
+
+% \newtcolorbox{bxExamHeader}[1][]{%
+    % enhanced,
+	% sharp corners,
+	% width=\linewidth-6pt,
+    % enlarge top by=3pt,
+	% enlarge bottom by=3pt,
+    % enlarge left by=3pt,
+	% enlarge right by=3pt,
+	% frame hidden,
+	% boxrule=0pt,
+	% top=1mm,
+	% bottom=1mm,
+    % colframe=green!30!black, 
+	% colbacktitle=green!50!yellow,
+    % coltitle=black, 
+	% colback=white,
+    % borderline={0.5pt}{-0.5pt}{black,dashed},
+    % borderline={1pt}{-3pt}{black},
+	% beforeafter skip balanced=0pt,
+	% #1
+% }
+
+
+\newtcolorbox[auto counter]{boxG}[1][styleDashedTitle]{%
+    #1
+}
+
+\NewDocumentEnvironment{envShortAnswer}{m}{
+    \begingroup % Start group for local changes 
+    \iftoggle{bShortAnswer}{#1}{}
+}{
+    % After code (executed at the end)
+    \endgroup % End group for local changes
+}
+
+
+\NewDocumentCommand{\cmdShortAnswer}{m}{
+    \begin{envShortAnswer}#1\end{envShortAnswer}
+	\begin{shortsolution}#1\end{shortsolution}
+}
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% 
+% 
+% Function:
+% 
+%    
+%
+% Date: 
+%      2024.12.04
+%
+%---------------------------------------------------------------------------
+
+
+
+
+\NewDocumentEnvironment{ctblr}{O{} +b}{
+    \begingroup % Start group for local changes 
+    \iftoggle{bAnswer}{
+                     	\begin{tblr}{
+						             %colspec={|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|},
+                                     abovesep=6pt,       % Adds 6pt  spacing around rows
+                                     belowsep=16pt,      % Adds 16pt spacing around columns
+									 row{even} = {bg=white,fg=blue},
+									 #1
+									}									
+						    #2
+      	                \end{tblr}
+        	          }
+					  {
+                     	\begin{tblr}{colspec={|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|},
+                                     abovesep=6pt,       % Adds 6pt  spacing around rows
+                                     belowsep=16pt,      % Adds 16pt spacing around columns
+									 row{even} = {bg=white,fg=white},
+									 #1
+									}
+						    #2
+      	                \end{tblr}					  
+					  }
+}{ 
+    \endgroup
+ }
+
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Redefine \\ for multiline cells in tabularray
+% 
+% Function:
+% 
+%    https://tex.stackexchange.com/questions/648602/redefine-for-multiline-cells-in-tabularray
+%
+% Date: 2024.11.30
+%
+%---------------------------------------------------------------------------
+
+\newcommand{\nl}{\\}
+
+\newcounter{ntabu}
+\newcommand{\ntabu}{\stepcounter{ntabu}\arabic{ntabu}}
+
+\newcounter{ncnt}
+\newcommand{\ncnt}{\stepcounter{ncnt}\arabic{ncnt}}
+
+
+\newcounter{nskill}
+\newcommand{\nskill}{\stepcounter{nskill}\arabic{nskill}}
+\setcounter{nskill}{1}
+
+
+
+\NewDocumentEnvironment{mArrow}{}
+{\iftoggle{bAnswer}{
+    \WithArrowsOptions{tikz={blue,-stealth},wrap-lines}
+ }{
+    \WithArrowsOptions{tikz={white,-stealth},wrap-lines}
+ }
+\WithArrows}{\endWithArrows}
+
+
+\NewDocumentEnvironment{rArrow}{}
+{\iftoggle{birAnswer}{
+    \WithArrowsOptions{tikz={blue,-stealth},wrap-lines}
+ }{
+    \WithArrowsOptions{tikz={white,-stealth},wrap-lines}
+ }
+\WithArrows}{\endWithArrows}
+
+
+\NewDocumentEnvironment{sArrow}{}
+{\iftoggle{bisAnswer}{
+    \WithArrowsOptions{tikz={blue,-stealth},wrap-lines}
+ }{
+    \WithArrowsOptions{tikz={white,-stealth},wrap-lines}
+ }
+\WithArrows}{\endWithArrows}
+
+
+
+\iftoggle{bAnswer}{
+   \WithArrowsOptions{tikz={blue, -stealth},wrap-lines}
+}
+{  \WithArrowsOptions{tikz={white,-stealth},wrap-lines}
+}
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------
+% Function:     
+%     Define \\cosec similarly to \sin or \cos based on the toggle
+%
+% Date: 2024.12.24
+%
+%-------------------------------------------------------------------------------------------------------------------------
+
+% 
+\iftoggle{biCIE}{
+    \DeclareMathOperator{\cosec}{cosec} % If biCIE is true, use "\cosec"
+}{
+    \DeclareMathOperator{\cosec}{csc} % If biCIE is false, use "csc"
+}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------
 %
@@ -3056,3 +3839,233 @@ frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 \def\subsubsectionmark#1{\def\Subsubsectionname{#1}\Subsubsectionmark{#1}}
 
 
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% Defining custom direct and inverse limits \to
+% 
+% Function:
+%     
+%    https://tex.stackexchange.com/questions/206859/defining-custom-direct-and-inverse-limits
+%
+% Date: 2025.01.24
+%
+%---------------------------------------------------------------------------
+
+\newcommand{\myTo}{\mathbin{\tikz[baseline] \draw[-stealth,line width=.4pt] (0ex,0.4ex) -- (1.5ex,0.4ex);}}
+
+
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% How to make text appear in the middle of a phantom in math mode?
+% 
+% Function:
+%     
+%    https://tex.stackexchange.com/questions/548426/how-to-make-text-appear-in-the-middle-of-a-phantom-in-math-mode
+%
+% Date: 2026.02.06
+%
+%---------------------------------------------------------------------------
+
+\newcommand*{\mask}[2]{%
+    \mathord{\makebox[\widthof{\(#1\)}]{\(#2\)}}%
+}
+
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%
+% titled box or sidebar (of variable width) for additional text?
+% 
+% Function:
+%     
+%    https://tex.stackexchange.com/questions/358298/titled-box-or-sidebar-of-variable-width-for-additional-text
+%
+% Date: 2025.03.06
+%
+%---------------------------------------------------------------------------
+  
+% \NewDocumentEnvironment{sidenote}{O{Title} O{0.3} }%
+  % {\begin{wrapfigure}{r}{#2\textwidth}\begin{boxG}[styleDashedTitle, title=#1, width=#2\textwidth]}%
+  % {\end{boxG}\end{wrapfigure}}%
+  
+  
+\NewDocumentEnvironment{sidenote}{O{Title} O{0.3} }%
+  {\begin{wrapfigure}{r}{#2\textwidth}\begin{boxG}[styleDashedTitle, title=#1, width=#2\textwidth]}%
+  {\end{boxG}\end{wrapfigure}}%  
+  
+  
+%--------------------------------------------------------------
+% Date:
+%     2026.06.03
+%
+% URL:
+%     https://texblog.org/2012/07/03/fancy-latex-chapter-styles/
+%
+%
+%--------------------------------------------------------------
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+  
+
+%--------------------------------------------------------------
+% Date:
+%     2026.06.19
+%
+% URL:
+%     https://tex.stackexchange.com/questions/388772/tilde-below-letter-subscript-creates-unwanted-spacing
+%
+%
+%--------------------------------------------------------------
+
+\newcommand{\ut}[1]{\underaccent{\tilde}{#1}}
+\renewcommand{\vec}[1]{\ut{#1}}
+
+
+%--------------------------------------------------------------
+% Date:
+%     2026.08.09
+%
+% Usage:
+%
+%      \begin{extblr}{3}{2}
+%          Cell 1 & Cell 2 \\
+%          Cell 3 & Cell 4 \\
+%          Cell 5 & Cell 6
+%      \end{extblr}
+%
+%
+%--------------------------------------------------------------
+
+\newenvironment{extblr}[2]
+{%
+    \begin{tblr}{
+        width=\textwidth,
+        colspec={|X[1]|X[1]|},
+        rows={valign=t},
+        rowsep=0pt,
+        colsep=0pt,
+        hlines,
+        vlines,
+    }
+}
+{%
+    \end{tblr}
+}
+
+
+
+%--------------------------------------------------------------------------------
+% Usage:
+%     \begin{envAnsLine}[5cm]{bAnswer}
+%         ............
+%     \end{envAnsLine}
+%
+%     \begin{envAnsLine}[5cm][dashed]{bAnswer}
+%         ............
+%     \end{envAnsLine}
+%
+% Function:
+%     If #3 is true:
+%       - Output the contents in blue.
+%       - Draw a horizontal TikZ line of length #1 immediately underneath.
+%
+%     If #3 is false:
+%       - Hide the contents.
+%       - Draw nothing.
+%
+% Line styles:
+%     solid
+%     dashed
+%     dotted
+%     dash dot
+%     densely dashed
+%     loosely dashed
+%     densely dotted
+%     loosely dotted
+%
+
+% Date:
+%     2026/08/14
+%
+%--------------------------------------------------------------------------------
+
+\NewDocumentEnvironment{envAnsLine}{O{5cm} O{solid} m +b}
+{
+    \tikz
+    {
+        %------------------------------------------------------------
+        % Draw the answer only when #3 is true
+        %------------------------------------------------------------
+        \iftoggle{#3}
+        {
+            \node[
+                inner sep=0pt,
+                outer sep=0pt,
+                anchor=south west,
+            ] (ans)
+            {\raisebox{2mm}{\color{blue} $\quad $ #4}};
+        }
+        {
+            % No answer
+        }
+
+        %------------------------------------------------------------
+        % Always draw the line
+        %------------------------------------------------------------
+        \begin{scope}[yshift=-3mm]
+                  \draw[#2] (0,0) -- (#1,0);
+        \end{scope}
+    }%
+}
+{
+}
+
+%--------------------------------------------------------------------------------
+% Usage:
+%     \begin{envAnsBox}[5cm]{bAnswer}
+%                   ............
+%     \end{envAnsBox}
+%
+% Function:
+%     If #2 is true:
+%       - Put the contents inside a tcolorbox.
+%       - The box has width #1.
+%       - Background is white.
+%       - Contents are blue.
+%
+%     If #2 is false:
+%       - Hide the contents completely.
+%
+% Date:
+%     2028/08/14
+%
+%--------------------------------------------------------------------------------
+
+\NewDocumentEnvironment{envAnsBox}{O{5cm} m +b}
+{
+    \iftoggle{#2}
+    {
+        \begin{tcolorbox}[
+            width=#1,
+            colback=white,
+            colframe=black,
+            boxrule=0.4pt,
+            sharp corners,
+            left=2pt,
+            right=2pt,
+            top=2pt,
+            bottom=2pt,
+            enhanced
+        ]
+            {\color{blue}#3}
+        \end{tcolorbox}
+    }
+    {
+        % Hide contents when #2 is false
+    }
+}
+{
+}
