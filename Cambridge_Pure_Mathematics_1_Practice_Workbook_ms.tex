@@ -1,0 +1,204 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.3 (8/8/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn,table]{book} % Default font size and left-justified equations
+
+%----------------------------------------------------------------------------------------
+
+\input{./structure_temp.tex} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+    \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+    \draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]
+	            {\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}
+                     {\centering Cambridge Pure Mathematics 1\\[15pt] % Book title
+                          {\Large Practice Workbook}\\[20pt] % Subtitle
+                          {\huge Guo Deliang Thomas \begin{CJK*}{UTF8}{gbsn}郭德良\end{CJK*} } % Author name
+				     }
+			    };
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%    COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright 2018 Cockle Bay Group Elite Education Sector\\ % Copyright notice
+
+\noindent \textsc{Published by Cockle Bay Elite Education Group}\\ % Publisher
+
+\noindent \textsc{math.joomla.com}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+\noindent \textit{First printing, January 2018} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%    TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{pgstyWeb} % Print headers again
+
+
+
+%----------------------------------------------------------------------------------------
+%    CHAPTER
+%----------------------------------------------------------------------------------------
+
+
+\clearpage
+
+
+% \pdfbookmark[chapter]{Year 8}{Year 8}
+% \include{./Math/Book/Skill_08_Number_01.tex}
+
+% \include{./Math/Book/Skill_08_Algebra.tex}
+% \include{./Math/Book/Skill_08_Advanced_Test.tex}
+
+
+% \pdfbookmark[chapter]{Year 9}{Year 9}
+
+% \include{./Math/Book/Skill_09.tex}
+% \include{./Math/Book/Skill_09_Factorising-Fully.tex}
+
+% \pdfbookmark[chapter]{Year 10}{Year 10}
+
+% \include{./Math/Book/Skill_10_Factorising_Summary.tex}
+% \include{./Math/Book/Skill_10_Algebra_Index_01.tex}
+% \include{./Math/Book/Skill_10_Algebra_Index_02.tex}
+% \include{./Math/Book/Skill_10_Algebra_Index_03.tex}
+% \include{./Math/Book/Skill_10_Algebra_Function.tex}
+
+% \pdfbookmark[chapter]{0580 IGCSE}{0580 IGCSE}
+% \include{./Math/Book/Skill_10_Differentiation_01.tex}
+
+
+% \pdfbookmark[chapter]{Year 11}{Year 11}
+% \include{./Math/Book/Skill_11_Trigonemtry.tex}
+
+% \pdfbookmark[chapter]{9709 Pure Math 1}{9709 Pure Math 1}
+% \include{./Math/Book/Skill_11_Differentiation_Chain_Rule_01.tex}
+
+
+% \include{./Math/Book/Skill_11_Differentiation_Chain_Rule_02.tex}
+% \include{./Math/Book/Skill_11_Differentiation_Product_Rule_01.tex}
+
+% \include{./Math/Book/Skill_11_Differentiation_Check_Equation.tex}
+
+
+% \include{./Math/Book/Skill_11_Integration_10_Polynomial_Exam.tex}
+
+% \include{./Math/Book/Skill_11_Integration_Reverse_Chain_Rule.tex}
+
+% \pdfbookmark[chapter]{9709 Pure Math 3}{9709 Pure Math 3}
+% \include{./Math/Book/Skill_11_Integration_Trignometry.tex}
+
+% \include{./Math/Book/Skill_11_Integration_Exponential.tex}
+
+% \include{./Math/Book/Skill_11_Integration_Logarithm.tex}
+% \include{./Math/Book/Skill_11_Integration_by_Parts.tex}
+
+
+\include{./Math/Book/01.tex}
+% \include{./Math/Book/02.tex}
+% \include{./Math/Book/03.tex}
+
+% \include{./01test.tex}
+% \include{./03test.tex}
+
+% \include{./04test.tex}
+% \include{./05test.tex}
+
+% \include{./Math/Book/Math_Workbook_Algebra_ToUpdate.tex}
+
+% \include{./Math/Book/Math_Year_Topic_Algebra_Expand.tex}
+% \include{./Math/Book/Math_Year_Topic_Trigonometry.tex}
+% \include{./Math/Book/Cambridge_Pure_Mathematics_1_Practice_Workbook_Ch01.tex}
+% \include{./Math/Book/Cambridge_Pure_Mathematics_1_Practice_Workbook_Ch02.tex}
+% \include{./Math/Book/Math_Workbook_Algebra_ToUpdate.tex}
+
+% \printshortsolutions
+
+% \toggletrue{bSolution}
+
+
+% \include{./Math/Book/Math_Year_Topic_Algebra_Expand}
+% \include{./Math/Book/Math_Year_Topic_Trigonometry}
+% \include{./Math/Book/Cambridge_Pure_Mathematics_1_Practice_Workbook_Ch01}
+% \include{./Math/Book/Cambridge_Pure_Mathematics_1_Practice_Workbook_Ch02}
+
+%----------------------------------------------------------------------------------------
+% Back of the Book
+%----------------------------------------------------------------------------------------
+
+% \newpage
+% ~\vfill
+% \thispagestyle{empty}
+
+% \todo{}
+% \EANisbn[SC5b,ISBN=978-80-7340-097-2]
+\end{document}
