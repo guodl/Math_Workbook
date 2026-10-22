@@ -1,0 +1,739 @@
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule}
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skilla1}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\sin 5x$.
+	\end{itemize}
+\tcbline 
+    \textbf{Solution:}\\ \vspace{0.5cm} 
+    \hspace{1cm}Let $u=5x, \quad y=\sin u$ \\
+
+    $\begin{sArrow}
+	       \qquad \frac{dy}{dx}  &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+		                                                                       \boxNote[bisAnswer]{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+		                         &=  \cos u \times 5                                                  \\[10pt]
+					   		     &=  5 \cos u                                                         \\[10pt] 
+   					             &=  5 \cos 5x                                          
+    \end{sArrow}$
+	
+	\tcbline
+	
+    \textbf{Note:}\\[0.6cm]
+	\begin{warningEnv}
+         $\begin{sArrow}
+	        \qquad y   &=   \sin 5x    \Arrow{Common Mistake} \\[10pt]
+	  	           y'  &=   \cos 5x 
+          \end{sArrow}$
+    \end{warningEnv}
+\end{boxSkill}
+
+\vspace{1cm}
+\setcounter{ntabu}{0}
+\noindent%
+Differentiate the following with respect to $x$.\\
+\begin{ctblr}[colspec={|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|}]
+    \hline
+    \ntabu. & $y= \sin 2x  $       & \ntabu. & $y= \cos 5x       $ & \ntabu.  & $y= \sin (5-6x)      $  \\ 
+   	        & $y'=2\cos 2x $       &		 & $y'=-5\sin 5x     $ &          & $y'=-6\cos(5-6x)     $	\\ \hline
+
+    \ntabu. & $y=5 \sin 10x    $   & \ntabu. & $ y=6 \cos 5x    $ & \ntabu.  & $y= \sin (5-6x^2)    $  \\ 
+            & $y'=50 \cos 10x  $   &	     & $ y'=-30\sin 5x   $ &          & $y'=-12x\cos(5-6x^2) $	\\ \hline		   
+\end{ctblr}
+
+ 
+\clearpage\noindent%
+\begin{boxSkill}{Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skilla2}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\sin (x^2-3x-4)$.
+	\end{itemize}
+\tcbline 
+
+\textbf{Analysis:}\\[0.5cm] 
+
+\hspace{1cm}Let $u=x^2-3x-4, \quad y=\sin u $ \\[10pt]
+
+$\begin{sArrow}
+       \qquad         \frac{dy}{dx}    &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+	                                                                                 \boxNote[bisAnswer]{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                                   &=  \cos u \times (2x-3)                                                 \\[10pt]
+									   &=  (2x-3) \cos u                                                                 \\[10pt] 
+							           &=  (2x-3) \cos (x^2-3x-4)                                          
+\end{sArrow}$
+
+\tcbline 
+
+\textbf{Solution:}\\[0.6cm] 
+$\begin{sArrow}
+       \qquad         \frac{dy}{dx}    &= \cos (x^2-3x-4) \times (x^2-3x-4)'   \\[15pt]
+	                                   &= \cos (x^2-3x-4) \times (2x-3)        \\[10pt]
+							           &=  (2x-3) \cos (x^2-3x-4)                                          
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &=   \sin (x^2-3x-4) \Arrow{Common Mistake} \\[10pt]
+		       y'  &=   \cos (x^2-3x-4) 
+    \end{sArrow}$
+\end{warningEnv}
+
+\end{boxSkill}
+
+\vspace{1cm}
+\setcounter{ntabu}{0}
+\noindent%
+Differentiate with respect to $x$.\\
+        \begin{ctblr}[colspec={|Q[l] Q[l,wd=6cm]|Q[l] Q[l,wd=6cm]|}]
+		    \hline
+            \ntabu. & $y=\sin (x^3-8)              $   & \ntabu. & $y=\cos (16-x^2)           $  \\ 
+                    & $y'=3x^2 \cos (x^3-8)        $   &		 & $y'=2x\sin (16-x^2)        $  \\ \hline
+
+            \ntabu.  & $y=\sin (x^4-2x)            $   & \ntabu. & $ y=\sin (x^4-2x)          $  \\ 
+                     & $y'=(4x^3-2)\cos(x^4-2x)    $   &         & $y'=(4x^3-2)\cos(x^4-2x)   $  \\ \hline		   
+
+            \ntabu.  & $y=5 \sin (10x-x^2)         $   & \ntabu. & $ y= 6 \cos (5x+x^3)       $  \\ 
+                     & $y'=5(10-2x)\cos (10x-x^2)  $   &         & $y'=-6(5+3x^2)\sin (5x+x^3)$  \\ \hline		   
+
+        \end{ctblr}
+
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skilla3}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\sin^5x$. You do not need to simplify your answer.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+
+\hspace{1cm}Let $u=\sin x, \quad y=u^5 $ \\[10pt]
+
+$\begin{sArrow}
+       \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx}	\Arrow{\circled{1} Chain Rule 
+	                                                                       \boxNote[bisAnswer]{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	   	                    &=  5u^4 \times \cos{x}                                                \\[10pt]
+							&=  5\sin^4{x} \times \cos{x}                                          
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &= \sin^5{x}  \Arrow{Common Mistake}\\[10pt]
+		       y'  &= \cos^5{x} 
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+\begin{mtask}(1)
+   \task \begin{exercise} Differentiate $y=\sin^3x$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =\sin^3x                             \\[20pt]
+                       y' & =3 \times \sin^2 x \times \cos x   
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y'  =3 \times \sin^2 x \times \cos x$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+   \task \begin{exercise} Differentiate $y=\sin^7x$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =\sin^7x                             \\[20pt]
+                       y' & =7 \times \sin^6 x \times \cos x   
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y'  =7 \times \sin^6 x \times \cos x$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+  \task \begin{exercise} Differentiate $y=\cos^7x$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =\cos^7x                             \\[20pt]
+                       y' & =7 \times \cos^6 x \times -\sin x   \\[10pt]
+					   y' & =-7 \times \cos^6 x \times \sin x
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y'  =-7 \times \cos^6 x \times \sin x$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+  \task \begin{exercise} Differentiate $y=\cos^7x$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =\cos^7x                             \\[20pt]
+                       y' & =7 \times \cos^6 x \times -\sin x   \\[10pt]
+					   y' & =
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y'  =-7 \times \cos^6 x \times \sin x$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+\end{mtask}
+\clearpage
+\begin{mtask}
+    \task \begin{exercise} Differentiate $y=\sqrt{x^2-1}$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           \quad\quad\quad                             \\[20pt]
+                       \quad\quad\quad   \\[10pt]
+					   \quad\quad\quad
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $ \quad\quad$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+    \task \begin{exercise} Differentiate $y=e^{5-x^2}$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           \quad\quad\quad                             \\[20pt]
+                       \quad\quad\quad   \\[10pt]
+					   \quad\quad\quad
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $ \quad\quad$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+    \task \begin{exercise} Differentiate $y=e^{\sin{5x}}$. You do not need to simplify your answer.\\
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           \quad\quad\quad                             \\[20pt]
+                       \quad\quad\quad   \\[10pt]
+					   \quad\quad\quad
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $ \quad\quad$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+\end{mtask}
+
+
+
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a4}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\sin^2x$.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+
+\hspace{1cm}Let $u=\sin x, \quad y=u^2 $\\[10pt]
+
+$\begin{sArrow}
+    \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx}	\Arrow{\circled{1} Chain Rule 
+		                                                               \boxNote[bisAnswer]{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                     &=  2u \times \cos x                                                                              \\[10pt]
+						 &=  2 \sin x \times \cos x             \Arrow{\circled{2} \boxNote[bisAnswer]{$\sin 2A = 2 \sin A \cos A$} } \\[10pt] 
+						 &=  \sin 2x                                           
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &= \sin^2x       \Arrow{Common Mistake}\\[10pt]
+		       y'  &= \cos^2x 
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+
+  
+
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a5}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\sqrt{\sin{6x}}$\;. You do not need to simplify your answer.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\[0.3cm]
+	 $\begin{sArrow}
+       \qquad  y  &=    \sqrt{\sin{6x}}             \\
+                  &=   (\sin{6x})^{\frac{1}{2}}     \Arrow{\circled{1} \boxNote[bisAnswer]{\tiny{ Chain Rule  $ y=u^\frac{1}{2} \quad u = \sin{6x}$ }}}    \\[15pt]	  
+    \frac{dy}{dx} &=   \frac{1}{2} \times (\sin{6x})^{\frac{1}{2}-1} \times (\sin{6x})' 	\Arrow{\circled{2} \boxNote[bisAnswer]{\tiny{Chain Rule  $ u=\sin{6x} \quad u'=\cos{6x} \times 6 $} }} \\[15pt]
+	              &=   \frac{1}{2}   (\sin 6x)^{\frac{1}{2}-1}  \times (\cos 6x) \times 6   \\[10pt]
+	              &=   3\;\cos 6x\;(\sin 6x)^{-\frac{1}{2}}
+    \end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &= \sqrt{\sin{6x}}        \Arrow{Common Mistake}\\[10pt]
+		       y'  &= \sqrt{6 \cos{6x}}  
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+\clearpage
+\begin{mtask}
+   \task \begin{exercise} Differentiate $y=\sqrt[3]{\sin^7{6x}}$\;. You do not need to simplify your answer.
+         \begin{envSolution}
+            $\begin{mArrow}
+                 y &=   \sqrt[3]{\sin^7{6x}}            \\
+                   &=   (\sin{6x})^{\frac{7}{3}}     \Arrow{\circled{1} \boxNote[bAnswer]{\tiny{ Chain Rule  $ y=u^\frac{7}{3} \quad u = \sin{6x}$ }} }   \\[15pt]	  
+                 \frac{dy}{dx} &=   \frac{7}{3} \times (\sin{6x})^{\frac{7}{3}-1} \times (\sin{6x})' 	\Arrow{\circled{2} \boxNote[bAnswer]{\tiny{Chain Rule  $ u=\sin{6x} \quad u'=\cos{6x} \times 6 $} }} \\[15pt]
+	                           &=   \frac{7}{3}   (\sin 6x)^{\frac{7}{3}-1}  \times (\cos 6x) \times 6   \\[10pt]
+	                           &=   14\;\cos{6x}\;(\sin{6x})^{\frac{4}{3}}
+              \end{mArrow}$
+            \begin{shortsolution}  
+			     =$12(3x-5)^3$
+			\end{shortsolution}				 
+         \end{envSolution}
+         \end{exercise}
+   \task \begin{exercise} Differentiate $y=2 \cos^5{3x}$\;. You do not need to simplify your answer. 
+         \begin{envSolution}
+            $\begin{mArrow}
+                 y & =2 \cos^5{3x}   \\
+				   & = 2(\cos{3x})^5  \Arrow{\circled{1} \boxNote[bAnswer]{Chain Rule  $ u=\cos{3x} \quad y=2u^5 $} } \\[15pt]
+                 \frac{dy}{dx} &=   2 \times 5 \times (\cos{3x})^4 \times (\cos{3x})' 	 \Arrow{\circled{2} \boxNote[bAnswer]{Chain Rule  $ u=\cos{3x} \quad u'=-\sin{3x} \times 3 $} } \\[10pt]
+	                           &=   2 \times 5 \times (\cos{3x})^4 \times (-\sin{3x}) \times 3 \\
+	                           &=   -30\;\cos^4{3x}\;\sin{3x}
+              \end{mArrow}$
+            \begin{shortsolution}  
+			     =$-30\;\cos^4{3x}\;\sin{3x}$
+			\end{shortsolution}				 
+         \end{envSolution}
+         \end{exercise}
+\end{mtask}
+
+
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a6}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Given that $y = \tan{2x}$ , find the exact value of $\frac{dy}{dx}$ when $x = \frac{\pi}{3} $.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\[0.5cm]
+                \-\hspace{1cm} $ \frac{dy}{dx}   =  \sec^2{2x}  \times 2   $         \\[0.3cm]
+			    \-\hspace{1cm} When $x= \frac{\pi}{3}$                               \\[0.3cm]
+                           
+                \-\hspace{1.5cm}   $\begin{mArrow}
+				                     \frac{dy}{dx} &= \sec^2 \left( 2 \times \frac{\pi}{3} \right) \times 2           \\
+	                                         &= \sec^2 \left( \frac{2\pi}{3} \right) \times 2            \\
+                                             &= \frac{1}{\cos^2 \left( \frac{2\pi}{3} \right) } \times 2 \\
+                                             &= \frac{1}{\frac{1}{4}} \times 2                           \\
+                                             &= 8
+                     \end{mArrow}$									  
+\end{boxSkill}
+
+
+
+\begin{mtask}[resume](1)
+    \task \begin{exercise} Given that $y = \tan \frac{x}{3}$ , find the exact value of $\frac{dy}{dx}$ when $x = \pi $.
+             \begin{envSolution}
+			      Solution:\\[0.5cm]
+                     \-\hspace{1cm}   $\frac{dy}{dx} =  \sec^2{\frac{x}{3}}  \times \frac{1}{3} $ \\[1cm]
+	                 \-\hspace{1cm}   When \-\hspace{0.2cm} $x= \pi $\\[0.5cm]
+                     \-\hspace{1.5cm} $\begin{mArrow}
+                        \frac{dy}{dx} &= \sec^2{\frac{\pi}{3}} \times \frac{1}{3}                          \\
+                                      &= \frac{1}{\cos^2 \left( \frac{\pi}{3} \right) }  \times \frac{1}{3}  \\
+                                      &= \frac{1}{\frac{1}{4}} \times \frac{1}{3}                          \\
+                                      &= \frac{4}{3}
+						  \end{mArrow}$			   
+                 \begin{shortsolution}  
+				       $\frac{4}{3}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+\end{mtask}
+
+
+\clearpage
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule} 
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a7}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=e^{5x}$.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+
+\hspace{1cm}Let $u=5x, \quad y=e^u$\\[10pt]
+
+$\begin{sArrow}
+       \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+		                                                                  \boxNote[bisAnswer]{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                        &=  e^u \times 5                                                      \\[10pt]
+							&=  5e^u                                                              \\[10pt] 
+							&=  5e^{5x}                                                    
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &=   e^{5x} \Arrow{Common Mistake}\\[10pt]
+		       y'  &=   e^{5x} 
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+\setcounter{ntabu}{0}
+\noindent%
+Differentiate the following with respect to $x$.\\
+ \begin{ctblr}[colspec={|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|}]
+    \hline
+    \ntabu. & $y= e^{2x}         $ & \ntabu. & $y=e^{1-x}             $ & \ntabu.  & $y= e^{1-x^2}                $  \\ 
+   	        & $y'=2e^{2x}        $ &		 & $y'=-e^{1-x}           $ &          & $y'=-2x \; e^{1-x^2}         $	 \\ \hline
+
+    \ntabu. & $y= e^{ax+b}       $ & \ntabu. & $ y=e^{1-3x^2}         $ & \ntabu.  & $y= e^{3x^4-x^2+1}           $  \\ 
+            & $y'=a \; e^{ax+b}  $ &	     & $ y'=-6x \; e^{1-3x^2} $ &          & $y'=(12x^3-2x)e^{3x^4-x^2+1} $	 \\ \hline		   
+ \end{ctblr}
+
+
+\begin{boxSkill}{Skill \thenskill \quad Differentiation - Chain Rule} 
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a7}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=e^{\sin{2x}}$.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+
+\hspace{1cm}Let $u=\sin{2x}, \quad y=e^u$\\[10pt]
+
+$\begin{sArrow}
+       \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+		                                                                  \boxNote{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                        &=  e^u \times 2 \cos{2x}                                                      \\[10pt]
+							&=  2 \cos{2x} e^u                                                              \\[10pt] 
+							&=  2 \cos{2x} e^{\sin{2x}}                                                    
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &=   e^{\sin{2x}} \Arrow{Common Mistake}\\[10pt]
+		       y'  &=   e^{2 \cos{2x}} 
+    \end{sArrow}$ \\[15pt]
+
+    $\begin{sArrow}
+        \qquad y   &=   e^{\sin{2x}} \Arrow{Common Mistake}\\[10pt]
+		       y'  &=   \cos{2x} e^{\sin{2x}} 
+    \end{sArrow}$ \\[15pt]
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+
+\begin{mtask}(1)
+   \task \begin{exercise} Differentiate $y=e^{\cos x}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\sin ^{2} x}                               \\[15pt]
+                       y' & =e^{\sin ^{2} x} \times 2\sin x \times \cos x \\[10pt]
+   					   y' & =e^{\sin ^{2} x} \times \sin 2x               \\[10pt]
+   					   y' & =\sin 2x \; e^{\sin ^{2} x}                  
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y' =\sin 2x \; e^{\sin ^{2} x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+   \task \begin{exercise} Differentiate $y=e^{\cos{2x}}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\sin ^{2} x}                               \\[15pt]
+                       y' & =e^{\sin ^{2} x} \times 2\sin x \times \cos x \\[10pt]
+   					   y' & =e^{\sin ^{2} x} \times \sin 2x               \\[10pt]
+   					   y' & =\sin 2x \; e^{\sin ^{2} x}                  
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y' =\sin 2x \; e^{\sin ^{2} x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+   \task \begin{exercise} Differentiate $y=e^{5x-\cos{2x}}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\sin ^{2} x}                               \\[15pt]
+                       y' & =e^{\sin ^{2} x} \times 2\sin x \times \cos x \\[10pt]
+   					   y' & =e^{\sin ^{2} x} \times \sin 2x               \\[10pt]
+   					   y' & =\sin 2x \; e^{\sin ^{2} x}                  
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y' =\sin 2x \; e^{\sin ^{2} x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+
+   \task \begin{exercise} Differentiate $y=e^{x^2-\cos{2x}}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\sin ^{2} x}                               \\[15pt]
+                       y' & =e^{\sin ^{2} x} \times 2\sin x \times \cos x \\[10pt]
+   					   y' & =e^{\sin ^{2} x} \times \sin 2x               \\[10pt]
+   					   y' & =\sin 2x \; e^{\sin ^{2} x}                  
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y' =\sin 2x \; e^{\sin ^{2} x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+\end{mtask}
+
+
+
+\begin{boxSkill}{Skill    \thenskill \quad Differentiation - Chain Rule}
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{mk23232}    
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=e^{\frac{1}{x^2}}$.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+\hspace{0.5cm}$y=e^{\frac{1}{x^2}} $ \\[10pt]
+\hspace{0.5cm}$y=e^{x^{-2}}        $ \\[10pt]
+\hspace{1cm}Let $u=x^{-2}, \quad y=e^u $ \\[10pt]
+
+$\begin{sArrow}
+       \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+		                                                                  \boxNote{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                        &=  e^u \times (-2)x^{-3}                                                  \\[10pt]
+							&=  (-2)x^{-3} \; e^u                                                      \\[10pt] 
+							&=  -2x^{-3} \; e^{x^{-2}}                                               \\[10pt]  
+                            &=  -2x^{-3} \; e^{\frac{1}{x^2}}							
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &=   e^{\frac{1}{x^2}}   \Arrow{Common Mistake}\\[10pt]
+		       y'  &=   e^{\frac{1}{x^2}} 
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+\clearpage
+\begin{mtask}(1)
+   \task \begin{exercise} Differentiate $y=e^{\sin{2x}}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\sin 2x}                          \\[15pt]
+                       y' & =e^{\sin 2x} \times \cos 2x \times 2 \\[10pt]
+   					   y' & =2\cos 2x \; e^{\sin 2x}
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y' =2\cos 2x \; e^{\sin 2x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+   \task \begin{exercise} Differentiate $y=e^{\sin^{2}x}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\sin ^{2} x}                               \\[15pt]
+                       y' & =e^{\sin ^{2} x} \times 2\sin x \times \cos x \\[10pt]
+   					   y' & =e^{\sin ^{2} x} \times \sin 2x               \\[10pt]
+   					   y' & =\sin 2x \; e^{\sin ^{2} x}                  
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y' =\sin 2x \; e^{\sin ^{2} x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+   \task \begin{exercise} Differentiate $y=e^{\tan 2x}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:
+			      \begin{align*}
+			           y & =e^{\tan 2x}                          \\[15pt]
+                       y' & =e^{\tan 2x} \times \sec^2 2x \times 2 \\[10pt]
+   					   y' & =2\sec^2 2x \; e^{\tan 2x}
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y'  =2\sec^2 2x \; e^{\tan 2x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+
+   \task \begin{exercise} Differentiate $y=e^{\sqrt{\cos 2x}}$ with respect to $x$.
+             \begin{envSolution}
+			      Solution:\\
+			      \begin{align*}
+			           y  & =e^{\sqrt{\cos 2x}}                                                      \\[15pt]
+                       y' & =e^{\sqrt{\cos 2x}} \times \frac{1}{2} (\cos 2x)^{-\frac{1}{2}} \times (-\sin 2x) \times 2 \\[10pt]
+   					   y' & =-\frac{\sin 2x \; e^{\sqrt{\cos 2x}} } {\sqrt{\cos 2x}}
+				 \end{align*}
+                 \begin{shortsolution}  
+				       $y'  =-\frac{\sin 2x \; e^{\sqrt{\cos 2x}} } {\sqrt{\cos 2x}}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+\end{mtask}
+
+
+
+\clearpage
+\begin{boxSkill}{Skill    \thenskill \quad Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a8}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\ln(ax+b)$ with respect to $x$, where $a$, $b$ are constants.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+
+\hspace{1cm}Let $u=ax+b, \quad y=\ln u$\\[10pt]
+
+$\begin{sArrow}
+       \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+		                                                                  \boxNote{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                        &=  \frac{1}{ax+b} \times (ax+b)'                                                      \\[10pt]
+							&=  \frac{1}{ax+b} \times a                                                          \\[10pt]
+							&=  \frac{a}{ax+b}
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &=   \ln (ax+b)          \Arrow{Common Mistake}\\[10pt]
+		       y'  &=   \frac{1}{ax+b} 
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+\vspace{0.5cm}
+\setcounter{ntabu}{0}
+\noindent%
+Differentiate with respect to $x$.\\
+ \begin{ctblr}[colspec={|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|}]
+    \hline
+    \ntabu. & $y= \ln(3x+5)      $ & \ntabu. & $y=\ln(5x-7)       $ & \ntabu.  & $y= \ln(\sin x+7)            $ \\ 
+   	        & $y'=\frac{3}{3x+5} $ &		 & $y'=\frac{5}{5x-7} $ &          & $y'=\frac{\cos x}{\sin x +7} $ \\ \hline
+
+ \end{ctblr}
+ 
+\clearpage
+
+
+
+
+\clearpage
+\begin{boxSkill}{Skill    \thenskill \quad Differentiation - Chain Rule}    
+    \pdfbookmark[subsubsection]{Skill \thenskill \quad Differentiation - Chain Rule}{skill a9}
+    \textbf{Example}
+	\begin{itemize}[leftmargin=0.8cm]
+	     \item[] Differentiate $y=\ln(1-x)$.
+	\end{itemize}
+\tcbline 
+
+\textbf{Solution:}\\ \vspace{0.5cm} 
+
+\hspace{1cm}Let $u=1-x, \quad y=\ln u$\\[10pt]
+
+$\begin{sArrow}
+       \qquad \frac{dy}{dx} &=  \frac{dy}{du} \times \frac{du}{dx} \Arrow{\circled{1} Chain Rule 
+		                                                                  \boxNote{$\frac{dy}{dx}=\frac{dy}{du} \times \frac{du}{dx}$} }\\[15pt]
+	                        &=  \frac{1}{u} \times (1-x)'                                                      \\[10pt]
+							&=  \frac{1}{u} \times -1                                                          \\[10pt] 
+							&=  - \frac{1}{u}                                                                  \\[10pt]
+						    &=  - \frac{1}{1-x}                                                                \\[10pt]
+							&=  \frac{1}{x-1}
+\end{sArrow}$
+
+\tcbline
+
+\textbf{Note:}\\[0.6cm]
+\begin{warningEnv}
+    $\begin{sArrow}
+        \qquad y   &=   \ln (1-x)      \Arrow{Common Mistake}\\[10pt]
+		       y'  &=   \frac{1}{1-x} 
+    \end{sArrow}$
+	
+\end{warningEnv}
+
+\end{boxSkill}
+
+\setcounter{ntabu}{0}
+\noindent%
+Differentiate with respect to $x$.\\
+ \begin{ctblr}[colspec={|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|Q[l] Q[l,wd=4cm]|}]
+    \hline
+    \ntabu. & $y= \ln(2x+1)      $ & \ntabu. & $y=\ln(x^2+1)             $ & \ntabu.  & $y= \ln(x^3+2x)                   $  \\ 
+   	        & $y'=\frac{2}{2x+1} $ &		 & $y'=\frac{2x}{x^2+1}      $ &          & $y'=\frac{3x^2+2}{x^3+2x}         $	\\ \hline
+
+ \end{ctblr}
+
+
+\begin{mtask}
+   \task \begin{exercise} Differentiate $y=\ln{\sin{2x}}$ with respect to $x$.
+             \begin{envSolution}
+			     $\begin{mArrow}
+			           y  & =\ln{\sin{2x}}                                    \\[15pt]
+                       y' & =\frac{1}{\sin{2x}} \times (\sin{2x})'            \\[10pt]
+                          & =\frac{1}{\sin{2x}} \times \cos{2x} \times 2      \\[10pt]
+   					      & =\frac{2\cos{2x}}{\sin{2x}}                       \\
+                          & =2\cot{2x}					   
+				 \end{mArrow}$
+                 \begin{shortsolution}  
+				       $y'  =2\cot{2x}$
+			     \end{shortsolution}				 
+               \end{envSolution}
+         \end{exercise}
+\end{mtask}
+ 
+\clearpage
